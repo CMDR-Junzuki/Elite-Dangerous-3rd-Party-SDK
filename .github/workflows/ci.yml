@@ -26,6 +26,9 @@ jobs:
 
   python:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./python
     strategy:
       matrix:
         python-version: ["3.10", "3.11", "3.12", "3.13"]
@@ -34,21 +37,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: pip install (one dep at a time)
-        run: |
-          set -o pipefail
-          python --version 2>&1 | tee -a $GITHUB_STEP_SUMMARY
-          python -m pip --version 2>&1 | tee -a $GITHUB_STEP_SUMMARY
-          python -m pip install --upgrade pip 2>&1 | tee -a $GITHUB_STEP_SUMMARY || true
-          python -m pip install httpx 2>&1 | tee -a $GITHUB_STEP_SUMMARY || true
-          python -m pip install "websockets>=12.0" 2>&1 | tee -a $GITHUB_STEP_SUMMARY || true
-          python -m pip install pytest 2>&1 | tee -a $GITHUB_STEP_SUMMARY || true
-          python -m pip install pytest-asyncio 2>&1 | tee -a $GITHUB_STEP_SUMMARY || true
-          python -m pip install pytest-timeout 2>&1 | tee -a $GITHUB_STEP_SUMMARY || true
-          python -m pip list 2>&1 | tee -a $GITHUB_STEP_SUMMARY
-          python -m pip install -e . 2>&1 | tee -a $GITHUB_STEP_SUMMARY
-      - name: run tests
-        run: python -m pytest -v --tb=long -x tests/test_colonization.py
+      - run: pip install -e ".[ws-journal,test]"
+      - run: python -m pytest -v --tb=long -x tests/test_colonization.py
 
   dotnet:
     runs-on: ubuntu-latest
