@@ -13,6 +13,8 @@
  * Community notes: https://github.com/EDCD/FDevIDs/blob/master/Frontier%20API/FrontierDevelopments-oAuth2-notes.md
  */
 
+import { webcrypto } from "node:crypto";
+
 const AUTH_BASE = "https://auth.frontierstore.net";
 const TOKEN_URL = `${AUTH_BASE}/token`;
 const AUTH_URL = `${AUTH_BASE}/auth`;
@@ -35,12 +37,12 @@ function base64URLEncode(buffer: ArrayBuffer): string {
 
 async function sha256(plain: string): Promise<ArrayBuffer> {
   const encoder = new TextEncoder();
-  return crypto.subtle.digest("SHA-256", encoder.encode(plain));
+  return webcrypto.subtle.digest("SHA-256", encoder.encode(plain));
 }
 
 export function generateCodeVerifier(): string {
   const buffer = new Uint8Array(64);
-  crypto.getRandomValues(buffer);
+  webcrypto.getRandomValues(buffer);
   return base64URLEncode(buffer.buffer);
 }
 
@@ -176,7 +178,6 @@ export class FrontierAuth {
       throw new Error("Not authenticated. Call exchangeCode() first.");
     }
 
-    // Refresh if expired or within 5 minutes of expiry
     if (Date.now() > this.tokens.expiresAt - 300_000) {
       await this.refreshTokens();
     }
