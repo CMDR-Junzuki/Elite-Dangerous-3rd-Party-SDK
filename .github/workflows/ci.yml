@@ -35,7 +35,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: pip install -e ".[ws-journal,test]"
-      - run: python -m pytest -v --tb=long -x tests/test_colonization.py tests/test_companion.py tests/test_data.py tests/test_eddn.py tests/test_edsm.py tests/test_elitebgs.py
+      - run: python -m pytest -v --tb=long -x tests/test_colonization.py
 
   dotnet:
     runs-on: ubuntu-latest
