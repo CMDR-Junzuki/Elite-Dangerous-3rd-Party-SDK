@@ -1,0 +1,72 @@
+{
+	"description": "Codex entry added",
+	"properties": {
+		"Latitude": {
+			"type": "number"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"Name": {
+			"type": "string"
+		},
+		"NearestDestination": {
+			"type": "string"
+		},
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"Category_Localised": {
+			"type": "string"
+		},
+		"SubCategory_Localised": {
+			"type": "string"
+		},
+		"SubCategory": {
+			"type": "string"
+		},
+		"VoucherAmount": {
+			"type": "integer"
+		},
+		"NearestDestination_Localised": {
+			"type": "string"
+		},
+		"Region_Localised": {
+			"type": "string"
+		},
+		"Longitude": {
+			"type": "number"
+		},
+		"Region": {
+			"type": "string"
+		},
+		"Category": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CodexEntry"]
+		},
+		"System": {
+			"type": "string",
+			"description": "System name"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CodexEntry",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

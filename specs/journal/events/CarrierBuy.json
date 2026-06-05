@@ -1,0 +1,36 @@
+{
+	"description": "Fleet carrier purchased",
+	"properties": {
+		"Callsign": {
+			"type": "string"
+		},
+		"Price": {
+			"type": "integer"
+		},
+		"CarrierID": {
+			"type": "integer"
+		},
+		"Variant": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CarrierBuy"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"Location": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CarrierBuy",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,17 @@
+{
+	"description": "Nav route cleared",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["NavRouteClear"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "NavRouteClear",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

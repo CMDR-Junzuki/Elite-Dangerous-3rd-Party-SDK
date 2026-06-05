@@ -1,0 +1,17 @@
+[
+	{ "name": "None", "number": "0" },
+	{ "name": "Outsider", "number": "1" },
+	{ "name": "Serf", "number": "2" },
+	{ "name": "Master", "number": "3" },
+	{ "name": "Squire", "number": "4" },
+	{ "name": "Knight", "number": "5" },
+	{ "name": "Lord", "number": "6" },
+	{ "name": "Baron", "number": "7" },
+	{ "name": "Viscount", "number": "8" },
+	{ "name": "Count", "number": "9" },
+	{ "name": "Earl", "number": "10" },
+	{ "name": "Marquis", "number": "11" },
+	{ "name": "Duke", "number": "12" },
+	{ "name": "Prince", "number": "13" },
+	{ "name": "King", "number": "14" }
+]

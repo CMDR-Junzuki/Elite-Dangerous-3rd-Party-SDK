@@ -1,0 +1,23 @@
+{
+	"description": "Fuel reservoir replenished",
+	"properties": {
+		"FuelReservoir": {
+			"type": "number"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"FuelMain": {
+			"type": "number"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["ReservoirReplenished"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "ReservoirReplenished",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

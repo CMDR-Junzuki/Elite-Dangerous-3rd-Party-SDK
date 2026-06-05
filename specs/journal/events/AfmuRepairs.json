@@ -1,0 +1,29 @@
+{
+	"description": "AFMU repairs completed",
+	"properties": {
+		"Health": {
+			"type": "number"
+		},
+		"FullyRepaired": {
+			"type": "boolean"
+		},
+		"Module_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["AfmuRepairs"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Module": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "AfmuRepairs",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,29 @@
+{
+	"description": "Player sent a text message",
+	"properties": {
+		"Message": {
+			"type": "string"
+		},
+		"Sent": {
+			"type": "boolean"
+		},
+		"To_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SendText"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"To": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SendText",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

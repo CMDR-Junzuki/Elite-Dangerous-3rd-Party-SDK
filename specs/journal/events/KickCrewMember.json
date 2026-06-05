@@ -1,0 +1,23 @@
+{
+	"description": "Crew member kicked",
+	"properties": {
+		"Telepresence": {
+			"type": "boolean"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Crew": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["KickCrewMember"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "KickCrewMember",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

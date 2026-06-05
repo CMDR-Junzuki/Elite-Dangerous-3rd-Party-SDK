@@ -1,0 +1,100 @@
+{
+	"description": "Fleet carrier stats",
+	"properties": {
+		"AllowNotorious": {
+			"type": "boolean"
+		},
+		"Theme": {
+			"type": "string"
+		},
+		"Market": {
+			"type": "boolean"
+		},
+		"Shipyard": {
+			"type": "boolean"
+		},
+		"Callsign": {
+			"type": "string"
+		},
+		"Name": {
+			"type": "string"
+		},
+		"FuelLevel": {
+			"type": "number"
+		},
+		"PendingDecommision": {
+			"type": "boolean"
+		},
+		"JumpRangeCurr": {
+			"type": "number"
+		},
+		"Refuel": {
+			"type": "boolean"
+		},
+		"SpaceAccess": {
+			"type": "string"
+		},
+		"VoucherExploration": {
+			"type": "boolean"
+		},
+		"VoucherTrade": {
+			"type": "boolean"
+		},
+		"Rearm": {
+			"type": "boolean"
+		},
+		"DockingAccess": {
+			"type": "string"
+		},
+		"CarrierID": {
+			"type": "integer"
+		},
+		"JumpRangeMax": {
+			"type": "number"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"VoucherMarket": {
+			"type": "boolean"
+		},
+		"Outfitting": {
+			"type": "boolean"
+		},
+		"Pack": {
+			"items": {
+				"properties": {
+					"PackTier": {
+						"type": "integer"
+					},
+					"PackTheme": {
+						"type": "string"
+					},
+					"PackTheme_Localised": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CarrierStats"]
+		},
+		"ExoBiology": {
+			"type": "boolean"
+		},
+		"Repair": {
+			"type": "boolean"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CarrierStats",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

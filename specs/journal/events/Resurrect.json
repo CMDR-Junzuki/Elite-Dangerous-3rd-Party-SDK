@@ -1,0 +1,26 @@
+{
+	"description": "Player resurrected after death",
+	"properties": {
+		"Cost": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Bankrupt": {
+			"type": "boolean"
+		},
+		"Option": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Resurrect"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Resurrect",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

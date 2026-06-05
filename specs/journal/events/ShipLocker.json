@@ -1,0 +1,94 @@
+{
+	"description": "Ship locker contents",
+	"properties": {
+		"Data": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Items": {
+			"items": {
+				"properties": {
+					"Name": {
+						"type": "string"
+					},
+					"MissionID": {
+						"type": "integer"
+					},
+					"OwnerID": {
+						"type": "integer"
+					},
+					"Type": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					},
+					"Name_Localised": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["ShipLocker"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Components": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Consumables": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "ShipLocker",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

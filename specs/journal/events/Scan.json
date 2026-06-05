@@ -1,0 +1,105 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Scan",
+	"description": "Written when the player scans a celestial body",
+	"type": "object",
+	"required": [
+		"timestamp",
+		"event",
+		"BodyName",
+		"BodyID",
+		"DistanceFromArrivalLS",
+		"StarSystem"
+	],
+	"properties": {
+		"timestamp": { "type": "string", "format": "date-time" },
+		"event": { "type": "string", "enum": ["Scan"] },
+		"BodyName": { "type": "string" },
+		"BodyID": { "type": "integer" },
+		"DistanceFromArrivalLS": { "type": "number" },
+		"StarSystem": { "type": "string" },
+		"SystemAddress": { "type": "integer" },
+		"StarPos": {
+			"type": "array",
+			"items": { "type": "number" },
+			"minItems": 3,
+			"maxItems": 3
+		},
+		"WasDiscovered": { "type": "boolean" },
+		"WasMapped": { "type": "boolean" },
+		"Parents": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"Star": { "type": "integer" },
+					"Planet": { "type": "integer" },
+					"Null": { "type": "integer" }
+				}
+			}
+		},
+		"Rings": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"Name": { "type": "string" },
+					"RingClass": { "type": "string" },
+					"MassMT": { "type": "number" },
+					"InnerRad": { "type": "number" },
+					"OuterRad": { "type": "number" }
+				}
+			}
+		},
+		"AtmosphereType": { "type": "string" },
+		"AtmosphereComposition": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"Name": { "type": "string" },
+					"Percent": { "type": "number" }
+				}
+			}
+		},
+		"Volcanism": { "type": "string" },
+		"SurfaceGravity": { "type": "number" },
+		"SurfaceTemperature": { "type": "number" },
+		"SurfacePressure": { "type": "number" },
+		"Landable": { "type": "boolean" },
+		"TerraformingState": { "type": "string" },
+		"PlanetClass": { "type": "string" },
+		"Composition": {
+			"type": "object",
+			"properties": {
+				"Ice": { "type": "number" },
+				"Rock": { "type": "number" },
+				"Metal": { "type": "number" }
+			}
+		},
+		"Materials": {
+			"type": "object",
+			"additionalProperties": { "type": "number" }
+		},
+		"Radius": { "type": "number" },
+		"MassEM": { "type": "number" },
+		"SemiMajorAxis": { "type": "number" },
+		"Eccentricity": { "type": "number" },
+		"OrbitalInclination": { "type": "number" },
+		"Periapsis": { "type": "number" },
+		"OrbitalPeriod": { "type": "number" },
+		"RotationPeriod": { "type": "number" },
+		"AxialTilt": { "type": "number" },
+		"TidalLock": { "type": "boolean" },
+		"StarType": { "type": "string" },
+		"StellarMass": { "type": "number" },
+		"StellarRadius": { "type": "number" },
+		"AbsoluteMagnitude": { "type": "number" },
+		"Age_MY": { "type": "number" },
+		"Luminosity": { "type": "string" },
+		"Subclass": { "type": "integer" },
+		"WasDiscoveredByName": { "type": "boolean" },
+		"WasMappedByName": { "type": "boolean" },
+		"ScanType": { "type": "string" }
+	}
+}

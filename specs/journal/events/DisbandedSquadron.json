@@ -1,0 +1,20 @@
+{
+	"description": "Squadron disbanded",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SquadronName": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["DisbandedSquadron"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "DisbandedSquadron",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

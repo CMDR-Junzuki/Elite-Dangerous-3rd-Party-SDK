@@ -1,0 +1,10 @@
+[
+	{ "name": "Alliance", "id": "$faction_Alliance;" },
+	{ "name": "Empire", "id": "$faction_Empire;" },
+	{ "name": "Federation", "id": "$faction_Federation;" },
+	{ "name": "Independent", "id": "$faction_Independent;" },
+	{ "name": "None", "id": "$faction_none;" },
+	{ "name": "Pirate", "id": "$faction_Pirate;" },
+	{ "name": "Thargoid", "id": "$faction_Thargoid;" },
+	{ "name": "Frontline Solutions", "id": "$faction_FrontlineSolutions;" }
+]

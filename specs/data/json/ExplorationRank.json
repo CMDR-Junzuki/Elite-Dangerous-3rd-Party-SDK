@@ -1,0 +1,16 @@
+[
+	{ "name": "Aimless", "number": "0" },
+	{ "name": "Mostly Aimless", "number": "1" },
+	{ "name": "Scout", "number": "2" },
+	{ "name": "Surveyor", "number": "3" },
+	{ "name": "Explorer", "number": "4" },
+	{ "name": "Pathfinder", "number": "5" },
+	{ "name": "Ranger", "number": "6" },
+	{ "name": "Pioneer", "number": "7" },
+	{ "name": "Elite", "number": "8" },
+	{ "name": "Elite I", "number": "9" },
+	{ "name": "Elite II", "number": "10" },
+	{ "name": "Elite III", "number": "11" },
+	{ "name": "Elite IV", "number": "12" },
+	{ "name": "Elite V", "number": "13" }
+]

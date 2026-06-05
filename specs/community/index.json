@@ -1,0 +1,91 @@
+{
+	"title": "Community API Reference",
+	"description": "Community-maintained Elite Dangerous APIs",
+	"version": "0.1.0",
+	"apis": {
+		"EDSM": {
+			"name": "Elite Dangerous Star Map",
+			"url": "https://www.edsm.net",
+			"api_base": "https://www.edsm.net/api",
+			"docs": "https://www.edsm.net/en/api-v1",
+			"auth": "Optional API key for private endpoints",
+			"rate_limit": "Unspecified, be reasonable",
+			"endpoints": {
+				"GET /api-v1/system": "Get system info by name",
+				"GET /api-v1/systems": "Get multiple systems",
+				"GET /api-v1/sphere-systems": "Systems within radius",
+				"GET /api-v1/cube-systems": "Systems within cube",
+				"GET /api-system-v1/bodies": "Celestial bodies in system",
+				"GET /api-system-v1/stations": "Stations in system",
+				"GET /api-system-v1/factions": "Minor factions in system",
+				"GET /api-system-v1/estimated-value": "Scan values for system"
+			}
+		},
+		"Inara": {
+			"name": "Inara",
+			"url": "https://inara.cz",
+			"api_endpoint": "https://inara.cz/inapi/v1/",
+			"docs": "https://inara.cz/elite/inara-api-docs/",
+			"auth": "Personal or generic API key required",
+			"rate_limit": "MAXIMUM 2 requests per minute",
+			"method": "POST with JSON body",
+			"events": [
+				"addCommander",
+				"getCommanderProfile",
+				"setCommanderShip",
+				"setCommanderShipLoadout",
+				"setCommanderRank",
+				"setCommanderCredits",
+				"setCommanderInventory",
+				"setCommanderInventoryItem",
+				"addCommanderTravelFSDJump",
+				"addCommanderTravelDock",
+				"addCommanderTravelCarrierJump",
+				"addCommanderTravelLand",
+				"setCommanderCommunityGoalProgress",
+				"setCommunityGoal"
+			]
+		},
+		"EDDN": {
+			"name": "Elite Dangerous Data Network",
+			"url": "https://eddn.edcd.io",
+			"upload_endpoint": "https://eddn.edcd.io:4430/upload/",
+			"relay_url": "tcp://eddn.edcd.io:9500",
+			"docs": "https://github.com/EDCD/EDDN/blob/live/docs/Developers.md",
+			"auth": "None required",
+			"schemas": [
+				"https://eddn.edcd.io/schemas/commodity/3",
+				"https://eddn.edcd.io/schemas/shipyard/2",
+				"https://eddn.edcd.io/schemas/outfitting/2",
+				"https://eddn.edcd.io/schemas/journal/1",
+				"https://eddn.edcd.io/schemas/fcmaterials_capi/1",
+				"https://eddn.edcd.io/schemas/fcmaterials_journal/1",
+				"https://eddn.edcd.io/schemas/blackmarket/1",
+				"https://eddn.edcd.io/schemas/navroute/1"
+			],
+			"notes": [
+				"POST only, HTTPS port 4430",
+				"Max message size: 1MB (compressed)",
+				"Use test schemas for dev: append /test to $schemaRef",
+				"Remove _Localised keys from data",
+				"No Cmdr-specific data in messages (except uploaderID)"
+			]
+		},
+		"Spansh": {
+			"name": "Spansh",
+			"url": "https://spansh.co.uk",
+			"api_base": "https://spansh.co.uk/api",
+			"auth": "None required",
+			"endpoints": {
+				"GET /api/system/<id64>": "System details by system address",
+				"GET /api/station/<market_id>": "Station details by market ID",
+				"GET /api/body/<body_id64>": "Body details by body id64",
+				"GET /api/search?q=<query>": "Quick search (systems, stations, bodies)",
+				"GET /api/dump/<id64>": "Complete system data dump",
+				"GET /api/commodity/sell/<ref>/<item>/<n>": "Sell locations",
+				"GET /api/commodity/buy/<ref>/<item>/<n>": "Buy locations",
+				"POST /api/stations/search": "Advanced station search"
+			}
+		}
+	}
+}

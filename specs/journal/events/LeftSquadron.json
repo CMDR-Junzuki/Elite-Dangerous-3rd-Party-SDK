@@ -1,0 +1,23 @@
+{
+	"description": "Left a squadron",
+	"properties": {
+		"SquadronName": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"OldRank": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["LeftSquadron"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "LeftSquadron",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,16 @@
+[
+	{ "name": "Helpless", "number": "0" },
+	{ "name": "Mostly Helpless", "number": "1" },
+	{ "name": "Amateur", "number": "2" },
+	{ "name": "Semi Professional", "number": "3" },
+	{ "name": "Professional", "number": "4" },
+	{ "name": "Champion", "number": "5" },
+	{ "name": "Hero", "number": "6" },
+	{ "name": "Legend", "number": "7" },
+	{ "name": "Elite", "number": "8" },
+	{ "name": "Elite I", "number": "9" },
+	{ "name": "Elite II", "number": "10" },
+	{ "name": "Elite III", "number": "11" },
+	{ "name": "Elite IV", "number": "12" },
+	{ "name": "Elite V", "number": "13" }
+]

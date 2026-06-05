@@ -1,0 +1,29 @@
+{
+	"description": "Mission abandoned by the player",
+	"properties": {
+		"MissionID": {
+			"type": "integer"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["MissionAbandoned"]
+		},
+		"Name": {
+			"type": "string"
+		},
+		"Fine": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "MissionAbandoned",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

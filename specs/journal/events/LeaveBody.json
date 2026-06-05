@@ -1,0 +1,33 @@
+{
+	"description": "Leaving a celestial body\u0027s vicinity",
+	"properties": {
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["LeaveBody"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"System": {
+			"type": "string",
+			"description": "System name"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "LeaveBody",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,39 @@
+// Auto-generated from FDevIDs
+export interface FactionState {
+  id: string;
+  name: string;
+}
+
+export const factionStates: FactionState[] = [
+  { id: "None", name: "None" },
+  { id: "Boom", name: "Boom" },
+  { id: "Bust", name: "Bust" },
+  { id: "CivilUnrest", name: "Civil Unrest" },
+  { id: "CivilWar", name: "Civil War" },
+  { id: "Election", name: "Election" },
+  { id: "Expansion", name: "Expansion" },
+  { id: "Famine", name: "Famine" },
+  { id: "Investment", name: "Investment" },
+  { id: "Lockdown", name: "Lockdown" },
+  { id: "Outbreak", name: "Outbreak" },
+  { id: "Retreat", name: "Retreat" },
+  { id: "War", name: "War" },
+  { id: "CivilLiberty", name: "Civil Liberty" },
+  { id: "PirateAttack", name: "Pirate Attack" },
+  { id: "Blight", name: "Blight" },
+  { id: "Drought", name: "Drought" },
+  { id: "InfrastructureFailure", name: "Infrastructure Failure" },
+  { id: "NaturalDisaster", name: "Natural Disaster" },
+  { id: "PublicHoliday", name: "Public Holiday" },
+  { id: "Terrorism", name: "Terrorist Attack" },
+  { id: "ColdWar", name: "Cold War" },
+  { id: "Colonisation", name: "Colonisation" },
+  { id: "HistoricEvent", name: "Historic Event" },
+  { id: "Revolution", name: "Revolution" },
+  { id: "TechnologicalLeap", name: "Technological Leap" },
+  { id: "TradeWar", name: "Trade War" },
+];
+
+export const factionStatesById = new Map<string, FactionState>(
+  factionStates.map((r) => [r.id, r]),
+);

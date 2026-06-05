@@ -1,0 +1,29 @@
+{
+	"description": "Weapon sold",
+	"properties": {
+		"Price": {
+			"type": "integer"
+		},
+		"WeaponID": {
+			"type": "integer"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SellWeapon"]
+		},
+		"Name": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SellWeapon",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

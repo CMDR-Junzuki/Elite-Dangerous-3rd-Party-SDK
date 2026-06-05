@@ -1,0 +1,32 @@
+{
+	"description": "Weapon upgraded",
+	"properties": {
+		"Name": {
+			"type": "string"
+		},
+		"WeaponID": {
+			"type": "integer"
+		},
+		"Cost": {
+			"type": "integer"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["UpgradeWeapon"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Class": {
+			"type": "integer"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "UpgradeWeapon",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

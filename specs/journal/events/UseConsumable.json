@@ -1,0 +1,26 @@
+{
+	"description": "Consumable used",
+	"properties": {
+		"Consumable_Localised": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Consumable": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["UseConsumable"]
+		},
+		"Type": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "UseConsumable",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,34 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Shipyard",
+	"description": "Station shipyard listing - written to Shipyard.json",
+	"type": "object",
+	"required": [
+		"timestamp",
+		"event",
+		"MarketID",
+		"StationName",
+		"StarSystem",
+		"Ships"
+	],
+	"properties": {
+		"timestamp": { "type": "string", "format": "date-time" },
+		"event": { "type": "string", "enum": ["Shipyard"] },
+		"MarketID": { "type": "integer" },
+		"StationName": { "type": "string" },
+		"StarSystem": { "type": "string" },
+		"SystemAddress": { "type": "integer" },
+		"Ships": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"ShipType": { "type": "string" },
+					"ShipType_Localised": { "type": "string" },
+					"Value": { "type": "integer" },
+					"SellPrice": { "type": "integer" }
+				}
+			}
+		}
+	}
+}

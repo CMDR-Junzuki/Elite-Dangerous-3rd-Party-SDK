@@ -1,0 +1,85 @@
+{
+	"description": "Ship locker materials update",
+	"properties": {
+		"Data": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Items": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["ShipLockerMaterials"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Components": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Consumables": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "ShipLockerMaterials",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

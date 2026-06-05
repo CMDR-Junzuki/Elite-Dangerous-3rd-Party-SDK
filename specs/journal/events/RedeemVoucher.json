@@ -1,0 +1,38 @@
+{
+	"description": "Voucher redeemed at a station",
+	"properties": {
+		"Amount": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Type": {
+			"type": "string",
+			"enum": ["bounty", "combatbond", "settlement", "scannable", "codewh"]
+		},
+		"Factions": {
+			"items": {
+				"properties": {
+					"Amount": {
+						"type": "integer"
+					},
+					"Faction": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["RedeemVoucher"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "RedeemVoucher",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,44 @@
+{
+	"description": "Fleet carrier trade order",
+	"properties": {
+		"PurchaseOrder": {
+			"type": "integer"
+		},
+		"Price": {
+			"type": "integer"
+		},
+		"CarrierID": {
+			"type": "integer"
+		},
+		"Stock": {
+			"type": "integer"
+		},
+		"Commodity_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CarrierTradeOrder"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"CancelTrade": {
+			"type": "boolean"
+		},
+		"SaleOrder": {
+			"type": "integer"
+		},
+		"BlackMarket": {
+			"type": "boolean"
+		},
+		"Commodity": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CarrierTradeOrder",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

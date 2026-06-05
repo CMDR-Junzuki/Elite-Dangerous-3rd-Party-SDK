@@ -1,0 +1,30 @@
+{
+	"description": "Material collected during gameplay",
+	"properties": {
+		"Name": {
+			"type": "string"
+		},
+		"Count": {
+			"type": "integer"
+		},
+		"Category": {
+			"type": "string",
+			"enum": ["Raw", "Manufactured", "Encoded"]
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["MaterialCollected"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "MaterialCollected",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

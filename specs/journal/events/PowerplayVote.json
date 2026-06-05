@@ -1,0 +1,29 @@
+{
+	"description": "Powerplay vote",
+	"properties": {
+		"Vote": {
+			"type": "integer"
+		},
+		"Vote_Weighting": {
+			"type": "number"
+		},
+		"Votes": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["PowerplayVote"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Power": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "PowerplayVote",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,38 @@
+{
+	"description": "Powerplay status",
+	"properties": {
+		"TimePledged": {
+			"type": "integer"
+		},
+		"Rank": {
+			"type": "integer"
+		},
+		"Merits": {
+			"type": "integer"
+		},
+		"Rating": {
+			"type": "integer"
+		},
+		"Votes": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Powerplay"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Power": {
+			"type": "string"
+		},
+		"PowerplayState": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Powerplay",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

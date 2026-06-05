@@ -1,0 +1,29 @@
+{
+	"description": "Ship undocked from a station",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"StationName": {
+			"type": "string",
+			"description": "Station name"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Undocked"]
+		},
+		"StationType": {
+			"type": "string",
+			"description": "Station type"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Undocked",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

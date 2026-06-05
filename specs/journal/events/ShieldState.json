@@ -1,0 +1,20 @@
+{
+	"description": "Shield state change",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"ShieldsUp": {
+			"type": "boolean"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["ShieldState"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "ShieldState",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

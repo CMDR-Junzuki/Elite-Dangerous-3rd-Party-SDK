@@ -1,0 +1,29 @@
+{
+	"description": "Suit sold",
+	"properties": {
+		"Price": {
+			"type": "integer"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SellSuit"]
+		},
+		"Name": {
+			"type": "string"
+		},
+		"SuitID": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SellSuit",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

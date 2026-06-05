@@ -1,0 +1,10 @@
+[
+	{ "System Allegiance": "Independent", "Name": "Independent" },
+	{ "System Allegiance": "PilotsFederation", "Name": "Pilots Federation" },
+	{ "System Allegiance": "Federation", "Name": "Federation" },
+	{ "System Allegiance": "Empire", "Name": "Empire" },
+	{ "System Allegiance": "Alliance", "Name": "Alliance" },
+	{ "System Allegiance": "Guardian", "Name": "Guardian" },
+	{ "System Allegiance": "Thargoid", "Name": "Thargoid" },
+	{ "System Allegiance": "PlayerPilots", "Name": "Player Pilots" }
+]

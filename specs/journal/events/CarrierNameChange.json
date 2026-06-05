@@ -1,0 +1,29 @@
+{
+	"description": "Fleet carrier renamed",
+	"properties": {
+		"Callsign": {
+			"type": "string"
+		},
+		"Name": {
+			"type": "string"
+		},
+		"CarrierID": {
+			"type": "integer"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CarrierNameChange"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CarrierNameChange",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

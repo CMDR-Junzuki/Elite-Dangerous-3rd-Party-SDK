@@ -1,0 +1,38 @@
+{
+	"description": "Reward collected from a community goal",
+	"properties": {
+		"DetailReward": {
+			"type": "integer"
+		},
+		"MarketName": {
+			"type": "string"
+		},
+		"CGID": {
+			"type": "integer"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CommunityGoalReward"]
+		},
+		"Name": {
+			"type": "string"
+		},
+		"SystemName": {
+			"type": "string"
+		},
+		"Reward": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CommunityGoalReward",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

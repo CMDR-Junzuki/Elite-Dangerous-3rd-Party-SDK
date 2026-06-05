@@ -1,0 +1,101 @@
+{
+	"description": "Module information",
+	"properties": {
+		"Modules": {
+			"items": {
+				"properties": {
+					"On": {
+						"type": "boolean"
+					},
+					"Priority": {
+						"type": "integer"
+					},
+					"AmmoHopper": {
+						"type": "integer"
+					},
+					"Engineering": {
+						"properties": {
+							"Modifiers": {
+								"items": {
+									"properties": {
+										"Label": {
+											"type": "string"
+										},
+										"OriginalValue": {
+											"type": "number"
+										},
+										"LessIsGood": {
+											"type": "boolean"
+										},
+										"Value": {
+											"type": "number"
+										},
+										"ValueStr": {
+											"type": "string"
+										}
+									},
+									"type": "object"
+								},
+								"type": "array"
+							},
+							"Engineer": {
+								"type": "string"
+							},
+							"Level": {
+								"type": "integer"
+							},
+							"Quality": {
+								"type": "number"
+							},
+							"BlueprintName": {
+								"type": "string"
+							},
+							"ExperimentalEffect": {
+								"type": "string"
+							},
+							"BlueprintID": {
+								"type": "integer"
+							},
+							"ExperimentalEffect_Localised": {
+								"type": "string"
+							}
+						},
+						"type": "object"
+					},
+					"Value": {
+						"type": "integer"
+					},
+					"Health": {
+						"type": "number"
+					},
+					"Item_Localised": {
+						"type": "string"
+					},
+					"AmmoClip": {
+						"type": "integer"
+					},
+					"Item": {
+						"type": "string"
+					},
+					"Slot": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["ModuleInfo"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "ModuleInfo",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

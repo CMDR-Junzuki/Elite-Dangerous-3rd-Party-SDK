@@ -1,0 +1,42 @@
+{
+	"description": "Signal source discovered via FSS",
+	"properties": {
+		"USSType_Localised": {
+			"type": "string"
+		},
+		"SignalName_Localised": {
+			"type": "string"
+		},
+		"SpawningFaction": {
+			"type": "string"
+		},
+		"ThargoidWar": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["FSSSignalDiscovered"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"USSType": {
+			"type": "string"
+		},
+		"SpawningState": {
+			"type": "string"
+		},
+		"SignalName": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "FSSSignalDiscovered",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

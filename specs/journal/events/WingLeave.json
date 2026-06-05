@@ -1,0 +1,17 @@
+{
+	"description": "Left a wing",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["WingLeave"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "WingLeave",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

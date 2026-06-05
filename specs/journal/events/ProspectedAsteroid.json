@@ -1,0 +1,52 @@
+{
+	"description": "Asteroid prospected",
+	"properties": {
+		"MotherlodeProportion": {
+			"type": "number"
+		},
+		"Content_Localised": {
+			"type": "string"
+		},
+		"Content": {
+			"type": "string"
+		},
+		"Materials": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Proportion": {
+						"type": "number"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["ProspectedAsteroid"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"MotherlodeMaterial_Localised": {
+			"type": "string"
+		},
+		"Remaining": {
+			"type": "number"
+		},
+		"MotherlodeMaterial": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "ProspectedAsteroid",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,32 @@
+{
+	"description": "Suit loadout deleted",
+	"properties": {
+		"SuitName_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["DeleteSuitLoadout"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SuitName": {
+			"type": "string"
+		},
+		"SuitID": {
+			"type": "integer"
+		},
+		"LoadoutID": {
+			"type": "integer"
+		},
+		"LoadoutName": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "DeleteSuitLoadout",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

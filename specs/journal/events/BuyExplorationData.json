@@ -1,0 +1,24 @@
+{
+	"description": "Exploration data purchased",
+	"properties": {
+		"Cost": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["BuyExplorationData"]
+		},
+		"System": {
+			"type": "string",
+			"description": "System name"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "BuyExplorationData",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

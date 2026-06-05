@@ -1,0 +1,50 @@
+{
+	"description": "Dropship deployment",
+	"properties": {
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"OnStation": {
+			"type": "boolean"
+		},
+		"OnPlanet": {
+			"type": "boolean"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["DropShipDeploy"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"StationType": {
+			"type": "string",
+			"description": "Station type"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"StarSystem": {
+			"type": "string"
+		},
+		"StationName": {
+			"type": "string",
+			"description": "Station name"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "DropShipDeploy",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,23 @@
+{
+	"description": "Defected to another Powerplay power",
+	"properties": {
+		"ToPower": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["PowerplayDefect"]
+		},
+		"FromPower": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "PowerplayDefect",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

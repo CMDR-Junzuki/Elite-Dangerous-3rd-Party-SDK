@@ -1,0 +1,28 @@
+{
+	"name": "@elite-dangerous-sdk/utils",
+	"version": "0.1.0",
+	"description": "Elite Dangerous SDK utility functions",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome check src/ __tests__/"
+	},
+	"devDependencies": {
+		"typescript": "^5.5.0",
+		"vitest": "^2.0.0"
+	},
+	"files": ["dist/", "src/", "README.md"],
+	"publishConfig": {
+		"access": "public"
+	}
+}

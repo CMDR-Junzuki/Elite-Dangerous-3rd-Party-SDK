@@ -1,0 +1,1178 @@
+[
+	{
+		"category": "Component",
+		"id": "128064021",
+		"English name": "Graphene",
+		"symbol": "graphene"
+	},
+	{
+		"category": "Data",
+		"id": "128672130",
+		"English name": "Internal Correspondence",
+		"symbol": "internalcorrespondence"
+	},
+	{
+		"category": "Consumable",
+		"id": "128932270",
+		"English name": "Medkit",
+		"symbol": "healthpack"
+	},
+	{
+		"category": "Consumable",
+		"id": "128941245",
+		"English name": "Energy Cell",
+		"symbol": "energycell"
+	},
+	{
+		"category": "Consumable",
+		"id": "128951161",
+		"English name": "Shield Disruptor",
+		"symbol": "amm_grenade_emp"
+	},
+	{
+		"category": "Consumable",
+		"id": "128951162",
+		"English name": "Frag Grenade",
+		"symbol": "amm_grenade_frag"
+	},
+	{
+		"category": "Consumable",
+		"id": "128951163",
+		"English name": "Shield Projector",
+		"symbol": "amm_grenade_shield"
+	},
+	{
+		"category": "Item",
+		"id": "128959449",
+		"English name": "Chemical Sample",
+		"symbol": "chemicalsample"
+	},
+	{
+		"category": "Consumable",
+		"id": "128961251",
+		"English name": "E-Breach",
+		"symbol": "bypass"
+	},
+	{
+		"category": "Data",
+		"id": "128961514",
+		"English name": "Spyware",
+		"symbol": "spyware"
+	},
+	{
+		"category": "Component",
+		"id": "128961524",
+		"English name": "Aerogel",
+		"symbol": "aerogel"
+	},
+	{
+		"category": "Component",
+		"id": "128961526",
+		"English name": "Carbon Fibre Plating",
+		"symbol": "carbonfibreplating"
+	},
+	{
+		"category": "Component",
+		"id": "128961527",
+		"English name": "Chemical Catalyst",
+		"symbol": "chemicalcatalyst"
+	},
+	{
+		"category": "Component",
+		"id": "128961528",
+		"English name": "Chemical Superbase",
+		"symbol": "chemicalsuperbase"
+	},
+	{
+		"category": "Component",
+		"id": "128961529",
+		"English name": "Circuit Board",
+		"symbol": "circuitboard"
+	},
+	{
+		"category": "Component",
+		"id": "128961530",
+		"English name": "Circuit Switch",
+		"symbol": "circuitswitch"
+	},
+	{
+		"category": "Component",
+		"id": "128961531",
+		"English name": "Electrical Fuse",
+		"symbol": "electricalfuse"
+	},
+	{
+		"category": "Component",
+		"id": "128961532",
+		"English name": "Electrical Wiring",
+		"symbol": "electricalwiring"
+	},
+	{
+		"category": "Component",
+		"id": "128961533",
+		"English name": "Encrypted Memory Chip",
+		"symbol": "encryptedmemorychip"
+	},
+	{
+		"category": "Component",
+		"id": "128961534",
+		"English name": "Epoxy Adhesive",
+		"symbol": "epoxyadhesive"
+	},
+	{
+		"category": "Component",
+		"id": "128961537",
+		"English name": "Memory Chip",
+		"symbol": "memorychip"
+	},
+	{
+		"category": "Component",
+		"id": "128961538",
+		"English name": "Metal Coil",
+		"symbol": "metalcoil"
+	},
+	{
+		"category": "Component",
+		"id": "128961539",
+		"English name": "Micro Hydraulics",
+		"symbol": "microhydraulics"
+	},
+	{
+		"category": "Component",
+		"id": "128961540",
+		"English name": "Micro Supercapacitor",
+		"symbol": "microsupercapacitor"
+	},
+	{
+		"category": "Component",
+		"id": "128961541",
+		"English name": "Micro Thrusters",
+		"symbol": "microthrusters"
+	},
+	{
+		"category": "Component",
+		"id": "128961542",
+		"English name": "Micro Transformer",
+		"symbol": "microtransformer"
+	},
+	{
+		"category": "Component",
+		"id": "128961543",
+		"English name": "Motor",
+		"symbol": "motor"
+	},
+	{
+		"category": "Component",
+		"id": "128961544",
+		"English name": "Optical Fibre",
+		"symbol": "opticalfibre"
+	},
+	{
+		"category": "Component",
+		"id": "128961545",
+		"English name": "Optical Lens",
+		"symbol": "opticallens"
+	},
+	{
+		"category": "Component",
+		"id": "128961547",
+		"English name": "Scrambler",
+		"symbol": "scrambler"
+	},
+	{
+		"category": "Component",
+		"id": "128961549",
+		"English name": "Titanium Plating",
+		"symbol": "titaniumplating"
+	},
+	{
+		"category": "Component",
+		"id": "128961550",
+		"English name": "Transmitter",
+		"symbol": "transmitter"
+	},
+	{
+		"category": "Component",
+		"id": "128961551",
+		"English name": "Tungsten Carbide",
+		"symbol": "tungstencarbide"
+	},
+	{
+		"category": "Component",
+		"id": "128961552",
+		"English name": "Viscoelastic Polymer",
+		"symbol": "viscoelasticpolymer"
+	},
+	{
+		"category": "Item",
+		"id": "128961554",
+		"English name": "Biochemical Agent",
+		"symbol": "biochemicalagent"
+	},
+	{
+		"category": "Item",
+		"id": "128961556",
+		"English name": "Californium",
+		"symbol": "californium"
+	},
+	{
+		"category": "Item",
+		"id": "128961557",
+		"English name": "Cast Fossil",
+		"symbol": "castfossil"
+	},
+	{
+		"category": "Item",
+		"id": "128961564",
+		"English name": "Biological Sample",
+		"symbol": "geneticsample"
+	},
+	{
+		"category": "Item",
+		"id": "128961565",
+		"English name": "G-Meds",
+		"symbol": "gmeds"
+	},
+	{
+		"category": "Item",
+		"id": "128961566",
+		"English name": "Health Monitor",
+		"symbol": "healthmonitor"
+	},
+	{
+		"category": "Item",
+		"id": "128961567",
+		"English name": "Inertia Canister",
+		"symbol": "inertiacanister"
+	},
+	{
+		"category": "Item",
+		"id": "128961568",
+		"English name": "Insight",
+		"symbol": "insight"
+	},
+	{
+		"category": "Item",
+		"id": "128961569",
+		"English name": "Insight Data Bank",
+		"symbol": "insightdatabank"
+	},
+	{
+		"category": "Item",
+		"id": "128961570",
+		"English name": "Ionised Gas",
+		"symbol": "ionisedgas"
+	},
+	{
+		"category": "Item",
+		"id": "128961571",
+		"English name": "Mutagenic Catalyst",
+		"symbol": "mutageniccatalyst"
+	},
+	{
+		"category": "Item",
+		"id": "128961584",
+		"English name": "Personal Computer",
+		"symbol": "personalcomputer"
+	},
+	{
+		"category": "Item",
+		"id": "128961586",
+		"English name": "Petrified Fossil",
+		"symbol": "petrifiedfossil"
+	},
+	{
+		"category": "Item",
+		"id": "128961590",
+		"English name": "Synthetic Genome",
+		"symbol": "syntheticgenome"
+	},
+	{
+		"category": "Item",
+		"id": "128961591",
+		"English name": "True Form Fossil",
+		"symbol": "trueformfossil"
+	},
+	{
+		"category": "Item",
+		"id": "128962315",
+		"English name": "Genetic Repair Meds",
+		"symbol": "geneticrepairmeds"
+	},
+	{
+		"category": "Component",
+		"id": "128962572",
+		"English name": "RDX",
+		"symbol": "rdx"
+	},
+	{
+		"category": "Component",
+		"id": "128962573",
+		"English name": "Electromagnet",
+		"symbol": "electromagnet"
+	},
+	{
+		"category": "Component",
+		"id": "128962574",
+		"English name": "Oxygenic Bacteria",
+		"symbol": "oxygenicbacteria"
+	},
+	{
+		"category": "Component",
+		"id": "128962575",
+		"English name": "Epinephrine",
+		"symbol": "epinephrine"
+	},
+	{
+		"category": "Component",
+		"id": "128962576",
+		"English name": "pH Neutraliser",
+		"symbol": "phneutraliser"
+	},
+	{
+		"category": "Item",
+		"id": "128962597",
+		"English name": "Building Schematic",
+		"symbol": "buildingschematic"
+	},
+	{
+		"category": "Item",
+		"id": "128962598",
+		"English name": "Compact Library",
+		"symbol": "compactlibrary"
+	},
+	{
+		"category": "Item",
+		"id": "128962599",
+		"English name": "Deep Mantle Sample",
+		"symbol": "deepmantlesample"
+	},
+	{
+		"category": "Item",
+		"id": "128962600",
+		"English name": "Hush",
+		"symbol": "hush"
+	},
+	{
+		"category": "Item",
+		"id": "128962601",
+		"English name": "Infinity",
+		"symbol": "infinity"
+	},
+	{
+		"category": "Item",
+		"id": "128962602",
+		"English name": "Insight Entertainment Suite",
+		"symbol": "insightentertainmentsuite"
+	},
+	{
+		"category": "Item",
+		"id": "128962603",
+		"English name": "Lazarus",
+		"symbol": "lazarus"
+	},
+	{
+		"category": "Item",
+		"id": "128962604",
+		"English name": "Microbial Inhibitor",
+		"symbol": "microbialinhibitor"
+	},
+	{
+		"category": "Item",
+		"id": "128962605",
+		"English name": "Nutritional Concentrate",
+		"symbol": "nutritionalconcentrate"
+	},
+	{
+		"category": "Item",
+		"id": "128962606",
+		"English name": "Personal Documents",
+		"symbol": "personaldocuments"
+	},
+	{
+		"category": "Item",
+		"id": "128962607",
+		"English name": "Push",
+		"symbol": "push"
+	},
+	{
+		"category": "Item",
+		"id": "128962608",
+		"English name": "Ship Schematic",
+		"symbol": "shipschematic"
+	},
+	{
+		"category": "Item",
+		"id": "128962609",
+		"English name": "Suit Schematic",
+		"symbol": "suitschematic"
+	},
+	{
+		"category": "Item",
+		"id": "128962610",
+		"English name": "Surveillance Equipment",
+		"symbol": "surveillanceequipment"
+	},
+	{
+		"category": "Item",
+		"id": "128962611",
+		"English name": "Synthetic Pathogen",
+		"symbol": "syntheticpathogen"
+	},
+	{
+		"category": "Item",
+		"id": "128962612",
+		"English name": "Universal Translator",
+		"symbol": "universaltranslator"
+	},
+	{
+		"category": "Item",
+		"id": "128962613",
+		"English name": "Vehicle Schematic",
+		"symbol": "vehicleschematic"
+	},
+	{
+		"category": "Item",
+		"id": "128962614",
+		"English name": "Weapon Schematic",
+		"symbol": "weaponschematic"
+	},
+	{
+		"category": "Component",
+		"id": "128964025",
+		"English name": "Microelectrode",
+		"symbol": "microelectrode"
+	},
+	{
+		"category": "Data",
+		"id": "128964034",
+		"English name": "Biometric Data",
+		"symbol": "biometricdata"
+	},
+	{
+		"category": "Item",
+		"id": "128965835",
+		"English name": "Pyrolytic Catalyst",
+		"symbol": "pyrolyticcatalyst"
+	},
+	{
+		"category": "Item",
+		"id": "128965836",
+		"English name": "Inorganic Contaminant",
+		"symbol": "inorganiccontaminant"
+	},
+	{
+		"category": "Item",
+		"id": "128965837",
+		"English name": "Agricultural Process Sample",
+		"symbol": "agriculturalprocesssample"
+	},
+	{
+		"category": "Item",
+		"id": "128965838",
+		"English name": "Chemical Process Sample",
+		"symbol": "chemicalprocesssample"
+	},
+	{
+		"category": "Item",
+		"id": "128965839",
+		"English name": "Refinement Process Sample",
+		"symbol": "refinementprocesssample"
+	},
+	{
+		"category": "Item",
+		"id": "128965840",
+		"English name": "Compression-Liquefied Gas",
+		"symbol": "compressionliquefiedgas"
+	},
+	{
+		"category": "Item",
+		"id": "128965841",
+		"English name": "Degraded Power Regulator",
+		"symbol": "degradedpowerregulator"
+	},
+	{
+		"category": "Item",
+		"id": "128965842",
+		"English name": "Power Regulator",
+		"symbol": "largecapacitypowerregulator"
+	},
+	{
+		"category": "Component",
+		"id": "128965844",
+		"English name": "Ion Battery",
+		"symbol": "ionbattery"
+	},
+	{
+		"category": "Component",
+		"id": "128965845",
+		"English name": "Weapon Component",
+		"symbol": "weaponcomponent"
+	},
+	{
+		"category": "Data",
+		"id": "128972280",
+		"English name": "NOC Data",
+		"symbol": "nocdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972281",
+		"English name": "AX Combat Logs",
+		"symbol": "axcombatlogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972282",
+		"English name": "Accident Logs",
+		"symbol": "accidentlogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972283",
+		"English name": "Air Quality Reports",
+		"symbol": "airqualityreports"
+	},
+	{
+		"category": "Data",
+		"id": "128972284",
+		"English name": "Atmospheric Data",
+		"symbol": "atmosphericdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972285",
+		"English name": "Audio Logs",
+		"symbol": "audiologs"
+	},
+	{
+		"category": "Data",
+		"id": "128972286",
+		"English name": "Ballistics Data",
+		"symbol": "ballisticsdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972287",
+		"English name": "Biological Weapon Data",
+		"symbol": "biologicalweapondata"
+	},
+	{
+		"category": "Data",
+		"id": "128972288",
+		"English name": "Blacklist Data",
+		"symbol": "blacklistdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972289",
+		"English name": "Blood Test Results",
+		"symbol": "bloodtestresults"
+	},
+	{
+		"category": "Data",
+		"id": "128972290",
+		"English name": "Campaign Plans",
+		"symbol": "campaignplans"
+	},
+	{
+		"category": "Data",
+		"id": "128972291",
+		"English name": "Cat Media",
+		"symbol": "catmedia"
+	},
+	{
+		"category": "Data",
+		"id": "128972292",
+		"English name": "Census Data",
+		"symbol": "censusdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972293",
+		"English name": "Chemical Experiment Data",
+		"symbol": "chemicalexperimentdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972294",
+		"English name": "Chemical Formulae",
+		"symbol": "chemicalformulae"
+	},
+	{
+		"category": "Data",
+		"id": "128972295",
+		"English name": "Chemical Inventory",
+		"symbol": "chemicalinventory"
+	},
+	{
+		"category": "Data",
+		"id": "128972296",
+		"English name": "Chemical Patents",
+		"symbol": "chemicalpatents"
+	},
+	{
+		"category": "Data",
+		"id": "128972297",
+		"English name": "Chemical Weapon Data",
+		"symbol": "chemicalweapondata"
+	},
+	{
+		"category": "Data",
+		"id": "128972298",
+		"English name": "Classic Entertainment",
+		"symbol": "classicentertainment"
+	},
+	{
+		"category": "Data",
+		"id": "128972299",
+		"English name": "Cocktail Recipes",
+		"symbol": "cocktailrecipes"
+	},
+	{
+		"category": "Data",
+		"id": "128972300",
+		"English name": "Combat Training Material",
+		"symbol": "combattrainingmaterial"
+	},
+	{
+		"category": "Data",
+		"id": "128972301",
+		"English name": "Combatant Performance",
+		"symbol": "combatantperformance"
+	},
+	{
+		"category": "Data",
+		"id": "128972302",
+		"English name": "Conflict History",
+		"symbol": "conflicthistory"
+	},
+	{
+		"category": "Data",
+		"id": "128972303",
+		"English name": "Crop Yield Analysis",
+		"symbol": "cropyieldanalysis"
+	},
+	{
+		"category": "Data",
+		"id": "128972304",
+		"English name": "Culinary Recipes",
+		"symbol": "culinaryrecipes"
+	},
+	{
+		"category": "Data",
+		"id": "128972305",
+		"English name": "Digital Designs",
+		"symbol": "digitaldesigns"
+	},
+	{
+		"category": "Data",
+		"id": "128972306",
+		"English name": "Duty Rota",
+		"symbol": "dutyrota"
+	},
+	{
+		"category": "Data",
+		"id": "128972307",
+		"English name": "Employee Directory",
+		"symbol": "employeedirectory"
+	},
+	{
+		"category": "Data",
+		"id": "128972308",
+		"English name": "Employee Expenses",
+		"symbol": "employeeexpenses"
+	},
+	{
+		"category": "Data",
+		"id": "128972309",
+		"English name": "Employee Genetic Data",
+		"symbol": "employeegeneticdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972310",
+		"English name": "Employment History",
+		"symbol": "employmenthistory"
+	},
+	{
+		"category": "Data",
+		"id": "128972311",
+		"English name": "Enhanced Interrogation Recordings",
+		"symbol": "enhancedinterrogationrecordings"
+	},
+	{
+		"category": "Data",
+		"id": "128972312",
+		"English name": "Espionage Material",
+		"symbol": "espionagematerial"
+	},
+	{
+		"category": "Data",
+		"id": "128972313",
+		"English name": "Evacuation Protocols",
+		"symbol": "evacuationprotocols"
+	},
+	{
+		"category": "Data",
+		"id": "128972314",
+		"English name": "Exploration Journals",
+		"symbol": "explorationjournals"
+	},
+	{
+		"category": "Data",
+		"id": "128972315",
+		"English name": "Extraction Yield Data",
+		"symbol": "extractionyielddata"
+	},
+	{
+		"category": "Data",
+		"id": "128972316",
+		"English name": "Faction Associates",
+		"symbol": "factionassociates"
+	},
+	{
+		"category": "Data",
+		"id": "128972317",
+		"English name": "Financial Projections",
+		"symbol": "financialprojections"
+	},
+	{
+		"category": "Data",
+		"id": "128972318",
+		"English name": "Faction News",
+		"symbol": "factionnews"
+	},
+	{
+		"category": "Data",
+		"id": "128972319",
+		"English name": "Fleet Registry",
+		"symbol": "fleetregistry"
+	},
+	{
+		"category": "Data",
+		"id": "128972320",
+		"English name": "Gene Sequencing Data",
+		"symbol": "genesequencingdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972321",
+		"English name": "Genetic Research",
+		"symbol": "geneticresearch"
+	},
+	{
+		"category": "Data",
+		"id": "128972322",
+		"English name": "Hydroponic Data",
+		"symbol": "hydroponicdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972323",
+		"English name": "Incident Logs",
+		"symbol": "incidentlogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972324",
+		"English name": "Influence Projections",
+		"symbol": "influenceprojections"
+	},
+	{
+		"category": "Data",
+		"id": "128972325",
+		"English name": "Interrogation Recordings",
+		"symbol": "interrogationrecordings"
+	},
+	{
+		"category": "Data",
+		"id": "128972326",
+		"English name": "Interview Recordings",
+		"symbol": "interviewrecordings"
+	},
+	{
+		"category": "Data",
+		"id": "128972327",
+		"English name": "Job Applications",
+		"symbol": "jobapplications"
+	},
+	{
+		"category": "Data",
+		"id": "128972328",
+		"English name": "Kompromat",
+		"symbol": "kompromat"
+	},
+	{
+		"category": "Data",
+		"id": "128972329",
+		"English name": "Literary Fiction",
+		"symbol": "literaryfiction"
+	},
+	{
+		"category": "Data",
+		"id": "128972330",
+		"English name": "Maintenance Logs",
+		"symbol": "maintenancelogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972331",
+		"English name": "Manufacturing Instructions",
+		"symbol": "manufacturinginstructions"
+	},
+	{
+		"category": "Data",
+		"id": "128972332",
+		"English name": "Medical Records",
+		"symbol": "medicalrecords"
+	},
+	{
+		"category": "Data",
+		"id": "128972333",
+		"English name": "Clinical Trial Records",
+		"symbol": "medicaltrialrecords"
+	},
+	{
+		"category": "Data",
+		"id": "128972334",
+		"English name": "Meeting Minutes",
+		"symbol": "meetingminutes"
+	},
+	{
+		"category": "Data",
+		"id": "128972335",
+		"English name": "Mineral Survey",
+		"symbol": "mineralsurvey"
+	},
+	{
+		"category": "Data",
+		"id": "128972336",
+		"English name": "Mining Analytics",
+		"symbol": "mininganalytics"
+	},
+	{
+		"category": "Data",
+		"id": "128972337",
+		"English name": "Multimedia Entertainment",
+		"symbol": "multimediaentertainment"
+	},
+	{
+		"category": "Data",
+		"id": "128972338",
+		"English name": "Network Access History",
+		"symbol": "networkaccesshistory"
+	},
+	{
+		"category": "Data",
+		"id": "128972339",
+		"English name": "Network Security Protocols",
+		"symbol": "networksecurityprotocols"
+	},
+	{
+		"category": "Data",
+		"id": "128972340",
+		"English name": "Next of Kin Records",
+		"symbol": "nextofkinrecords"
+	},
+	{
+		"category": "Data",
+		"id": "128972341",
+		"English name": "Operational Manual",
+		"symbol": "operationalmanual"
+	},
+	{
+		"category": "Data",
+		"id": "128972342",
+		"English name": "Opinion Polls",
+		"symbol": "opinionpolls"
+	},
+	{
+		"category": "Data",
+		"id": "128972343",
+		"English name": "Patient History",
+		"symbol": "patienthistory"
+	},
+	{
+		"category": "Data",
+		"id": "128972344",
+		"English name": "Patrol Routes",
+		"symbol": "patrolroutes"
+	},
+	{
+		"category": "Data",
+		"id": "128972345",
+		"English name": "Personal Logs",
+		"symbol": "personallogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972346",
+		"English name": "Photo Albums",
+		"symbol": "photoalbums"
+	},
+	{
+		"category": "Data",
+		"id": "128972347",
+		"English name": "Plant Growth Charts",
+		"symbol": "plantgrowthcharts"
+	},
+	{
+		"category": "Data",
+		"id": "128972348",
+		"English name": "Political Affiliations",
+		"symbol": "politicalaffiliations"
+	},
+	{
+		"category": "Data",
+		"id": "128972349",
+		"English name": "Prisoner Logs",
+		"symbol": "prisonerlogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972350",
+		"English name": "Production Reports",
+		"symbol": "productionreports"
+	},
+	{
+		"category": "Data",
+		"id": "128972351",
+		"English name": "Production Schedule",
+		"symbol": "productionschedule"
+	},
+	{
+		"category": "Data",
+		"id": "128972352",
+		"English name": "Propaganda",
+		"symbol": "propaganda"
+	},
+	{
+		"category": "Data",
+		"id": "128972353",
+		"English name": "Purchase Records",
+		"symbol": "purchaserecords"
+	},
+	{
+		"category": "Data",
+		"id": "128972354",
+		"English name": "Purchase Requests",
+		"symbol": "purchaserequests"
+	},
+	{
+		"category": "Data",
+		"id": "128972355",
+		"English name": "Radioactivity Data",
+		"symbol": "radioactivitydata"
+	},
+	{
+		"category": "Data",
+		"id": "128972356",
+		"English name": "Reactor Output Review",
+		"symbol": "reactoroutputreview"
+	},
+	{
+		"category": "Data",
+		"id": "128972357",
+		"English name": "Recycling Logs",
+		"symbol": "recyclinglogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972358",
+		"English name": "Residential Directory",
+		"symbol": "residentialdirectory"
+	},
+	{
+		"category": "Data",
+		"id": "128972359",
+		"English name": "Risk Assessments",
+		"symbol": "riskassessments"
+	},
+	{
+		"category": "Data",
+		"id": "128972360",
+		"English name": "Sales Records",
+		"symbol": "salesrecords"
+	},
+	{
+		"category": "Data",
+		"id": "128972361",
+		"English name": "Security Expenses",
+		"symbol": "securityexpenses"
+	},
+	{
+		"category": "Data",
+		"id": "128972362",
+		"English name": "Seed Geneaology",
+		"symbol": "seedgeneaology"
+	},
+	{
+		"category": "Data",
+		"id": "128972363",
+		"English name": "Settlement Assault Plans",
+		"symbol": "settlementassaultplans"
+	},
+	{
+		"category": "Data",
+		"id": "128972364",
+		"English name": "Settlement Defence Plans",
+		"symbol": "settlementdefenceplans"
+	},
+	{
+		"category": "Data",
+		"id": "128972365",
+		"English name": "Shareholder Information",
+		"symbol": "shareholderinformation"
+	},
+	{
+		"category": "Data",
+		"id": "128972366",
+		"English name": "Slush Fund Logs",
+		"symbol": "slushfundlogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972367",
+		"English name": "Smear Campaign Plans",
+		"symbol": "smearcampaignplans"
+	},
+	{
+		"category": "Data",
+		"id": "128972368",
+		"English name": "Spectral Analysis Data",
+		"symbol": "spectralanalysisdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972369",
+		"English name": "Stellar Activity Logs",
+		"symbol": "stellaractivitylogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972370",
+		"English name": "Surveillance Logs",
+		"symbol": "surveilleancelogs"
+	},
+	{
+		"category": "Data",
+		"id": "128972371",
+		"English name": "Tactical Plans",
+		"symbol": "tacticalplans"
+	},
+	{
+		"category": "Data",
+		"id": "128972372",
+		"English name": "Tax Records",
+		"symbol": "taxrecords"
+	},
+	{
+		"category": "Data",
+		"id": "128972373",
+		"English name": "Topographical Surveys",
+		"symbol": "topographicalsurveys"
+	},
+	{
+		"category": "Data",
+		"id": "128972374",
+		"English name": "Travel Permits",
+		"symbol": "travelpermits"
+	},
+	{
+		"category": "Data",
+		"id": "128972375",
+		"English name": "Troop Deployment Records",
+		"symbol": "troopdeploymentrecords"
+	},
+	{
+		"category": "Data",
+		"id": "128972376",
+		"English name": "Union Membership",
+		"symbol": "unionmembership"
+	},
+	{
+		"category": "Data",
+		"id": "128972377",
+		"English name": "Vaccination Records",
+		"symbol": "vaccinationrecords"
+	},
+	{
+		"category": "Data",
+		"id": "128972378",
+		"English name": "Vaccine Research",
+		"symbol": "vaccineresearch"
+	},
+	{
+		"category": "Data",
+		"id": "128972379",
+		"English name": "VIP Security Detail",
+		"symbol": "vipsecuritydetail"
+	},
+	{
+		"category": "Data",
+		"id": "128972380",
+		"English name": "Virology Data",
+		"symbol": "virologydata"
+	},
+	{
+		"category": "Data",
+		"id": "128972381",
+		"English name": "Virus",
+		"symbol": "virus"
+	},
+	{
+		"category": "Data",
+		"id": "128972382",
+		"English name": "Visitor Register",
+		"symbol": "visitorregister"
+	},
+	{
+		"category": "Data",
+		"id": "128972383",
+		"English name": "Weapon Inventory",
+		"symbol": "weaponinventory"
+	},
+	{
+		"category": "Data",
+		"id": "128972384",
+		"English name": "Weapon Test Data",
+		"symbol": "weapontestdata"
+	},
+	{
+		"category": "Data",
+		"id": "128972385",
+		"English name": "Xeno-Defence Protocols",
+		"symbol": "xenodefenceprotocols"
+	},
+	{
+		"category": "Data",
+		"id": "128972386",
+		"English name": "Payroll Information",
+		"symbol": "payrollinformation"
+	},
+	{
+		"category": "Data",
+		"id": "128972387",
+		"English name": "Geological Data",
+		"symbol": "geologicaldata"
+	},
+	{
+		"category": "Data",
+		"id": "128972388",
+		"English name": "Criminal Records",
+		"symbol": "criminalrecords"
+	},
+	{
+		"category": "Data",
+		"id": "128972389",
+		"English name": "Faction Donator List",
+		"symbol": "factiondonatorlist"
+	},
+	{
+		"category": "Data",
+		"id": "128972390",
+		"English name": "Pharmaceutical Patents",
+		"symbol": "pharmaceuticalpatents"
+	}
+]

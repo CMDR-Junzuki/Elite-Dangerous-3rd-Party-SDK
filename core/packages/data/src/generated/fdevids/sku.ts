@@ -1,0 +1,269 @@
+// Auto-generated from FDevIDs
+export interface Sku {
+  sku: string;
+  requirement: string;
+}
+
+export const skus: Sku[] = [
+  {
+    sku: "ELITE_HORIZONS_V_CAUSTIC_MEDIUM",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_COBRA_MK_IV_1000",
+    requirement:
+      "purchase base game and horizons before 5th Feb 2016 (PC) or 30th July 2016 (XBOX)",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_CORROSIONCARGO_SIZE4",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_FLECHETTE_FIXED_MEDIUM",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_FLECHETTE_TURRET_MEDIUM",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_FSDBOOSTER",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_GAUSS_FIXED_MEDIUM",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_GAUSS_FIXED_SMALL",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_HULLREINFORCEMENT",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_MODULEREINFORCEMENT",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_PLASMA_FIXED_LARGE",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_PLASMA_FIXED_MEDIUM",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_PLASMA_FIXED_SMALL",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_PLASMA_TURRET_LARGE",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_PLASMA_TURRET_MEDIUM",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_PLASMA_TURRET_SMALL",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_POWERDISTRIBUTOR",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_POWERPLANT",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_SHARD_FIXED_LARGE",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_SHARD_FIXED_MEDIUM",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_SHARD_FIXED_SMALL",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_SHARD_TURRET_LARGE",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_SHARD_TURRET_MEDIUM",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_SHARD_TURRET_SMALL",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_GUARDIAN_SHIELDREINFORCEMENT",
+    requirement: "unlocked via Guardian Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_METAHULL",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLANETARY_LANDINGS",
+    requirement:
+      "purchase Horizons or Horizons Season Pass or Lifetime Expansion Pass",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLASMASHOCK_FIXED_LARGE",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLASMASHOCK_FIXED_MEDIUM",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLASMASHOCK_FIXED_SMALL",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLASMASHOCK_GIMBAL_LARGE",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLASMASHOCK_GIMBAL_MEDIUM",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLASMASHOCK_GIMBAL_SMALL",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLASMASHOCK_TURRET_LARGE",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLASMASHOCK_TURRET_MEDIUM",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_HORIZONS_V_PLASMASHOCK_TURRET_SMALL",
+    requirement: "unlocked via Human Tech Broker",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200010",
+    requirement: "unlocked via Powerplay 2.0 (Imperial Hammer Rail Gun)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200020",
+    requirement: "unlocked via Powerplay 2.0 (Prismatic Shield Generator)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200030",
+    requirement: "unlocked via Powerplay 2.0 (Cytoscrambler Burst Laser)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200050",
+    requirement: "unlocked via Powerplay 2.0 (Advanced Plasma Accelerator)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200060",
+    requirement: "unlocked via Powerplay 2.0 (Retributor Beam Laser)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200070",
+    requirement: "unlocked via Powerplay 2.0 (Pulse Disruptor Laser)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200080",
+    requirement: "unlocked via Powerplay 2.0 (Pack-Hound Missile Rack)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200090",
+    requirement: "unlocked via Powerplay 2.0 (Enforcer Cannon)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200100",
+    requirement: "unlocked via Powerplay 2.0 (Rocket Propelled FSD Disruptor)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200120",
+    requirement: "unlocked via Powerplay 2.0 (Mining Lance)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200130",
+    requirement: "unlocked via Powerplay 2.0 (Concord Cannon)",
+  },
+  {
+    sku: "ELITE_SPECIFIC_V_POWER_200140",
+    requirement: "unlocked via Powerplay 2.0 (Pacifier Frag-Cannon)",
+  },
+  {
+    sku: "ELITE_V_COBRA_MKV",
+    requirement:
+      "was early access purchase in the arx store (not required anymore)",
+  },
+  {
+    sku: "ELITE_V_CORSAIR",
+    requirement:
+      "was early access purchase in the arx store (not required anymore)",
+  },
+  {
+    sku: "ELITE_V_EXPLORER_NX",
+    requirement:
+      "was early access purchase in the arx store (not required anymore)",
+  },
+  {
+    sku: "ELITE_V_LAKON_MINER",
+    requirement:
+      "was early access purchase in the arx store (not required anymore)",
+  },
+  {
+    sku: "ELITE_V_MANDALAY",
+    requirement:
+      "was early access purchase in the arx store (not required anymore)",
+  },
+  { sku: "ELITE_V_MEDIUM_TRANSPORT_01", requirement: "was free from day one" },
+  {
+    sku: "ELITE_V_PANTHER_MKII",
+    requirement:
+      "was early access purchase in the arx store (not required anymore)",
+  },
+  {
+    sku: "ELITE_V_PYTHON_NX",
+    requirement:
+      "was early access purchase in the arx store (not required anymore)",
+  },
+  {
+    sku: "ELITE_V_SMALL_COMBAT_01",
+    requirement: "early access purchase in the arx store",
+  },
+  {
+    sku: "ELITE_V_TYPE8",
+    requirement:
+      "was early access purchase in the arx store (not required anymore)",
+  },
+  {
+    sku: "FORC_FDEV_V_CHIEFTAIN_BUNDLE_001",
+    requirement: "purchase in the arx store",
+  },
+  {
+    sku: "FORC_FDEV_V_DIAMOND_EXPLORER_BUNDLE_001",
+    requirement: "purchase in the arx store",
+  },
+  {
+    sku: "FORC_FDEV_V_PYTHON_MKII_BUNDLE_001",
+    requirement: "purchase in the arx store",
+  },
+  {
+    sku: "FORC_FDEV_V_PYTHON_MKII_BUNDLE_002",
+    requirement: "purchase in the arx store",
+  },
+  {
+    sku: "FORC_FDEV_V_TYPE6_BUNDLE_001",
+    requirement: "purchase in the arx store",
+  },
+];
+
+export const skusBySku = new Map<string, Sku>(skus.map((r) => [r.sku, r]));

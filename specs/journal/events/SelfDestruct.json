@@ -1,0 +1,17 @@
+{
+	"description": "Self-destruct sequence initiated",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SelfDestruct"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SelfDestruct",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

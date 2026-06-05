@@ -1,0 +1,26 @@
+{
+	"description": "Mining refinery produced a commodity",
+	"properties": {
+		"Commodity_Localised": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Type": {
+			"type": "string"
+		},
+		"Type_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["MiningRefined"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "MiningRefined",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,26 @@
+{
+	"description": "Fighter launched",
+	"properties": {
+		"Loadout": {
+			"type": "string"
+		},
+		"Loadout_Localised": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"PlayerControlled": {
+			"type": "boolean"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["LaunchFighter"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "LaunchFighter",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

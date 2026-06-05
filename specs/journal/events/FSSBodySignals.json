@@ -1,0 +1,45 @@
+{
+	"description": "Body signal info from FSS scan",
+	"properties": {
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"BodyName": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["FSSBodySignals"]
+		},
+		"Signals": {
+			"items": {
+				"properties": {
+					"Count": {
+						"type": "integer"
+					},
+					"Type_Localised": {
+						"type": "string"
+					},
+					"Type": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "FSSBodySignals",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

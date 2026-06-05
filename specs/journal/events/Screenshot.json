@@ -1,0 +1,54 @@
+{
+	"description": "Screenshot taken",
+	"properties": {
+		"Latitude": {
+			"type": "number"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"Filename": {
+			"type": "string"
+		},
+		"Heading": {
+			"type": "number"
+		},
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"Longitude": {
+			"type": "number"
+		},
+		"Width": {
+			"type": "integer"
+		},
+		"Height": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Altitude": {
+			"type": "number"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Screenshot"]
+		},
+		"System": {
+			"type": "string",
+			"description": "System name"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Screenshot",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

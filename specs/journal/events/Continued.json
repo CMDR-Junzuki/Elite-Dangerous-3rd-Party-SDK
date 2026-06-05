@@ -1,0 +1,20 @@
+{
+	"description": "Journal continuation marker (split file)",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Part": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Continued"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Continued",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

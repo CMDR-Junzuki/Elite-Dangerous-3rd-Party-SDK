@@ -1,0 +1,29 @@
+{
+	"description": "Crew launched fighter",
+	"properties": {
+		"Loadout_Localised": {
+			"type": "string"
+		},
+		"ID": {
+			"type": "integer"
+		},
+		"Crew": {
+			"type": "string"
+		},
+		"Loadout": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CrewLaunchFighter"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CrewLaunchFighter",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

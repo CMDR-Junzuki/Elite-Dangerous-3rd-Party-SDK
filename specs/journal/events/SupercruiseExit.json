@@ -1,0 +1,37 @@
+{
+	"description": "Ship exited supercruise into normal space",
+	"properties": {
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"BodyType": {
+			"type": "string",
+			"description": "Body type"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SupercruiseExit"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"System": {
+			"type": "string",
+			"description": "System name"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SupercruiseExit",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

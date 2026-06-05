@@ -1,0 +1,84 @@
+{
+	"description": "List of active community goals",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"CurrentGoals": {
+			"items": {
+				"properties": {
+					"TierReached": {
+						"type": "string"
+					},
+					"MarketName": {
+						"type": "string"
+					},
+					"CurrentTotal": {
+						"type": "integer"
+					},
+					"SystemName": {
+						"type": "string"
+					},
+					"Title": {
+						"type": "string"
+					},
+					"Bonus": {
+						"type": "integer"
+					},
+					"PlayerPercentileBand": {
+						"type": "integer"
+					},
+					"PlayerContribution": {
+						"type": "integer"
+					},
+					"TopRankSize": {
+						"type": "integer"
+					},
+					"Expiry": {
+						"type": "string"
+					},
+					"Title_Localised": {
+						"type": "string"
+					},
+					"NumContributors": {
+						"type": "integer"
+					},
+					"CGID": {
+						"type": "integer"
+					},
+					"TopTier": {
+						"properties": {
+							"Name_Localised": {
+								"type": "string"
+							},
+							"Name": {
+								"type": "string"
+							},
+							"Bonus": {
+								"type": "string"
+							},
+							"Bonus_Localised": {
+								"type": "string"
+							}
+						},
+						"type": "object"
+					},
+					"IsComplete": {
+						"type": "boolean"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CommunityGoal"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CommunityGoal",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

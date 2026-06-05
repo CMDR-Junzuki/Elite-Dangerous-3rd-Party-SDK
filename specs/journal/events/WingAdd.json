@@ -1,0 +1,20 @@
+{
+	"description": "Player added to wing",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Other": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["WingAdd"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "WingAdd",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

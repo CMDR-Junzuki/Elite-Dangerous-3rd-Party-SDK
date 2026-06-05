@@ -1,0 +1,19 @@
+[
+	{ "name": "Anarchy", "id": "$government_Anarchy;" },
+	{ "name": "Communism", "id": "$government_Communism;" },
+	{ "name": "Confederacy", "id": "$government_Confederacy;" },
+	{ "name": "Cooperative", "id": "$government_Cooperative;" },
+	{ "name": "Corporate", "id": "$government_Corporate;" },
+	{ "name": "Democracy", "id": "$government_Democracy;" },
+	{ "name": "Dictatorship", "id": "$government_Dictatorship;" },
+	{ "name": "Feudal", "id": "$government_Feudal;" },
+	{ "name": "Imperial", "id": "$government_Imperial;" },
+	{ "name": "None", "id": "$government_None;" },
+	{ "name": "Patronage", "id": "$government_Patronage;" },
+	{ "name": "Prison Colony", "id": "$government_PrisonColony;" },
+	{ "name": "Theocracy", "id": "$government_Theocracy;" },
+	{ "name": "Engineer", "id": "$government_Engineer;" },
+	{ "name": "Private Ownership", "id": "$government_Carrier;" },
+	{ "name": "Prison", "id": "$government_Prison;" },
+	{ "name": "Megaconstruction", "id": "$government_Megaconstruction;" }
+]

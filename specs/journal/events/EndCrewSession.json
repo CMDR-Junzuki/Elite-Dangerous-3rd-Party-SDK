@@ -1,0 +1,17 @@
+{
+	"description": "Crew session ended",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["EndCrewSession"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "EndCrewSession",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

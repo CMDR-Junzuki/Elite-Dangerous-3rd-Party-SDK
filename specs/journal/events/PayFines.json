@@ -1,0 +1,26 @@
+{
+	"description": "Fines paid",
+	"properties": {
+		"Amount": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"AllFines": {
+			"type": "boolean"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["PayFines"]
+		},
+		"BrokerPercentage": {
+			"type": "number"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "PayFines",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

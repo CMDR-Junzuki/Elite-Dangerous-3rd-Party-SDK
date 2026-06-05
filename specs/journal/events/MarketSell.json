@@ -1,0 +1,48 @@
+{
+	"description": "Goods sold at market",
+	"properties": {
+		"IllegalGoods": {
+			"type": "boolean"
+		},
+		"TotalSale": {
+			"type": "integer"
+		},
+		"Type": {
+			"type": "string"
+		},
+		"Type_Localised": {
+			"type": "string"
+		},
+		"AvgPricePaid": {
+			"type": "integer"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["MarketSell"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Count": {
+			"type": "integer"
+		},
+		"SellPrice": {
+			"type": "integer"
+		},
+		"BlackMarket": {
+			"type": "boolean"
+		},
+		"Stolen": {
+			"type": "boolean"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "MarketSell",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

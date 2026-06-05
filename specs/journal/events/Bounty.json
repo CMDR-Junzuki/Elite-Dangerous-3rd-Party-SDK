@@ -1,0 +1,55 @@
+{
+	"description": "Bounty awarded for a kill",
+	"properties": {
+		"TotalReward": {
+			"type": "integer"
+		},
+		"Rewards": {
+			"items": {
+				"properties": {
+					"Reward": {
+						"type": "integer"
+					},
+					"VictimFaction": {
+						"type": "string"
+					},
+					"Faction": {
+						"type": "string"
+					},
+					"Legacy": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Target_Localised": {
+			"type": "string"
+		},
+		"VictimFaction": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Bounty"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Target": {
+			"type": "string"
+		},
+		"SharedWithOthers": {
+			"type": "integer"
+		},
+		"Faction": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Bounty",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

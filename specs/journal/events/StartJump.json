@@ -1,0 +1,36 @@
+{
+	"description": "Ship started a hyperspace or supercruise jump",
+	"properties": {
+		"JumpType": {
+			"type": "string",
+			"enum": ["Hyperspace", "Supercruise"]
+		},
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["StartJump"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"StarSystem": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "StartJump",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

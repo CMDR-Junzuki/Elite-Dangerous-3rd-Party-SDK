@@ -1,0 +1,41 @@
+{
+	"description": "Engineer progress/rank information",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["EngineerProgress"]
+		},
+		"Engineers": {
+			"items": {
+				"properties": {
+					"Progress": {
+						"type": "string",
+						"enum": ["Unlocked", "Invited", "Known", "AlreadyKnown"]
+					},
+					"Engineer": {
+						"type": "string"
+					},
+					"RankProgress": {
+						"type": "integer"
+					},
+					"EngineerID": {
+						"type": "integer"
+					},
+					"Rank": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "EngineerProgress",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

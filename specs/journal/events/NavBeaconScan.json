@@ -1,0 +1,24 @@
+{
+	"description": "Navigation beacon scan completed",
+	"properties": {
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"NumBodies": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["NavBeaconScan"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "NavBeaconScan",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

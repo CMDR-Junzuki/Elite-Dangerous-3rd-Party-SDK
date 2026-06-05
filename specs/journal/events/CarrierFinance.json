@@ -1,0 +1,32 @@
+{
+	"description": "Fleet carrier finance info",
+	"properties": {
+		"ReserveBalance": {
+			"type": "integer"
+		},
+		"AvailableBalance": {
+			"type": "integer"
+		},
+		"CarrierID": {
+			"type": "integer"
+		},
+		"TaxRate": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CarrierFinance"]
+		},
+		"ReservePercent": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CarrierFinance",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,25 @@
+{
+	"name": "elite-dangerous-examples",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Example usage of the Elite Dangerous SDK",
+	"scripts": {
+		"build": "tsc --noEmit",
+		"typecheck": "tsc --noEmit",
+		"test": "echo 'No tests - see examples for usage'"
+	},
+	"dependencies": {
+		"@elite-dangerous-sdk/journal": "0.1.0",
+		"@elite-dangerous-sdk/companion": "0.1.0",
+		"@elite-dangerous-sdk/edsm": "0.1.0",
+		"@elite-dangerous-sdk/inara": "0.1.0",
+		"@elite-dangerous-sdk/eddn": "0.1.0",
+		"@elite-dangerous-sdk/spansh": "0.1.0",
+		"@elite-dangerous-sdk/elitebgs": "0.1.0",
+		"@elite-dangerous-sdk/data": "0.1.0",
+		"@elite-dangerous-sdk/utils": "0.1.0",
+		"@elite-dangerous-sdk/stats": "0.1.0",
+		"@elite-dangerous-sdk/planner": "0.1.0"
+	}
+}

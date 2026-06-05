@@ -1,0 +1,54 @@
+{
+	"description": "Exploration data sold",
+	"properties": {
+		"Systems": {
+			"items": {
+				"properties": {
+					"SystemAddress": {
+						"type": "integer"
+					},
+					"Name": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Bonus": {
+			"type": "integer"
+		},
+		"Discovered": {
+			"items": {
+				"properties": {
+					"SystemName": {
+						"type": "string"
+					},
+					"NumBodies": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"BaseValue": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SellExplorationData"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"TotalEarnings": {
+			"type": "integer"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SellExplorationData",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

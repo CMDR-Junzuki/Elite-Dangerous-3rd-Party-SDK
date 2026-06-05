@@ -1,0 +1,1098 @@
+[
+	{
+		"rarity": "1",
+		"name": "Iron",
+		"symbol": "Iron",
+		"category": "4",
+		"type": "Raw",
+		"id": "128672318"
+	},
+	{
+		"rarity": "1",
+		"name": "Nickel",
+		"symbol": "Nickel",
+		"category": "5",
+		"type": "Raw",
+		"id": "128672319"
+	},
+	{
+		"rarity": "3",
+		"name": "Tin",
+		"symbol": "Tin",
+		"category": "4",
+		"type": "Raw",
+		"id": "128672320"
+	},
+	{
+		"rarity": "2",
+		"name": "Zinc",
+		"symbol": "Zinc",
+		"category": "4",
+		"type": "Raw",
+		"id": "128672321"
+	},
+	{
+		"rarity": "1",
+		"name": "Carbon",
+		"symbol": "Carbon",
+		"category": "1",
+		"type": "Raw",
+		"id": "128672322"
+	},
+	{
+		"rarity": "1",
+		"name": "Sulphur",
+		"symbol": "Sulphur",
+		"category": "3",
+		"type": "Raw",
+		"id": "128672323"
+	},
+	{
+		"rarity": "1",
+		"name": "Phosphorus",
+		"symbol": "Phosphorus",
+		"category": "2",
+		"type": "Raw",
+		"id": "128672324"
+	},
+	{
+		"rarity": "2",
+		"name": "Manganese",
+		"symbol": "Manganese",
+		"category": "3",
+		"type": "Raw",
+		"id": "128672325"
+	},
+	{
+		"rarity": "4",
+		"name": "Selenium",
+		"symbol": "Selenium",
+		"category": "4",
+		"type": "Raw",
+		"id": "128672326"
+	},
+	{
+		"rarity": "2",
+		"name": "Chromium",
+		"symbol": "Chromium",
+		"category": "2",
+		"type": "Raw",
+		"id": "128672327"
+	},
+	{
+		"rarity": "2",
+		"name": "Vanadium",
+		"symbol": "Vanadium",
+		"category": "1",
+		"type": "Raw",
+		"id": "128672328"
+	},
+	{
+		"rarity": "2",
+		"name": "Germanium",
+		"symbol": "Germanium",
+		"category": "5",
+		"type": "Raw",
+		"id": "128672329"
+	},
+	{
+		"rarity": "3",
+		"name": "Cadmium",
+		"symbol": "Cadmium",
+		"category": "3",
+		"type": "Raw",
+		"id": "128672330"
+	},
+	{
+		"rarity": "3",
+		"name": "Tungsten",
+		"symbol": "Tungsten",
+		"category": "5",
+		"type": "Raw",
+		"id": "128672331"
+	},
+	{
+		"rarity": "2",
+		"name": "Arsenic",
+		"symbol": "Arsenic",
+		"category": "6",
+		"type": "Raw",
+		"id": "128672332"
+	},
+	{
+		"rarity": "3",
+		"name": "Molybdenum",
+		"symbol": "Molybdenum",
+		"category": "2",
+		"type": "Raw",
+		"id": "128672333"
+	},
+	{
+		"rarity": "3",
+		"name": "Niobium",
+		"symbol": "Niobium",
+		"category": "1",
+		"type": "Raw",
+		"id": "128672334"
+	},
+	{
+		"rarity": "2",
+		"name": "Zirconium",
+		"symbol": "Zirconium",
+		"category": "7",
+		"type": "Raw",
+		"id": "128672335"
+	},
+	{
+		"rarity": "3",
+		"name": "Mercury",
+		"symbol": "Mercury",
+		"category": "6",
+		"type": "Raw",
+		"id": "128672336"
+	},
+	{
+		"rarity": "4",
+		"name": "Yttrium",
+		"symbol": "Yttrium",
+		"category": "1",
+		"type": "Raw",
+		"id": "128672337"
+	},
+	{
+		"rarity": "4",
+		"name": "Tellurium",
+		"symbol": "Tellurium",
+		"category": "5",
+		"type": "Raw",
+		"id": "128672338"
+	},
+	{
+		"rarity": "4",
+		"name": "Polonium",
+		"symbol": "Polonium",
+		"category": "6",
+		"type": "Raw",
+		"id": "128672339"
+	},
+	{
+		"rarity": "4",
+		"name": "Technetium",
+		"symbol": "Technetium",
+		"category": "2",
+		"type": "Raw",
+		"id": "128672340"
+	},
+	{
+		"rarity": "4",
+		"name": "Ruthenium",
+		"symbol": "Ruthenium",
+		"category": "3",
+		"type": "Raw",
+		"id": "128672341"
+	},
+	{
+		"rarity": "4",
+		"name": "Antimony",
+		"symbol": "Antimony",
+		"category": "7",
+		"type": "Raw",
+		"id": "128672342"
+	},
+	{
+		"rarity": "1",
+		"name": "Grid Resistors",
+		"symbol": "GridResistors",
+		"category": "Capacitors",
+		"type": "Manufactured",
+		"id": "128673877"
+	},
+	{
+		"rarity": "1",
+		"name": "Crystal Shards",
+		"symbol": "CrystalShards",
+		"category": "Crystals",
+		"type": "Manufactured",
+		"id": "128673878"
+	},
+	{
+		"rarity": "1",
+		"name": "Tempered Alloys",
+		"symbol": "TemperedAlloys",
+		"category": "Thermic",
+		"type": "Manufactured",
+		"id": "128673879"
+	},
+	{
+		"rarity": "1",
+		"name": "Basic Conductors",
+		"symbol": "BasicConductors",
+		"category": "Conductive",
+		"type": "Manufactured",
+		"id": "128673880"
+	},
+	{
+		"rarity": "1",
+		"name": "Mechanical Scrap",
+		"symbol": "MechanicalScrap",
+		"category": "Mechanical Components",
+		"type": "Manufactured",
+		"id": "128673881"
+	},
+	{
+		"rarity": "1",
+		"name": "Heat Conduction Wiring",
+		"symbol": "HeatConductionWiring",
+		"category": "Heat",
+		"type": "Manufactured",
+		"id": "128673882"
+	},
+	{
+		"rarity": "1",
+		"name": "Worn Shield Emitters",
+		"symbol": "WornShieldEmitters",
+		"category": "Shielding",
+		"type": "Manufactured",
+		"id": "128673883"
+	},
+	{
+		"rarity": "1",
+		"name": "Compact Composites",
+		"symbol": "CompactComposites",
+		"category": "Composite",
+		"type": "Manufactured",
+		"id": "128673884"
+	},
+	{
+		"rarity": "1",
+		"name": "Salvaged Alloys",
+		"symbol": "SalvagedAlloys",
+		"category": "Alloys",
+		"type": "Manufactured",
+		"id": "128673885"
+	},
+	{
+		"rarity": "1",
+		"name": "Chemical Storage Units",
+		"symbol": "ChemicalStorageUnits",
+		"category": "Chemical",
+		"type": "Manufactured",
+		"id": "128673886"
+	},
+	{
+		"rarity": "2",
+		"name": "Hybrid Capacitors",
+		"symbol": "HybridCapacitors",
+		"category": "Capacitors",
+		"type": "Manufactured",
+		"id": "128673887"
+	},
+	{
+		"rarity": "2",
+		"name": "Flawed Focus Crystals",
+		"symbol": "UncutFocusCrystals",
+		"category": "Crystals",
+		"type": "Manufactured",
+		"id": "128673888"
+	},
+	{
+		"rarity": "2",
+		"name": "Heat Resistant Ceramics",
+		"symbol": "HeatResistantCeramics",
+		"category": "Thermic",
+		"type": "Manufactured",
+		"id": "128673889"
+	},
+	{
+		"rarity": "2",
+		"name": "Conductive Components",
+		"symbol": "ConductiveComponents",
+		"category": "Conductive",
+		"type": "Manufactured",
+		"id": "128673890"
+	},
+	{
+		"rarity": "2",
+		"name": "Mechanical Equipment",
+		"symbol": "MechanicalEquipment",
+		"category": "Mechanical Components",
+		"type": "Manufactured",
+		"id": "128673891"
+	},
+	{
+		"rarity": "2",
+		"name": "Heat Dispersion Plate",
+		"symbol": "HeatDispersionPlate",
+		"category": "Heat",
+		"type": "Manufactured",
+		"id": "128673892"
+	},
+	{
+		"rarity": "2",
+		"name": "Shield Emitters",
+		"symbol": "ShieldEmitters",
+		"category": "Shielding",
+		"type": "Manufactured",
+		"id": "128673893"
+	},
+	{
+		"rarity": "2",
+		"name": "Filament Composites",
+		"symbol": "FilamentComposites",
+		"category": "Composite",
+		"type": "Manufactured",
+		"id": "128673894"
+	},
+	{
+		"rarity": "2",
+		"name": "Galvanising Alloys",
+		"symbol": "GalvanisingAlloys",
+		"category": "Alloys",
+		"type": "Manufactured",
+		"id": "128673895"
+	},
+	{
+		"rarity": "2",
+		"name": "Chemical Processors",
+		"symbol": "ChemicalProcessors",
+		"category": "Chemical",
+		"type": "Manufactured",
+		"id": "128673896"
+	},
+	{
+		"rarity": "3",
+		"name": "Electrochemical Arrays",
+		"symbol": "ElectrochemicalArrays",
+		"category": "Capacitors",
+		"type": "Manufactured",
+		"id": "128673897"
+	},
+	{
+		"rarity": "3",
+		"name": "Focus Crystals",
+		"symbol": "FocusCrystals",
+		"category": "Crystals",
+		"type": "Manufactured",
+		"id": "128673898"
+	},
+	{
+		"rarity": "3",
+		"name": "Precipitated Alloys",
+		"symbol": "PrecipitatedAlloys",
+		"category": "Thermic",
+		"type": "Manufactured",
+		"id": "128673899"
+	},
+	{
+		"rarity": "3",
+		"name": "Conductive Ceramics",
+		"symbol": "ConductiveCeramics",
+		"category": "Conductive",
+		"type": "Manufactured",
+		"id": "128673900"
+	},
+	{
+		"rarity": "3",
+		"name": "Mechanical Components",
+		"symbol": "MechanicalComponents",
+		"category": "Mechanical Components",
+		"type": "Manufactured",
+		"id": "128673901"
+	},
+	{
+		"rarity": "3",
+		"name": "Heat Exchangers",
+		"symbol": "HeatExchangers",
+		"category": "Heat",
+		"type": "Manufactured",
+		"id": "128673902"
+	},
+	{
+		"rarity": "3",
+		"name": "Shielding Sensors",
+		"symbol": "ShieldingSensors",
+		"category": "Shielding",
+		"type": "Manufactured",
+		"id": "128673903"
+	},
+	{
+		"rarity": "3",
+		"name": "High Density Composites",
+		"symbol": "HighDensityComposites",
+		"category": "Composite",
+		"type": "Manufactured",
+		"id": "128673904"
+	},
+	{
+		"rarity": "3",
+		"name": "Phase Alloys",
+		"symbol": "PhaseAlloys",
+		"category": "Alloys",
+		"type": "Manufactured",
+		"id": "128673905"
+	},
+	{
+		"rarity": "3",
+		"name": "Chemical Distillery",
+		"symbol": "ChemicalDistillery",
+		"category": "Chemical",
+		"type": "Manufactured",
+		"id": "128673906"
+	},
+	{
+		"rarity": "4",
+		"name": "Polymer Capacitors",
+		"symbol": "PolymerCapacitors",
+		"category": "Capacitors",
+		"type": "Manufactured",
+		"id": "128673907"
+	},
+	{
+		"rarity": "4",
+		"name": "Refined Focus Crystals",
+		"symbol": "RefinedFocusCrystals",
+		"category": "Crystals",
+		"type": "Manufactured",
+		"id": "128673908"
+	},
+	{
+		"rarity": "4",
+		"name": "Thermic Alloys",
+		"symbol": "ThermicAlloys",
+		"category": "Thermic",
+		"type": "Manufactured",
+		"id": "128673909"
+	},
+	{
+		"rarity": "4",
+		"name": "Conductive Polymers",
+		"symbol": "ConductivePolymers",
+		"category": "Conductive",
+		"type": "Manufactured",
+		"id": "128673910"
+	},
+	{
+		"rarity": "4",
+		"name": "Configurable Components",
+		"symbol": "ConfigurableComponents",
+		"category": "Mechanical Components",
+		"type": "Manufactured",
+		"id": "128673911"
+	},
+	{
+		"rarity": "4",
+		"name": "Heat Vanes",
+		"symbol": "HeatVanes",
+		"category": "Heat",
+		"type": "Manufactured",
+		"id": "128673912"
+	},
+	{
+		"rarity": "4",
+		"name": "Compound Shielding",
+		"symbol": "CompoundShielding",
+		"category": "Shielding",
+		"type": "Manufactured",
+		"id": "128673913"
+	},
+	{
+		"rarity": "4",
+		"name": "Proprietary Composites",
+		"symbol": "FedProprietaryComposites",
+		"category": "Composite",
+		"type": "Manufactured",
+		"id": "128673914"
+	},
+	{
+		"rarity": "4",
+		"name": "Proto Light Alloys",
+		"symbol": "ProtoLightAlloys",
+		"category": "Alloys",
+		"type": "Manufactured",
+		"id": "128673915"
+	},
+	{
+		"rarity": "4",
+		"name": "Chemical Manipulators",
+		"symbol": "ChemicalManipulators",
+		"category": "Chemical",
+		"type": "Manufactured",
+		"id": "128673916"
+	},
+	{
+		"rarity": "5",
+		"name": "Military Supercapacitors",
+		"symbol": "MilitarySupercapacitors",
+		"category": "Capacitors",
+		"type": "Manufactured",
+		"id": "128673917"
+	},
+	{
+		"rarity": "5",
+		"name": "Exquisite Focus Crystals",
+		"symbol": "ExquisiteFocusCrystals",
+		"category": "Crystals",
+		"type": "Manufactured",
+		"id": "128673918"
+	},
+	{
+		"rarity": "5",
+		"name": "Military Grade Alloys",
+		"symbol": "MilitaryGradeAlloys",
+		"category": "Thermic",
+		"type": "Manufactured",
+		"id": "128673919"
+	},
+	{
+		"rarity": "5",
+		"name": "Biotech Conductors",
+		"symbol": "BiotechConductors",
+		"category": "Conductive",
+		"type": "Manufactured",
+		"id": "128673920"
+	},
+	{
+		"rarity": "5",
+		"name": "Improvised Components",
+		"symbol": "ImprovisedComponents",
+		"category": "Mechanical Components",
+		"type": "Manufactured",
+		"id": "128673921"
+	},
+	{
+		"rarity": "5",
+		"name": "Proto Heat Radiators",
+		"symbol": "ProtoHeatRadiators",
+		"category": "Heat",
+		"type": "Manufactured",
+		"id": "128673922"
+	},
+	{
+		"rarity": "5",
+		"name": "Imperial Shielding",
+		"symbol": "ImperialShielding",
+		"category": "Shielding",
+		"type": "Manufactured",
+		"id": "128673923"
+	},
+	{
+		"rarity": "5",
+		"name": "Core Dynamics Composites",
+		"symbol": "FedCoreComposites",
+		"category": "Composite",
+		"type": "Manufactured",
+		"id": "128673924"
+	},
+	{
+		"rarity": "5",
+		"name": "Proto Radiolic Alloys",
+		"symbol": "ProtoRadiolicAlloys",
+		"category": "Alloys",
+		"type": "Manufactured",
+		"id": "128673925"
+	},
+	{
+		"rarity": "5",
+		"name": "Pharmaceutical Isolators",
+		"symbol": "PharmaceuticalIsolators",
+		"category": "Chemical",
+		"type": "Manufactured",
+		"id": "128673926"
+	},
+	{
+		"rarity": "1",
+		"name": "Specialised Legacy Firmware",
+		"symbol": "LegacyFirmware",
+		"category": "Encoded Firmware",
+		"type": "Encoded",
+		"id": "128681610"
+	},
+	{
+		"rarity": "1",
+		"name": "Unusual Encrypted Files",
+		"symbol": "EncryptedFiles",
+		"category": "Encryption Files",
+		"type": "Encoded",
+		"id": "128681611"
+	},
+	{
+		"rarity": "1",
+		"name": "Anomalous Bulk Scan Data",
+		"symbol": "BulkScanData",
+		"category": "Data Archives",
+		"type": "Encoded",
+		"id": "128681612"
+	},
+	{
+		"rarity": "1",
+		"name": "Atypical Disrupted Wake Echoes",
+		"symbol": "DisruptedWakeEchoes",
+		"category": "Wake Scans",
+		"type": "Encoded",
+		"id": "128681613"
+	},
+	{
+		"rarity": "1",
+		"name": "Exceptional Scrambled Emission Data",
+		"symbol": "ScrambledEmissionData",
+		"category": "Emission Data",
+		"type": "Encoded",
+		"id": "128681614"
+	},
+	{
+		"rarity": "1",
+		"name": "Distorted Shield Cycle Recordings",
+		"symbol": "ShieldCycleRecordings",
+		"category": "Shield Data",
+		"type": "Encoded",
+		"id": "128681615"
+	},
+	{
+		"rarity": "2",
+		"name": "Modified Consumer Firmware",
+		"symbol": "ConsumerFirmware",
+		"category": "Encoded Firmware",
+		"type": "Encoded",
+		"id": "128681616"
+	},
+	{
+		"rarity": "2",
+		"name": "Tagged Encryption Codes",
+		"symbol": "EncryptionCodes",
+		"category": "Encryption Files",
+		"type": "Encoded",
+		"id": "128681617"
+	},
+	{
+		"rarity": "2",
+		"name": "Unidentified Scan Archives",
+		"symbol": "ScanArchives",
+		"category": "Data Archives",
+		"type": "Encoded",
+		"id": "128681618"
+	},
+	{
+		"rarity": "2",
+		"name": "Anomalous FSD Telemetry",
+		"symbol": "FSDTelemetry",
+		"category": "Wake Scans",
+		"type": "Encoded",
+		"id": "128681619"
+	},
+	{
+		"rarity": "2",
+		"name": "Irregular Emission Data",
+		"symbol": "ArchivedEmissionData",
+		"category": "Emission Data",
+		"type": "Encoded",
+		"id": "128681620"
+	},
+	{
+		"rarity": "2",
+		"name": "Inconsistent Shield Soak Analysis",
+		"symbol": "ShieldSoakAnalysis",
+		"category": "Shield Data",
+		"type": "Encoded",
+		"id": "128681621"
+	},
+	{
+		"rarity": "3",
+		"name": "Cracked Industrial Firmware",
+		"symbol": "IndustrialFirmware",
+		"category": "Encoded Firmware",
+		"type": "Encoded",
+		"id": "128681622"
+	},
+	{
+		"rarity": "3",
+		"name": "Open Symmetric Keys",
+		"symbol": "SymmetricKeys",
+		"category": "Encryption Files",
+		"type": "Encoded",
+		"id": "128681623"
+	},
+	{
+		"rarity": "3",
+		"name": "Classified Scan Databanks",
+		"symbol": "ScanDatabanks",
+		"category": "Data Archives",
+		"type": "Encoded",
+		"id": "128681624"
+	},
+	{
+		"rarity": "3",
+		"name": "Strange Wake Solutions",
+		"symbol": "WakeSolutions",
+		"category": "Wake Scans",
+		"type": "Encoded",
+		"id": "128681625"
+	},
+	{
+		"rarity": "3",
+		"name": "Unexpected Emission Data",
+		"symbol": "EmissionData",
+		"category": "Emission Data",
+		"type": "Encoded",
+		"id": "128681626"
+	},
+	{
+		"rarity": "3",
+		"name": "Untypical Shield Scans ",
+		"symbol": "ShieldDensityReports",
+		"category": "Shield Data",
+		"type": "Encoded",
+		"id": "128681627"
+	},
+	{
+		"rarity": "4",
+		"name": "Security Firmware Patch",
+		"symbol": "SecurityFirmware",
+		"category": "Encoded Firmware",
+		"type": "Encoded",
+		"id": "128681628"
+	},
+	{
+		"rarity": "4",
+		"name": "Atypical Encryption Archives",
+		"symbol": "EncryptionArchives",
+		"category": "Encryption Files",
+		"type": "Encoded",
+		"id": "128681629"
+	},
+	{
+		"rarity": "4",
+		"name": "Divergent Scan Data",
+		"symbol": "EncodedScanData",
+		"category": "Data Archives",
+		"type": "Encoded",
+		"id": "128681630"
+	},
+	{
+		"rarity": "4",
+		"name": "Eccentric Hyperspace Trajectories",
+		"symbol": "HyperspaceTrajectories",
+		"category": "Wake Scans",
+		"type": "Encoded",
+		"id": "128681631"
+	},
+	{
+		"rarity": "4",
+		"name": "Decoded Emission Data",
+		"symbol": "DecodedEmissionData",
+		"category": "Emission Data",
+		"type": "Encoded",
+		"id": "128681632"
+	},
+	{
+		"rarity": "4",
+		"name": "Aberrant Shield Pattern Analysis",
+		"symbol": "ShieldPatternAnalysis",
+		"category": "Shield Data",
+		"type": "Encoded",
+		"id": "128681633"
+	},
+	{
+		"rarity": "5",
+		"name": "Modified Embedded Firmware",
+		"symbol": "EmbeddedFirmware",
+		"category": "Encoded Firmware",
+		"type": "Encoded",
+		"id": "128681634"
+	},
+	{
+		"rarity": "5",
+		"name": "Adaptive Encryptors Capture",
+		"symbol": "AdaptiveEncryptors",
+		"category": "Encryption Files",
+		"type": "Encoded",
+		"id": "128681635"
+	},
+	{
+		"rarity": "5",
+		"name": "Classified Scan Fragment",
+		"symbol": "ClassifiedScanData",
+		"category": "Data Archives",
+		"type": "Encoded",
+		"id": "128681636"
+	},
+	{
+		"rarity": "5",
+		"name": "Datamined Wake Exceptions",
+		"symbol": "DataminedWake",
+		"category": "Wake Scans",
+		"type": "Encoded",
+		"id": "128681637"
+	},
+	{
+		"rarity": "5",
+		"name": "Abnormal Compact Emissions Data",
+		"symbol": "CompactEmissionsData",
+		"category": "Emission Data",
+		"type": "Encoded",
+		"id": "128681638"
+	},
+	{
+		"rarity": "5",
+		"name": "Peculiar Shield Frequency Data",
+		"symbol": "ShieldFrequencyData",
+		"category": "Shield Data",
+		"type": "Encoded",
+		"id": "128681639"
+	},
+	{
+		"rarity": "5",
+		"name": "Sensor Fragment",
+		"symbol": "UnknownEnergySource",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128681640"
+	},
+	{
+		"rarity": "3",
+		"name": "Thargoid Ship Signature",
+		"symbol": "UnknownShipSignature",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128731669"
+	},
+	{
+		"rarity": "4",
+		"name": "Thargoid Wake Data",
+		"symbol": "UnknownWakeData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128731670"
+	},
+	{
+		"rarity": "4",
+		"name": "Pattern Delta Obelisk Data",
+		"symbol": "AncientLanguageData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128732197"
+	},
+	{
+		"rarity": "4",
+		"name": "Pattern Alpha Obelisk Data",
+		"symbol": "AncientBiologicalData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128732198"
+	},
+	{
+		"rarity": "4",
+		"name": "Pattern Beta Obelisk Data",
+		"symbol": "AncientCulturalData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128732199"
+	},
+	{
+		"rarity": "4",
+		"name": "Pattern Gamma Obelisk Data",
+		"symbol": "AncientHistoricalData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128732200"
+	},
+	{
+		"rarity": "4",
+		"name": "Pattern Epsilon Obelisk Data",
+		"symbol": "AncientTechnologicalData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128732201"
+	},
+	{
+		"rarity": "3",
+		"name": "Thargoid Material Composition Data",
+		"symbol": "TG_CompositionData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128737280"
+	},
+	{
+		"rarity": "4",
+		"name": "Thargoid Residue Data",
+		"symbol": "TG_ResidueData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128737281"
+	},
+	{
+		"rarity": "2",
+		"name": "Thargoid Structural Data",
+		"symbol": "TG_StructuralData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128737282"
+	},
+	{
+		"rarity": "2",
+		"name": "Thargoid Carapace",
+		"symbol": "UnknownCarapace",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128737283"
+	},
+	{
+		"rarity": "3",
+		"name": "Thargoid Energy Cell",
+		"symbol": "UnknownEnergyCell",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128737284"
+	},
+	{
+		"rarity": "5",
+		"name": "Thargoid Organic Circuitry",
+		"symbol": "UnknownOrganicCircuitry",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128737285"
+	},
+	{
+		"rarity": "4",
+		"name": "Thargoid Technological Components",
+		"symbol": "UnknownTechnologyComponents",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128737286"
+	},
+	{
+		"rarity": "3",
+		"name": "Bio-Mechanical Conduits",
+		"symbol": "TG_BioMechanicalConduits",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128737287"
+	},
+	{
+		"rarity": "5",
+		"name": "Propulsion Elements",
+		"symbol": "TG_PropulsionElement",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128793132"
+	},
+	{
+		"rarity": "4",
+		"name": "Weapon Parts",
+		"symbol": "TG_WeaponParts",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128793133"
+	},
+	{
+		"rarity": "3",
+		"name": "Wreckage Components",
+		"symbol": "TG_WreckageComponents",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128793134"
+	},
+	{
+		"rarity": "3",
+		"name": "Ship Flight Data",
+		"symbol": "TG_ShipFlightData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128793135"
+	},
+	{
+		"rarity": "4",
+		"name": "Ship Systems Data",
+		"symbol": "TG_ShipSystemsData",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128793136"
+	},
+	{
+		"rarity": "1",
+		"name": "Guardian Power Cell",
+		"symbol": "Guardian_PowerCell",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128815023"
+	},
+	{
+		"rarity": "2",
+		"name": "Guardian Power Conduit",
+		"symbol": "Guardian_PowerConduit",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128815024"
+	},
+	{
+		"rarity": "3",
+		"name": "Guardian Technology Component",
+		"symbol": "Guardian_TechComponent",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128815025"
+	},
+	{
+		"rarity": "3",
+		"name": "Guardian Sentinel Weapon Parts",
+		"symbol": "Guardian_Sentinel_WeaponParts",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128815026"
+	},
+	{
+		"rarity": "1",
+		"name": "Guardian Sentinel Wreckage Components",
+		"symbol": "Guardian_Sentinel_WreckageComponents",
+		"category": "None",
+		"type": "Manufactured",
+		"id": "128815027"
+	},
+	{
+		"rarity": "4",
+		"name": "Guardian Weapon Blueprint Segment",
+		"symbol": "Guardian_WeaponBlueprint",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128815028"
+	},
+	{
+		"rarity": "4",
+		"name": "Guardian Module Blueprint Segment",
+		"symbol": "Guardian_ModuleBlueprint",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128815029"
+	},
+	{
+		"rarity": "5",
+		"name": "Guardian Vessel Blueprint Segment",
+		"symbol": "Guardian_VesselBlueprint",
+		"category": "None",
+		"type": "Encoded",
+		"id": "128815030"
+	},
+	{
+		"rarity": "1",
+		"name": "Rhenium",
+		"symbol": "Rhenium",
+		"category": "6",
+		"type": "Raw",
+		"id": "128837857"
+	},
+	{
+		"rarity": "1",
+		"name": "Lead",
+		"symbol": "Lead",
+		"category": "7",
+		"type": "Raw",
+		"id": "128850245"
+	},
+	{
+		"rarity": "3",
+		"name": "Boron",
+		"symbol": "Boron",
+		"category": "7",
+		"type": "Raw",
+		"id": "128850246"
+	}
+]

@@ -1,0 +1,23 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "FileHeader",
+	"description": "Journal file header entry - written at the start of each journal file",
+	"type": "object",
+	"required": ["timestamp", "event", "part"],
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time",
+			"description": "ISO 8601 timestamp"
+		},
+		"event": { "type": "string", "enum": ["FileHeader"] },
+		"part": { "type": "integer", "description": "File part number" },
+		"language": { "type": "string", "description": "Game language code" },
+		"gameversion": { "type": "string", "description": "Game version string" },
+		"build": { "type": "string", "description": "Game build number" },
+		"odyssey": {
+			"type": "boolean",
+			"description": "Whether this is an Odyssey client"
+		}
+	}
+}

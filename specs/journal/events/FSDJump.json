@@ -1,0 +1,49 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "FSDJump",
+	"description": "Written when the player jumps to a new star system",
+	"type": "object",
+	"required": ["timestamp", "event", "StarSystem", "StarPos", "JumpDist"],
+	"properties": {
+		"timestamp": { "type": "string", "format": "date-time" },
+		"event": { "type": "string", "enum": ["FSDJump"] },
+		"StarSystem": {
+			"type": "string",
+			"description": "Destination system name"
+		},
+		"SystemAddress": { "type": "integer", "description": "Unique system ID" },
+		"StarPos": {
+			"type": "array",
+			"items": { "type": "number" },
+			"minItems": 3,
+			"maxItems": 3,
+			"description": "Galactic coordinates [x, y, z]"
+		},
+		"SystemAllegiance": { "type": "string" },
+		"SystemEconomy": { "type": "string" },
+		"SystemSecondEconomy": { "type": "string" },
+		"SystemGovernment": { "type": "string" },
+		"SystemSecurity": { "type": "string" },
+		"Population": { "type": "integer" },
+		"PowerplayState": { "type": "string" },
+		"Powers": { "type": "array", "items": { "type": "string" } },
+		"JumpDist": {
+			"type": "number",
+			"description": "Jump distance in light years"
+		},
+		"FuelUsed": { "type": "number" },
+		"FuelLevel": { "type": "number" },
+		"BoostUsed": { "type": "number" },
+		"Factions": {
+			"type": "array",
+			"items": { "$ref": "../types/FactionState.json" }
+		},
+		"Conflicts": {
+			"type": "array",
+			"items": { "$ref": "../types/Conflict.json" }
+		},
+		"Body": { "type": "string" },
+		"BodyID": { "type": "integer" },
+		"Taxoname": { "type": "string" }
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"description": "Crew member hired",
+	"properties": {
+		"Name": {
+			"type": "string"
+		},
+		"Cost": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CrewHire"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"CombatRank": {
+			"type": "integer"
+		},
+		"Faction": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CrewHire",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

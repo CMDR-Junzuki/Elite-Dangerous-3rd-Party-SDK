@@ -1,0 +1,34 @@
+{
+	"description": "Detailed surface scan completed",
+	"properties": {
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"EfficiencyTarget": {
+			"type": "integer"
+		},
+		"BodyName": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SAAscanComplete"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"ProbesUsed": {
+			"type": "integer"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SAAscanComplete",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

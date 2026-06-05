@@ -1,0 +1,55 @@
+{
+	"description": "Micro resources traded",
+	"properties": {
+		"Offered": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["TradeMicroResources"]
+		},
+		"Received": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "TradeMicroResources",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

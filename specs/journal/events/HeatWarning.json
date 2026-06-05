@@ -1,0 +1,17 @@
+{
+	"description": "Ship heat warning triggered",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["HeatWarning"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "HeatWarning",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

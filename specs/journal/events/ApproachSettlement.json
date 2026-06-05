@@ -1,0 +1,45 @@
+{
+	"description": "Approaching a settlement",
+	"properties": {
+		"Longitude": {
+			"type": "number"
+		},
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["ApproachSettlement"]
+		},
+		"Name": {
+			"type": "string"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"Latitude": {
+			"type": "number"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "ApproachSettlement",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

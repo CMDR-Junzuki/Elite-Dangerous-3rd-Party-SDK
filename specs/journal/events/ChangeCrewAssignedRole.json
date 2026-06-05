@@ -1,0 +1,21 @@
+{
+	"description": "Crew role changed",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["ChangeCrewAssignedRole"]
+		},
+		"Role": {
+			"type": "string",
+			"enum": ["Idle", "FighterCon", "FireCon", "Turret"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "ChangeCrewAssignedRole",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

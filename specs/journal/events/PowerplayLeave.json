@@ -1,0 +1,20 @@
+{
+	"description": "Left a Powerplay power",
+	"properties": {
+		"Power": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["PowerplayLeave"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "PowerplayLeave",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

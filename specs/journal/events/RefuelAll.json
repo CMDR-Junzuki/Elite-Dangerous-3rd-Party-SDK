@@ -1,0 +1,23 @@
+{
+	"description": "Full refuel",
+	"properties": {
+		"Amount": {
+			"type": "number"
+		},
+		"Cost": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["RefuelAll"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "RefuelAll",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

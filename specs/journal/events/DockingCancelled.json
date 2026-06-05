@@ -1,0 +1,25 @@
+{
+	"description": "Docking request cancelled",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"StationName": {
+			"type": "string",
+			"description": "Station name"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["DockingCancelled"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "DockingCancelled",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

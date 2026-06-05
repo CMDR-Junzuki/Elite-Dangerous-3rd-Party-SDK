@@ -1,0 +1,41 @@
+{
+	"description": "Player\u0027s current rank values",
+	"properties": {
+		"Soldier": {
+			"type": "integer"
+		},
+		"Exobiologist": {
+			"type": "integer"
+		},
+		"Trade": {
+			"type": "integer"
+		},
+		"Federation": {
+			"type": "integer"
+		},
+		"CQC": {
+			"type": "integer"
+		},
+		"Combat": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Rank"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Explore": {
+			"type": "integer"
+		},
+		"Empire": {
+			"type": "integer"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Rank",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,43 @@
+{
+	"description": "Micro resources collected",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Items": {
+			"items": {
+				"properties": {
+					"Name": {
+						"type": "string"
+					},
+					"MissionID": {
+						"type": "integer"
+					},
+					"OwnerID": {
+						"type": "integer"
+					},
+					"Type": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					},
+					"Name_Localised": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CollectMicroResources"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CollectMicroResources",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

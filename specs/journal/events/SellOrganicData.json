@@ -1,0 +1,65 @@
+{
+	"description": "Organic exploration data sold",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"BioData": {
+			"items": {
+				"properties": {
+					"Vendor_Localised": {
+						"type": "string"
+					},
+					"Species": {
+						"type": "string"
+					},
+					"TotalValue": {
+						"type": "integer"
+					},
+					"Genus": {
+						"type": "string"
+					},
+					"Value": {
+						"type": "integer"
+					},
+					"Genus_Localised": {
+						"type": "string"
+					},
+					"Bonus": {
+						"type": "integer"
+					},
+					"Variant": {
+						"type": "string"
+					},
+					"Vendor": {
+						"type": "string"
+					},
+					"TotalBonus": {
+						"type": "integer"
+					},
+					"Variant_Localised": {
+						"type": "string"
+					},
+					"Species_Localised": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SellOrganicData"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SellOrganicData",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

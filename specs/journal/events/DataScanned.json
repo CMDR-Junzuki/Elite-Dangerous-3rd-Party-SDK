@@ -1,0 +1,23 @@
+{
+	"description": "Data point scanned",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Type": {
+			"type": "string"
+		},
+		"Type_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["DataScanned"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "DataScanned",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

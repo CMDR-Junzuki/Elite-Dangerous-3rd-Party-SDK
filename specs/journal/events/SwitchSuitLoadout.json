@@ -1,0 +1,52 @@
+{
+	"description": "Suit loadout switched",
+	"properties": {
+		"Modules": {
+			"items": {
+				"properties": {
+					"ModuleName_Localised": {
+						"type": "string"
+					},
+					"ModuleName": {
+						"type": "string"
+					},
+					"SlotName": {
+						"type": "string"
+					},
+					"SuitModuleID": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"SuitName_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SwitchSuitLoadout"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SuitName": {
+			"type": "string"
+		},
+		"SuitID": {
+			"type": "integer"
+		},
+		"LoadoutID": {
+			"type": "integer"
+		},
+		"LoadoutName": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SwitchSuitLoadout",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

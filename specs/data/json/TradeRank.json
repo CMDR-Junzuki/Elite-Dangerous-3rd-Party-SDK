@@ -1,0 +1,16 @@
+[
+	{ "name": "Penniless", "number": "0" },
+	{ "name": "Mostly Penniless", "number": "1" },
+	{ "name": "Peddler", "number": "2" },
+	{ "name": "Dealer", "number": "3" },
+	{ "name": "Merchant", "number": "4" },
+	{ "name": "Broker", "number": "5" },
+	{ "name": "Entrepreneur", "number": "6" },
+	{ "name": "Tycoon", "number": "7" },
+	{ "name": "Elite", "number": "8" },
+	{ "name": "Elite I", "number": "9" },
+	{ "name": "Elite II", "number": "10" },
+	{ "name": "Elite III", "number": "11" },
+	{ "name": "Elite IV", "number": "12" },
+	{ "name": "Elite V", "number": "13" }
+]

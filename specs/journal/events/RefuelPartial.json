@@ -1,0 +1,23 @@
+{
+	"description": "Partial refuel",
+	"properties": {
+		"Amount": {
+			"type": "number"
+		},
+		"Cost": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["RefuelPartial"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "RefuelPartial",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

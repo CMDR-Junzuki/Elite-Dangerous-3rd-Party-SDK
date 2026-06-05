@@ -1,0 +1,26 @@
+{
+	"description": "Crew member joins ship",
+	"properties": {
+		"Telepresence": {
+			"type": "boolean"
+		},
+		"CombatRank": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Crew": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CrewMemberJoins"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CrewMemberJoins",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

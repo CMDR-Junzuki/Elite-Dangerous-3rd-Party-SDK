@@ -1,0 +1,49 @@
+{
+	"description": "Player died",
+	"properties": {
+		"KillerRank": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Died"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"KillerName_Localised": {
+			"type": "string"
+		},
+		"KillerShip": {
+			"type": "string"
+		},
+		"KillerName": {
+			"type": "string"
+		},
+		"Killers": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Ship": {
+						"type": "string"
+					},
+					"Rank": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Died",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

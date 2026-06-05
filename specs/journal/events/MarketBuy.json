@@ -1,0 +1,36 @@
+{
+	"description": "Goods purchased at market",
+	"properties": {
+		"Count": {
+			"type": "integer"
+		},
+		"Type": {
+			"type": "string"
+		},
+		"TotalCost": {
+			"type": "integer"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["MarketBuy"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Type_Localised": {
+			"type": "string"
+		},
+		"BuyPrice": {
+			"type": "integer"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "MarketBuy",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

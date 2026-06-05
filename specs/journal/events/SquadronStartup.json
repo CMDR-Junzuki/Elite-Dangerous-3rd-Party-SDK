@@ -1,0 +1,55 @@
+{
+	"description": "Squadron info on game startup",
+	"properties": {
+		"SquadronRank": {
+			"type": "string"
+		},
+		"SquadronFaction": {
+			"type": "string"
+		},
+		"SquadronPowerplayState": {
+			"type": "string"
+		},
+		"CurrentRating": {
+			"type": "integer"
+		},
+		"Rating": {
+			"items": {
+				"properties": {
+					"Name": {
+						"type": "string"
+					},
+					"Rank": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"SquadronAlignedPower": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SquadronStartup"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SquadronID": {
+			"type": "integer"
+		},
+		"SquadronName": {
+			"type": "string"
+		},
+		"SquadronHomeSystem": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SquadronStartup",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

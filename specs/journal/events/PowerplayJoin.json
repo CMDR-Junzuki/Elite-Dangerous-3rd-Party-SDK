@@ -1,0 +1,20 @@
+{
+	"description": "Joined a Powerplay power",
+	"properties": {
+		"Power": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["PowerplayJoin"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "PowerplayJoin",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

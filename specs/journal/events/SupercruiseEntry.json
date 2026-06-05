@@ -1,0 +1,25 @@
+{
+	"description": "Ship entered supercruise",
+	"properties": {
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SupercruiseEntry"]
+		},
+		"System": {
+			"type": "string",
+			"description": "System name"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SupercruiseEntry",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

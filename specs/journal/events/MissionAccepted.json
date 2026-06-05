@@ -1,0 +1,156 @@
+{
+	"description": "Mission accepted by the player",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Count": {
+			"type": "integer"
+		},
+		"Reward": {
+			"type": "integer"
+		},
+		"Target": {
+			"type": "string"
+		},
+		"TargetType_Localised": {
+			"type": "string"
+		},
+		"KillCount": {
+			"type": "integer"
+		},
+		"DestinationStation": {
+			"type": "string"
+		},
+		"Expiry": {
+			"type": "string"
+		},
+		"CommodityReward": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Wing": {
+			"type": "boolean"
+		},
+		"Commodity": {
+			"type": "string"
+		},
+		"PassengerType": {
+			"type": "string"
+		},
+		"MaterialsRequired": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Category": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					},
+					"Category_Localised": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"InfluenceGain": {
+			"type": "string"
+		},
+		"LocalisedName": {
+			"type": "string"
+		},
+		"ReputationGain": {
+			"type": "string"
+		},
+		"PassengerWanted": {
+			"type": "boolean"
+		},
+		"Influence": {
+			"type": "string"
+		},
+		"MissionID": {
+			"type": "integer"
+		},
+		"Faction": {
+			"type": "string"
+		},
+		"TargetCommodity": {
+			"type": "string"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"Commodity_Localised": {
+			"type": "string"
+		},
+		"Reputation": {
+			"type": "string"
+		},
+		"Donated": {
+			"type": "integer"
+		},
+		"PassengerCount": {
+			"type": "integer"
+		},
+		"TargetType": {
+			"type": "string"
+		},
+		"TargetFaction": {
+			"type": "string"
+		},
+		"Target_Localised": {
+			"type": "string"
+		},
+		"DestinationSystem": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["MissionAccepted"]
+		},
+		"PassengerVIPs": {
+			"type": "boolean"
+		},
+		"Name": {
+			"type": "string"
+		},
+		"PassengerMission": {
+			"type": "boolean"
+		},
+		"TargetCommodity_Localised": {
+			"type": "string"
+		},
+		"Donation": {
+			"type": "string"
+		},
+		"MinJumps": {
+			"type": "integer"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "MissionAccepted",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

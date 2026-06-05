@@ -1,0 +1,35 @@
+{
+	"description": "Cargo ejected",
+	"properties": {
+		"MissionID": {
+			"type": "integer"
+		},
+		"Type": {
+			"type": "string"
+		},
+		"Count": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["EjectCargo"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Powerplay": {
+			"type": "boolean"
+		},
+		"Type_Localised": {
+			"type": "string"
+		},
+		"Abandoned": {
+			"type": "boolean"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "EjectCargo",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

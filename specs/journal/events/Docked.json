@@ -1,0 +1,53 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Docked",
+	"description": "Written when the player docks at a station or fleet carrier",
+	"type": "object",
+	"required": [
+		"timestamp",
+		"event",
+		"StationName",
+		"StationType",
+		"StarSystem",
+		"MarketID"
+	],
+	"properties": {
+		"timestamp": { "type": "string", "format": "date-time" },
+		"event": { "type": "string", "enum": ["Docked"] },
+		"StationName": { "type": "string" },
+		"StationType": { "type": "string" },
+		"StarSystem": { "type": "string" },
+		"SystemAddress": { "type": "integer" },
+		"MarketID": { "type": "integer" },
+		"StationServices": { "type": "array", "items": { "type": "string" } },
+		"StationEconomy": { "type": "string" },
+		"StationEconomies": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"Name": { "type": "string" },
+					"Share": { "type": "number" }
+				}
+			}
+		},
+		"StationAllegiance": { "type": "string" },
+		"StationGovernment": { "type": "string" },
+		"StationState": { "type": "string" },
+		"LandingPads": {
+			"type": "object",
+			"properties": {
+				"Small": { "type": "integer" },
+				"Medium": { "type": "integer" },
+				"Large": { "type": "integer" }
+			}
+		},
+		"CockpitBreach": { "type": "boolean" },
+		"Wanted": { "type": "boolean" },
+		"ActiveFine": { "type": "boolean" },
+		"DistFromStarLS": { "type": "number" },
+		"PowerplayState": { "type": "string" },
+		"Powers": { "type": "array", "items": { "type": "string" } },
+		"Taxoname": { "type": "string" }
+	}
+}

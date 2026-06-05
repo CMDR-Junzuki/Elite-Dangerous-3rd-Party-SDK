@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>EliteDangerousSdk</RootNamespace>
+    <PackageId>EliteDangerousSdk</PackageId>
+    <Version>0.1.0</Version>
+    <Description>Elite Dangerous 3rd Party SDK - Journal, CAPI, and community API clients</Description>
+    <Authors>Elite 3P SDK</Authors>
+    <RepositoryUrl>https://github.com/your-org/elite-dangerous-sdk</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>elite-dangerous;journal;edsm;inara;eddn;spansh;elitebgs</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="9.0.4" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,33 @@
+{
+	"name": "@elite-dangerous-sdk/ws-journal",
+	"version": "0.1.0",
+	"description": "WebSocket server that streams Elite Dangerous journal events to connected clients in real time",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome check src/ __tests__/"
+	},
+	"dependencies": {
+		"@elite-dangerous-sdk/journal": "0.1.0",
+		"ws": "^8.16.0"
+	},
+	"devDependencies": {
+		"@types/ws": "^8.5.10",
+		"typescript": "^5.5.0",
+		"vitest": "^2.0.0"
+	},
+	"files": ["dist/", "src/", "README.md"],
+	"publishConfig": {
+		"access": "public"
+	}
+}

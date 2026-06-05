@@ -1,0 +1,57 @@
+{
+	"description": "Organic sample scanned with exobiology tool",
+	"properties": {
+		"Latitude": {
+			"type": "number"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"Species": {
+			"type": "string"
+		},
+		"Variant": {
+			"type": "string"
+		},
+		"Longitude": {
+			"type": "number"
+		},
+		"Variant_Localised": {
+			"type": "string"
+		},
+		"Species_Localised": {
+			"type": "string"
+		},
+		"Genus_Localised": {
+			"type": "string"
+		},
+		"ScanType": {
+			"type": "string",
+			"enum": ["Basic", "Analyse", "Sample"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Genus": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["ScanOrganic"]
+		},
+		"System": {
+			"type": "string",
+			"description": "System name"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "ScanOrganic",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

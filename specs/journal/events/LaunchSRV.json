@@ -1,0 +1,29 @@
+{
+	"description": "SRV launched",
+	"properties": {
+		"Loadout_Localised": {
+			"type": "string"
+		},
+		"ID": {
+			"type": "integer"
+		},
+		"Loadout": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["LaunchSRV"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"PlayerControlled": {
+			"type": "boolean"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "LaunchSRV",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

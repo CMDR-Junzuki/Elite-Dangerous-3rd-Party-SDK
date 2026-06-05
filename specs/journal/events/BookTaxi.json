@@ -1,0 +1,29 @@
+{
+	"description": "Taxi booked (Apex Interstellar)",
+	"properties": {
+		"Cost": {
+			"type": "integer"
+		},
+		"DestinationLocation": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["BookTaxi"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"DestinationStation": {
+			"type": "string"
+		},
+		"DestinationSystem": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "BookTaxi",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

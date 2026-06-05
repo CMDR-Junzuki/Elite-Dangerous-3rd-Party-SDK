@@ -1,0 +1,64 @@
+{
+	"description": "Material traded at a material trader",
+	"properties": {
+		"Traded": {
+			"properties": {
+				"Material": {
+					"type": "string"
+				},
+				"Category": {
+					"type": "string"
+				},
+				"Material_Localised": {
+					"type": "string"
+				},
+				"Quantity": {
+					"type": "integer"
+				},
+				"Category_Localised": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["MaterialTrade"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"TraderType": {
+			"type": "string"
+		},
+		"Received": {
+			"properties": {
+				"Material": {
+					"type": "string"
+				},
+				"Category": {
+					"type": "string"
+				},
+				"Material_Localised": {
+					"type": "string"
+				},
+				"Quantity": {
+					"type": "integer"
+				},
+				"Category_Localised": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "MaterialTrade",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

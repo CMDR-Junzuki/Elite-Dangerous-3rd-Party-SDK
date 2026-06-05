@@ -1,0 +1,34 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Location",
+	"description": "Written when the player's location changes (startup, dock, carrier jump)",
+	"type": "object",
+	"required": ["timestamp", "event", "StarSystem", "StarPos"],
+	"properties": {
+		"timestamp": { "type": "string", "format": "date-time" },
+		"event": { "type": "string", "enum": ["Location"] },
+		"StarSystem": { "type": "string" },
+		"SystemAddress": { "type": "integer" },
+		"StarPos": {
+			"type": "array",
+			"items": { "type": "number" },
+			"minItems": 3,
+			"maxItems": 3
+		},
+		"Body": { "type": "string" },
+		"BodyID": { "type": "integer" },
+		"BodyType": { "type": "string" },
+		"Docked": { "type": "boolean" },
+		"StationName": { "type": "string" },
+		"StationType": { "type": "string" },
+		"MarketID": { "type": "integer" },
+		"SystemAllegiance": { "type": "string" },
+		"SystemEconomy": { "type": "string" },
+		"SystemSecondEconomy": { "type": "string" },
+		"SystemGovernment": { "type": "string" },
+		"SystemSecurity": { "type": "string" },
+		"Population": { "type": "integer" },
+		"PowerplayState": { "type": "string" },
+		"Powers": { "type": "array", "items": { "type": "string" } }
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"description": "Material discarded from inventory",
+	"properties": {
+		"Name": {
+			"type": "string"
+		},
+		"Count": {
+			"type": "integer"
+		},
+		"Category": {
+			"type": "string",
+			"enum": ["Raw", "Manufactured", "Encoded"]
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["MaterialDiscarded"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "MaterialDiscarded",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

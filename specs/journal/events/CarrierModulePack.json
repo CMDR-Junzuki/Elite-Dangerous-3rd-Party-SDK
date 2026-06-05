@@ -1,0 +1,36 @@
+{
+	"description": "Fleet carrier module pack bought/sold",
+	"properties": {
+		"CarrierID": {
+			"type": "integer"
+		},
+		"Cost": {
+			"type": "integer"
+		},
+		"Operation": {
+			"type": "string",
+			"enum": ["BuyPack", "SellPack"]
+		},
+		"PackTier": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CarrierModulePack"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"PackTheme": {
+			"type": "string"
+		},
+		"PackTheme_Localised": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CarrierModulePack",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

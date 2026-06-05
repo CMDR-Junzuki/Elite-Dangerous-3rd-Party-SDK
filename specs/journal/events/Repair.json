@@ -1,0 +1,26 @@
+{
+	"description": "Repair of a specific item",
+	"properties": {
+		"Cost": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Item_Localised": {
+			"type": "string"
+		},
+		"Item": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Repair"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Repair",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

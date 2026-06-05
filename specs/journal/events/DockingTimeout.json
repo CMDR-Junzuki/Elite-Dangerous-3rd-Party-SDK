@@ -1,0 +1,25 @@
+{
+	"description": "Docking request timed out",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"StationName": {
+			"type": "string",
+			"description": "Station name"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["DockingTimeout"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "DockingTimeout",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,7 @@
+[
+	{ "name": "Anarchy", "id": "$GAlAXY_MAP_INFO_state_anarchy;" },
+	{ "name": "Lawless", "id": "$GALAXY_MAP_INFO_state_lawless;" },
+	{ "name": "High", "id": "$SYSTEM_SECURITY_high;" },
+	{ "name": "Low", "id": "$SYSTEM_SECURITY_low;" },
+	{ "name": "Medium", "id": "$SYSTEM_SECURITY_medium;" }
+]

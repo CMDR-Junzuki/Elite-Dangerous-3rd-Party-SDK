@@ -1,0 +1,20 @@
+{
+	"description": "Crew role repaired",
+	"properties": {
+		"CrewID": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CrewRoleRepair"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CrewRoleRepair",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

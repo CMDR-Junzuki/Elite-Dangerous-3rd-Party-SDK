@@ -1,0 +1,23 @@
+{
+	"description": "Legacy fines paid",
+	"properties": {
+		"Amount": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["PayLegacyFines"]
+		},
+		"BrokerPercentage": {
+			"type": "number"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "PayLegacyFines",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

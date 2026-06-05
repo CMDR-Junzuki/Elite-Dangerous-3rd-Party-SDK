@@ -1,0 +1,24 @@
+{
+	"name": "elite-dangerous-sdk",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Elite Dangerous 3rd Party SDK - Journal, CAPI, and community API clients",
+	"workspaces": [
+		"core/packages/*",
+		"core/examples"
+	],
+	"scripts": {
+		"build": "npm run build --workspaces",
+		"test": "npm run test --workspaces",
+    "lint": "biome check --write core/packages core/examples scripts",
+    "lint:check": "biome check core/packages core/examples scripts",
+    "format": "biome format --write core/packages core/examples scripts",
+    "typecheck": "npm run typecheck --workspaces"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.16"
+	}
+}

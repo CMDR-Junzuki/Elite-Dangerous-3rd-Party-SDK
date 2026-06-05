@@ -1,0 +1,59 @@
+{
+	"description": "Player disembarked from ship/SRV",
+	"properties": {
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"Multicrew": {
+			"type": "boolean"
+		},
+		"SRV": {
+			"type": "boolean"
+		},
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"OnPlanet": {
+			"type": "boolean"
+		},
+		"Taxi": {
+			"type": "boolean"
+		},
+		"StationType": {
+			"type": "string",
+			"description": "Station type"
+		},
+		"OnStation": {
+			"type": "boolean"
+		},
+		"StarSystem": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Disembark"]
+		},
+		"StationName": {
+			"type": "string",
+			"description": "Station name"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Disembark",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

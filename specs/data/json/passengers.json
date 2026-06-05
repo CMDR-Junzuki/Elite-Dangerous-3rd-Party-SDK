@@ -1,0 +1,19 @@
+[
+	{ "name": "Business", "fdname": "Business" },
+	{ "name": "Criminal", "fdname": "Criminal" },
+	{ "name": "Explorer", "fdname": "Explorer" },
+	{ "name": "Head Of State", "fdname": "HeadOfState" },
+	{ "name": "Medical", "fdname": "Medical" },
+	{ "name": "Minor Celebrity", "fdname": "MinorCelebrity" },
+	{ "name": "Political Prisoner", "fdname": "PoliticalPrisoner" },
+	{ "name": "Politician", "fdname": "Politician" },
+	{ "name": "Prisoner of War", "fdname": "POW" },
+	{ "name": "Protester", "fdname": "Protester" },
+	{ "name": "Refugee", "fdname": "Refugee" },
+	{ "name": "Scientist", "fdname": "Scientist" },
+	{ "name": "Security", "fdname": "Security" },
+	{ "name": "Soldier", "fdname": "Soldier" },
+	{ "name": "Terrorist", "fdname": "Terrorist" },
+	{ "name": "Tourist", "fdname": "Tourist" },
+	{ "name": "Aid Worker", "fdname": "AidWorker" }
+]

@@ -1,0 +1,17 @@
+[
+	{ "name": "None", "number": "0" },
+	{ "name": "Recruit", "number": "1" },
+	{ "name": "Cadet", "number": "2" },
+	{ "name": "Midshipman", "number": "3" },
+	{ "name": "Petty Officer", "number": "4" },
+	{ "name": "Chief Petty Officer", "number": "5" },
+	{ "name": "Warrant Officer", "number": "6" },
+	{ "name": "Ensign", "number": "7" },
+	{ "name": "Lieutenant", "number": "8" },
+	{ "name": "Lt Commander", "number": "9" },
+	{ "name": "Post Commander", "number": "10" },
+	{ "name": "Post Captain", "number": "11" },
+	{ "name": "Rear Admiral", "number": "12" },
+	{ "name": "Vice Admiral", "number": "13" },
+	{ "name": "Admiral", "number": "14" }
+]

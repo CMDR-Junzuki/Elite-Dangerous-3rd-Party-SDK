@@ -1,0 +1,25 @@
+{
+	"description": "Ship requested undocking (startup)",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"StationName": {
+			"type": "string",
+			"description": "Station name"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Undocking"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Undocking",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

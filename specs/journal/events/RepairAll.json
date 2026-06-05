@@ -1,0 +1,20 @@
+{
+	"description": "Full repair of ship",
+	"properties": {
+		"Cost": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["RepairAll"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "RepairAll",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

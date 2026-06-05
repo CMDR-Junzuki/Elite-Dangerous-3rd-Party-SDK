@@ -1,0 +1,20 @@
+{
+	"description": "Ammunition purchased",
+	"properties": {
+		"Cost": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["BuyAmmo"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "BuyAmmo",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

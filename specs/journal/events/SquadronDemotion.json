@@ -1,0 +1,26 @@
+{
+	"description": "Demoted within squadron",
+	"properties": {
+		"OldRank": {
+			"type": "integer"
+		},
+		"SquadronName": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"NewRank": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SquadronDemotion"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SquadronDemotion",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

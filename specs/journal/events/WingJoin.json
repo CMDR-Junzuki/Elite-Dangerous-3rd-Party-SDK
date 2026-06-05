@@ -1,0 +1,28 @@
+{
+	"description": "Joined a wing",
+	"properties": {
+		"Others": {
+			"items": {
+				"properties": {
+					"Name": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["WingJoin"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "WingJoin",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

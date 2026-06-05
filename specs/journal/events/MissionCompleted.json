@@ -1,0 +1,164 @@
+{
+	"description": "Mission completed by the player",
+	"properties": {
+		"Donated": {
+			"type": "integer"
+		},
+		"MaterialsReward": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Category": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					},
+					"Category_Localised": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Commodity": {
+			"type": "string"
+		},
+		"Count": {
+			"type": "integer"
+		},
+		"PermitsAwarded": {
+			"items": {
+				"properties": {
+					"Permit": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"TargetFaction": {
+			"type": "string"
+		},
+		"DestinationStation": {
+			"type": "string"
+		},
+		"Reward": {
+			"type": "integer"
+		},
+		"RewardDetail_Localised": {
+			"type": "string"
+		},
+		"Name": {
+			"type": "string"
+		},
+		"Donation": {
+			"type": "string"
+		},
+		"RewardDetail": {
+			"type": "string"
+		},
+		"DestinationSystem": {
+			"type": "string"
+		},
+		"FactionEffect": {
+			"items": {
+				"properties": {
+					"ReputationTrend": {
+						"type": "string"
+					},
+					"Faction": {
+						"type": "string"
+					},
+					"Reputation": {
+						"type": "string"
+					},
+					"Influence": {
+						"properties": {
+							"SystemAddress": {
+								"type": "integer"
+							},
+							"Influence": {
+								"type": "string"
+							},
+							"Trend": {
+								"type": "string"
+							}
+						},
+						"type": "object"
+					},
+					"Effects": {
+						"items": {
+							"properties": {
+								"Effect": {
+									"type": "string"
+								},
+								"Trend": {
+									"type": "string"
+								},
+								"Effect_Localised": {
+									"type": "string"
+								}
+							},
+							"type": "object"
+						},
+						"type": "array"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Faction": {
+			"type": "string"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"MissionID": {
+			"type": "integer"
+		},
+		"KillCount": {
+			"type": "integer"
+		},
+		"Commodity_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["MissionCompleted"]
+		},
+		"CommodityReward": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Name": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "MissionCompleted",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,61 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Status",
+	"description": "Frequently updated status information written to Status.json",
+	"type": "object",
+	"required": [
+		"timestamp",
+		"event",
+		"Flags",
+		"Pips",
+		"FireGroup",
+		"GuiFocus",
+		"Fuel",
+		"Cargo"
+	],
+	"properties": {
+		"timestamp": { "type": "string", "format": "date-time" },
+		"event": { "type": "string", "enum": ["Status"] },
+		"Flags": { "type": "integer", "description": "Bitmask of status flags" },
+		"Flags2": {
+			"type": "integer",
+			"description": "Additional flags (Odyssey on-foot)"
+		},
+		"Pips": {
+			"type": "array",
+			"items": { "type": "integer", "minimum": 0, "maximum": 8 },
+			"minItems": 3,
+			"maxItems": 3,
+			"description": "SYS, ENG, WEP pips (half-pip units, 0-8)"
+		},
+		"FireGroup": { "type": "integer", "description": "Selected fire group" },
+		"GuiFocus": {
+			"type": "integer",
+			"description": "Currently focused GUI screen"
+		},
+		"Fuel": {
+			"type": "object",
+			"required": ["FuelMain", "FuelReservoir"],
+			"properties": {
+				"FuelMain": { "type": "number" },
+				"FuelReservoir": { "type": "number" }
+			}
+		},
+		"Cargo": { "type": "number" },
+		"LegalState": { "type": "string" },
+		"Latitude": { "type": "number" },
+		"Longitude": { "type": "number" },
+		"Heading": { "type": "number" },
+		"Altitude": { "type": "number" },
+		"BodyName": { "type": "string" },
+		"PlanetRadius": { "type": "number" },
+		"Balance": { "type": "integer" },
+		"Destination": {
+			"type": "object",
+			"properties": {
+				"System": { "type": "integer" },
+				"Body": { "type": "integer" }
+			}
+		}
+	}
+}

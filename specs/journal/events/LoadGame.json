@@ -1,0 +1,46 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "LoadGame",
+	"description": "Written when the game is loaded, providing commander and ship info",
+	"type": "object",
+	"required": [
+		"timestamp",
+		"event",
+		"Commander",
+		"Ship",
+		"ShipID",
+		"GameMode",
+		"Credits",
+		"Loan"
+	],
+	"properties": {
+		"timestamp": { "type": "string", "format": "date-time" },
+		"event": { "type": "string", "enum": ["LoadGame"] },
+		"Commander": { "type": "string", "description": "Commander name" },
+		"FID": { "type": "string", "description": "Frontier ID (e.g. F123456)" },
+		"Ship": { "type": "string", "description": "Ship type identifier" },
+		"ShipID": { "type": "integer", "description": "Ship ID number" },
+		"ShipName": { "type": "string", "description": "User-defined ship name" },
+		"ShipIdent": { "type": "string", "description": "Ship registration ID" },
+		"FuelLevel": {
+			"type": "number",
+			"description": "Current fuel in main tank (tons)"
+		},
+		"FuelCapacity": {
+			"type": "number",
+			"description": "Main tank capacity (tons)"
+		},
+		"GameMode": { "type": "string", "enum": ["Open", "Solo", "Group"] },
+		"Group": { "type": "string", "description": "Private group name" },
+		"Credits": { "type": "integer", "description": "Current credit balance" },
+		"Loan": { "type": "integer", "description": "Outstanding loan" },
+		"Horizons": {
+			"type": "boolean",
+			"description": "Horizons expansion active"
+		},
+		"Odyssey": { "type": "boolean", "description": "Odyssey expansion active" },
+		"language": { "type": "string" },
+		"gameversion": { "type": "string" },
+		"build": { "type": "string" }
+	}
+}

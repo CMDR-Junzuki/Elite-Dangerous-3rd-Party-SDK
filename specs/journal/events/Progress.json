@@ -1,0 +1,41 @@
+{
+	"description": "Progress toward next rank",
+	"properties": {
+		"Soldier": {
+			"type": "number"
+		},
+		"Exobiologist": {
+			"type": "number"
+		},
+		"Trade": {
+			"type": "number"
+		},
+		"Federation": {
+			"type": "number"
+		},
+		"CQC": {
+			"type": "number"
+		},
+		"Combat": {
+			"type": "number"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Progress"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Explore": {
+			"type": "number"
+		},
+		"Empire": {
+			"type": "number"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Progress",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

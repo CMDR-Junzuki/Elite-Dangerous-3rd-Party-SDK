@@ -1,0 +1,42 @@
+{
+	"description": "Current nav route",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["NavRoute"]
+		},
+		"Route": {
+			"items": {
+				"properties": {
+					"StarSystem": {
+						"type": "string"
+					},
+					"SystemAddress": {
+						"type": "integer"
+					},
+					"StarPos": {
+						"minItems": 3,
+						"items": {
+							"properties": {
+								"type": "number"
+							},
+							"type": "object"
+						},
+						"type": "array",
+						"maxItems": 3
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "NavRoute",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

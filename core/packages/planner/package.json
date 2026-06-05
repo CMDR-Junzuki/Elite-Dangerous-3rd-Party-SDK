@@ -1,0 +1,32 @@
+{
+	"name": "@elite-dangerous-sdk/planner",
+	"version": "0.1.0",
+	"description": "Elite Dangerous material tracking, engineer planner, and trade route finder",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome check src/ __tests__/"
+	},
+	"dependencies": {
+		"@elite-dangerous-sdk/data": "0.1.0",
+		"@elite-dangerous-sdk/utils": "0.1.0"
+	},
+	"devDependencies": {
+		"typescript": "^5.5.0",
+		"vitest": "^2.0.0"
+	},
+	"files": ["dist/", "src/", "README.md"],
+	"publishConfig": {
+		"access": "public"
+	}
+}

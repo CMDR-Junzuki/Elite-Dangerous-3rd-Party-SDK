@@ -1,0 +1,19 @@
+[
+	{ "name": "Agriculture", "id": "$economy_Agri;" },
+	{ "name": "Colony", "id": "$economy_Colony;" },
+	{ "name": "Extraction", "id": "$economy_Extraction;" },
+	{ "name": "High Tech", "id": "$economy_HighTech;" },
+	{ "name": "Industrial", "id": "$economy_Industrial;" },
+	{ "name": "Military", "id": "$economy_Military;" },
+	{ "name": "None", "id": "$economy_None;" },
+	{ "name": "Refinery", "id": "$economy_Refinery;" },
+	{ "name": "Service", "id": "$economy_Service;" },
+	{ "name": "Terraforming", "id": "$economy_Terraforming;" },
+	{ "name": "Tourism", "id": "$economy_Tourism;" },
+	{ "name": "Prison", "id": "$economy_Prison;" },
+	{ "name": "Damaged", "id": "$economy_Damaged;" },
+	{ "name": "Rescue", "id": "$economy_Rescue;" },
+	{ "name": "Repair", "id": "$economy_Repair;" },
+	{ "name": "Private Enterprise", "id": "$economy_Carrier;" },
+	{ "name": "Engineering", "id": "$economy_Engineer;" }
+]

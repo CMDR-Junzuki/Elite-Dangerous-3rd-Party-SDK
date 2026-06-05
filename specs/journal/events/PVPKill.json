@@ -1,0 +1,26 @@
+{
+	"description": "Player kill in PvP",
+	"properties": {
+		"Victim_Localised": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"CombatRank": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["PVPKill"]
+		},
+		"Victim": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "PVPKill",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,39 @@
+{
+	"description": "Micro resources purchased",
+	"properties": {
+		"Name": {
+			"type": "string"
+		},
+		"Category": {
+			"type": "string"
+		},
+		"Count": {
+			"type": "integer"
+		},
+		"Cost": {
+			"type": "integer"
+		},
+		"MarketID": {
+			"type": "integer",
+			"description": "Market ID"
+		},
+		"Category_Localised": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["BuyMicroResources"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Name_Localised": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "BuyMicroResources",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

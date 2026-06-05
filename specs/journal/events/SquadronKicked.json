@@ -1,0 +1,23 @@
+{
+	"description": "Squadron kicked a member",
+	"properties": {
+		"SquadronName": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"PlayerName": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SquadronKicked"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SquadronKicked",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

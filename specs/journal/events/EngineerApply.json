@@ -1,0 +1,29 @@
+{
+	"description": "Experimental effect applied by an engineer",
+	"properties": {
+		"Blueprint": {
+			"type": "string"
+		},
+		"BlueprintID": {
+			"type": "integer"
+		},
+		"Engineer": {
+			"type": "string"
+		},
+		"Level": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["EngineerApply"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "EngineerApply",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

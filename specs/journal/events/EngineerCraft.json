@@ -1,0 +1,81 @@
+{
+	"description": "Module modification crafted by an engineer",
+	"properties": {
+		"ExperimentalEffect": {
+			"type": "string"
+		},
+		"Quality": {
+			"type": "number"
+		},
+		"Modifiers": {
+			"items": {
+				"properties": {
+					"Label": {
+						"type": "string"
+					},
+					"OriginalValue": {
+						"type": "number"
+					},
+					"LessIsGood": {
+						"type": "boolean"
+					},
+					"Value": {
+						"type": "number"
+					},
+					"ValueStr": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Engineer": {
+			"type": "string"
+		},
+		"EngineerID": {
+			"type": "integer"
+		},
+		"Level": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["EngineerCraft"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Ingredients": {
+			"items": {
+				"properties": {
+					"Name_Localised": {
+						"type": "string"
+					},
+					"Quantity": {
+						"type": "integer"
+					},
+					"Name": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"BlueprintID": {
+			"type": "integer"
+		},
+		"ExperimentalEffect_Localised": {
+			"type": "string"
+		},
+		"Blueprint": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "EngineerCraft",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

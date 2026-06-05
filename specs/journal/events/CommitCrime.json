@@ -1,0 +1,35 @@
+{
+	"description": "Crime committed by the player",
+	"properties": {
+		"Victim": {
+			"type": "string"
+		},
+		"Bounty": {
+			"type": "integer"
+		},
+		"CrimeType": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CommitCrime"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"Fine": {
+			"type": "integer"
+		},
+		"Faction": {
+			"type": "string"
+		},
+		"Victim_Localised": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CommitCrime",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

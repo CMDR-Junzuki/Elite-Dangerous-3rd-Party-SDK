@@ -1,0 +1,36 @@
+{
+	"description": "Fleet carrier jump requested",
+	"properties": {
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CarrierJumpRequest"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"DepartureTime": {
+			"type": "string"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"System": {
+			"type": "string",
+			"description": "System name"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CarrierJumpRequest",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

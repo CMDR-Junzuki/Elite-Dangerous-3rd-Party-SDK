@@ -1,0 +1,75 @@
+{
+	"description": "Backpack contents changed",
+	"properties": {
+		"Removed": {
+			"items": {
+				"properties": {
+					"Name": {
+						"type": "string"
+					},
+					"MissionID": {
+						"type": "integer"
+					},
+					"OwnerID": {
+						"type": "integer"
+					},
+					"Type": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					},
+					"Name_Localised": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"Total": {
+			"type": "integer"
+		},
+		"Type": {
+			"type": "integer"
+		},
+		"Added": {
+			"items": {
+				"properties": {
+					"Name": {
+						"type": "string"
+					},
+					"MissionID": {
+						"type": "integer"
+					},
+					"OwnerID": {
+						"type": "integer"
+					},
+					"Type": {
+						"type": "string"
+					},
+					"Count": {
+						"type": "integer"
+					},
+					"Name_Localised": {
+						"type": "string"
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["BackpackChange"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "BackpackChange",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

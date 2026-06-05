@@ -1,0 +1,35 @@
+{
+	"description": "Items collected from space",
+	"properties": {
+		"MissionID": {
+			"type": "integer"
+		},
+		"OwnerID": {
+			"type": "integer"
+		},
+		"Type": {
+			"type": "string"
+		},
+		"Stolen": {
+			"type": "boolean"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CollectItems"]
+		},
+		"Name": {
+			"type": "string"
+		},
+		"Name_Localised": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CollectItems",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

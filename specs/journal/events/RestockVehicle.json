@@ -1,0 +1,32 @@
+{
+	"description": "Vehicle restocked on carrier",
+	"properties": {
+		"Loadout_Localised": {
+			"type": "string"
+		},
+		"Type": {
+			"type": "string"
+		},
+		"Cost": {
+			"type": "integer"
+		},
+		"Loadout": {
+			"type": "string"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["RestockVehicle"]
+		},
+		"Count": {
+			"type": "integer"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "RestockVehicle",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

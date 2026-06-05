@@ -1,0 +1,20 @@
+{
+	"description": "Fighter destroyed",
+	"properties": {
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"ID": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["FighterDestroyed"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "FighterDestroyed",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

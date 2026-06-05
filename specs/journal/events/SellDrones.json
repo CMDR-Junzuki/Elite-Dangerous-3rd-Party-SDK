@@ -1,0 +1,32 @@
+{
+	"description": "Drones sold",
+	"properties": {
+		"Type": {
+			"type": "string"
+		},
+		"Count": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["SellDrones"]
+		},
+		"TotalSale": {
+			"type": "integer"
+		},
+		"SellPrice": {
+			"type": "integer"
+		},
+		"Type_Localised": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "SellDrones",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

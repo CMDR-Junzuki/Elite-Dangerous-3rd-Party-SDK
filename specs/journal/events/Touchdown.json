@@ -1,0 +1,48 @@
+{
+	"description": "Ship touched down on a planet surface",
+	"properties": {
+		"BodyID": {
+			"type": "integer",
+			"description": "Body ID"
+		},
+		"OnStation": {
+			"type": "boolean"
+		},
+		"OnPlanet": {
+			"type": "boolean"
+		},
+		"Latitude": {
+			"type": "number"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["Touchdown"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"SystemAddress": {
+			"type": "integer",
+			"description": "Unique system 64-bit ID"
+		},
+		"PlayerControlled": {
+			"type": "boolean"
+		},
+		"Body": {
+			"type": "string",
+			"description": "Body name"
+		},
+		"System": {
+			"type": "string",
+			"description": "System name"
+		},
+		"Longitude": {
+			"type": "number"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "Touchdown",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

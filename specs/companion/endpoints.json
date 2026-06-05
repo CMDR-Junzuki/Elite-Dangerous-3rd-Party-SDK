@@ -1,0 +1,57 @@
+{
+	"title": "CAPI (Companion API) Endpoint Reference",
+	"description": "Endpoints available on the Frontier Companion API",
+	"version": "0.1.0",
+	"hosts": {
+		"live": "https://companion.orerve.net",
+		"legacy": "https://legacy-companion.orerve.net"
+	},
+	"auth": {
+		"type": "oAuth2 PKCE",
+		"auth_server": "https://auth.frontierstore.net",
+		"token_endpoint": "https://auth.frontierstore.net/token",
+		"scopes": ["auth", "capi"],
+		"audience": "frontier",
+		"user_agent_format": "EDCD-<AppName>-<version>"
+	},
+	"endpoints": {
+		"GET /": {
+			"description": "List available endpoints",
+			"returns": "JSON with links array"
+		},
+		"GET /profile": {
+			"description": "Commander profile - ships, cargo, location, missions",
+			"caveats": "Check commander.docked before using market/shipyard data"
+		},
+		"GET /market": {
+			"description": "Station commodity market from last docked station",
+			"caveats": "Data may lag behind game state by seconds or minutes"
+		},
+		"GET /shipyard": {
+			"description": "Shipyard and outfitting from last docked station",
+			"caveats": "Returns both ships and modules"
+		},
+		"GET /fleetcarrier": {
+			"description": "Commander's fleet carrier information"
+		},
+		"GET /journal": {
+			"description": "Journal log lines from the commander's journal file",
+			"params": {
+        "optional": "/<year>", "/<year>/<month>", "/<year>/<month>/<day>"
+      }
+		},
+		"GET /communitygoals": {
+			"description": "Active community goals and commander's contributions"
+		},
+		"GET /visitedstars": {
+			"description": "Download visited stars cache as zip (status 102 = generating)"
+		}
+	},
+	"notes": [
+		"Use ?language=en|fr|de|ru|es|pt to translate locName and LocDescriptions",
+		"Access tokens expire after 4 hours (14400 seconds)",
+		"HTTP 422 = token expired, refresh and retry",
+		"Data from Legacy galaxy uses legacy-companion.orerve.net",
+		"CAPI data can lag behind game state - always cross-check with journal"
+	]
+}

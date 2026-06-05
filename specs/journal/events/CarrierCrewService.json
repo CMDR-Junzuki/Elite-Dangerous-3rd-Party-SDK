@@ -1,0 +1,30 @@
+{
+	"description": "Fleet carrier crew service",
+	"properties": {
+		"CrewName": {
+			"type": "string"
+		},
+		"CarrierID": {
+			"type": "integer"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["CarrierCrewService"]
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"CrewRole": {
+			"type": "string"
+		},
+		"Operation": {
+			"type": "string",
+			"enum": ["Activate", "Deactivate"]
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "CarrierCrewService",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}

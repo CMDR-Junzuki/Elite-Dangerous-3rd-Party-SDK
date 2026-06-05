@@ -1,0 +1,23 @@
+{
+	"description": "Joined a multicrew session",
+	"properties": {
+		"Captain_Localised": {
+			"type": "string"
+		},
+		"timestamp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"event": {
+			"type": "string",
+			"enum": ["JoinACrew"]
+		},
+		"Captain": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": ["timestamp", "event"],
+	"title": "JoinACrew",
+	"$schema": "http://json-schema.org/draft-07/schema#"
+}
