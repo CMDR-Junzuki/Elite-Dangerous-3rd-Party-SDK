@@ -8,7 +8,7 @@
 		"core/examples"
 	],
 	"scripts": {
-		"build": "npm run build --workspaces",
+		"build": "npm run build -w @elite-dangerous-sdk/data -w @elite-dangerous-sdk/utils -w @elite-dangerous-sdk/journal && npm run build --workspaces",
 		"test": "npm run test --workspaces",
     "lint": "biome check --write core/packages core/examples scripts",
     "lint:check": "biome check core/packages core/examples scripts",
