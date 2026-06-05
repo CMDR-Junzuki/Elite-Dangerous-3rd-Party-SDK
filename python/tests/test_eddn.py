@@ -5,12 +5,27 @@ from unittest.mock import patch, MagicMock
 from elite_dangerous_sdk.eddn import (
     EDDNClient, EDDNReceiver, UPLOAD_URL, RELAY_URL,
     EDDN_SCHEMAS,
+    validate_approach_settlement_message,
+    validate_backpack_message,
     validate_blackmarket_message,
+    validate_carrier_jump_message,
+    validate_code_entry_message,
     validate_commodity_message,
+    validate_dispatch_message,
+    validate_eddn,
     validate_fc_materials_journal_message,
     validate_fc_materials_message,
+    validate_fsd_jump_message,
+    validate_fss_discovered_message,
     validate_journal_message,
+    validate_location_message,
+    validate_nav_route_clear_message,
     validate_nav_route_message,
+    validate_outfitting_message,
+    validate_saa_signals_found_message,
+    validate_scan_message,
+    validate_ship_locker_message,
+    validate_shipyard_message,
 )
 
 
@@ -130,7 +145,7 @@ def test_validate_commodity_valid():
         "marketId": 12345,
         "commodities": [{"name": "Gold", "buyPrice": 100, "sellPrice": 200}],
     }
-    assert validate_commodity_message(msg) is True
+    assert validate_commodity_message(msg) == []
 
 
 def test_validate_commodity_missing_field():
@@ -140,7 +155,7 @@ def test_validate_commodity_missing_field():
         "marketId": 12345,
         "commodities": [{"name": "Gold", "buyPrice": 100, "sellPrice": 200}],
     }
-    assert validate_commodity_message(msg) is False
+    assert len(validate_commodity_message(msg)) > 0
 
 
 def test_validate_fc_materials_valid():
@@ -151,7 +166,7 @@ def test_validate_fc_materials_valid():
         "carrierCallsign": "ABC-123",
         "carrierDockingAccess": "All",
     }
-    assert validate_fc_materials_message(msg) is True
+    assert validate_fc_materials_message(msg) == []
 
 
 @patch.object(EDDNClient, "send")
@@ -179,11 +194,11 @@ def test_send_fleet_carrier_http_error(mock_post):
 
 
 def test_validate_journal_valid():
-    assert validate_journal_message({"event": "FSDJump"}) is True
+    assert validate_journal_message({"event": "FSDJump"}) == []
 
 
 def test_validate_journal_invalid():
-    assert validate_journal_message({}) is False
+    assert len(validate_journal_message({})) > 0
 
 
 def test_validate_blackmarket_valid():
@@ -193,11 +208,11 @@ def test_validate_blackmarket_valid():
         "marketId": 1,
         "items": [{"name": "Gold"}],
     }
-    assert validate_blackmarket_message(msg) is True
+    assert validate_blackmarket_message(msg) == []
 
 
 def test_validate_blackmarket_invalid():
-    assert validate_blackmarket_message({}) is False
+    assert len(validate_blackmarket_message({})) > 0
 
 
 def test_validate_nav_route_valid():
@@ -205,11 +220,11 @@ def test_validate_nav_route_valid():
         "systemName": "Sol",
         "route": [{"StarPos": [0, 0, 0], "systemName": "Sol", "systemAddress": 1}],
     }
-    assert validate_nav_route_message(msg) is True
+    assert validate_nav_route_message(msg) == []
 
 
 def test_validate_nav_route_invalid():
-    assert validate_nav_route_message({}) is False
+    assert len(validate_nav_route_message({})) > 0
 
 
 def test_validate_fc_materials_journal_valid():
@@ -220,11 +235,11 @@ def test_validate_fc_materials_journal_valid():
         "MarketID": 1,
         "Items": [{"name": "Tritium"}],
     }
-    assert validate_fc_materials_journal_message(msg) is True
+    assert validate_fc_materials_journal_message(msg) == []
 
 
 def test_validate_fc_materials_journal_invalid():
-    assert validate_fc_materials_journal_message({}) is False
+    assert len(validate_fc_materials_journal_message({})) > 0
 
 
 @patch.object(EDDNClient, "send")
@@ -256,3 +271,171 @@ def test_send_fc_materials_journal(mock_send):
         [{"name": "Tritium"}],
     )
     mock_send.assert_called_once()
+
+
+def test_validate_approach_settlement():
+    errors = validate_approach_settlement_message({
+        "settlementName": "Lonely Haven",
+        "SystemAddress": 123,
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_approach_settlement_missing():
+    errors = validate_approach_settlement_message({})
+    assert len(errors) > 0
+
+
+def test_validate_scan():
+    errors = validate_scan_message({
+        "timestamp": "2024-01-01T00:00:00Z",
+        "BodyName": "Sol 1",
+    })
+    assert errors == []
+
+
+def test_validate_fsd_jump():
+    errors = validate_fsd_jump_message({
+        "StarSystem": "Sol",
+        "SystemAddress": 123,
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_location():
+    errors = validate_location_message({
+        "StarSystem": "Sol",
+        "SystemAddress": 123,
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_carrier_jump():
+    errors = validate_carrier_jump_message({
+        "StarSystem": "Sol",
+        "SystemAddress": 123,
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_code_entry():
+    errors = validate_code_entry_message({
+        "systemName": "Sol",
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_fss_discovered():
+    errors = validate_fss_discovered_message({
+        "systemName": "Sol",
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_saa_signals_found():
+    errors = validate_saa_signals_found_message({
+        "systemName": "Sol",
+        "bodyName": "Sol 1",
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_dispatch():
+    errors = validate_dispatch_message({
+        "Text": "Hello",
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_backpack():
+    errors = validate_backpack_message({
+        "timestamp": "2024-01-01T00:00:00Z",
+        "Items": ["Item1"],
+    })
+    assert errors == []
+
+
+def test_validate_ship_locker():
+    errors = validate_ship_locker_message({
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_nav_route_clear():
+    errors = validate_nav_route_clear_message({
+        "timestamp": "2024-01-01T00:00:00Z",
+    })
+    assert errors == []
+
+
+def test_validate_eddn_null():
+    errors = validate_eddn(None)
+    assert errors == ["envelope is required"]
+
+
+def test_validate_eddn_missing_schema_ref():
+    errors = validate_eddn({
+        "header": {"uploaderID": "x", "softwareName": "y", "softwareVersion": "z"},
+        "message": {"StarSystem": "Sol", "SystemAddress": 1, "timestamp": "t"},
+    })
+    assert "$schemaRef is required" in errors
+
+
+def test_validate_eddn_missing_header_fields():
+    errors = validate_eddn({
+        "$schemaRef": EDDN_SCHEMAS["FSDJUMP"],
+        "header": {},
+        "message": {"StarSystem": "Sol", "SystemAddress": 1, "timestamp": "t"},
+    })
+    assert "header.uploaderID is required" in errors
+    assert "header.softwareName is required" in errors
+    assert "header.softwareVersion is required" in errors
+
+
+def test_validate_eddn_unknown_schema():
+    errors = validate_eddn({
+        "$schemaRef": "https://unknown/schema",
+        "header": {"uploaderID": "x", "softwareName": "y", "softwareVersion": "z"},
+        "message": {"x": 1},
+    })
+    assert "unknown schema: https://unknown/schema" in errors
+
+
+def test_validate_eddn_valid_fsd_jump():
+    errors = validate_eddn({
+        "$schemaRef": EDDN_SCHEMAS["FSDJUMP"],
+        "header": {"uploaderID": "me", "softwareName": "test", "softwareVersion": "1.0"},
+        "message": {"StarSystem": "Sol", "SystemAddress": 123, "timestamp": "2024-01-01T00:00:00Z"},
+    })
+    assert errors == []
+
+
+def test_validate_eddn_valid_commodity():
+    errors = validate_eddn({
+        "$schemaRef": EDDN_SCHEMAS["COMMODITY"],
+        "header": {"uploaderID": "me", "softwareName": "test", "softwareVersion": "1.0"},
+        "message": {
+            "systemName": "Sol", "stationName": "Station", "marketId": 1,
+            "commodities": [{"name": "Gold", "buyPrice": 100, "sellPrice": 200}],
+        },
+    })
+    assert errors == []
+
+
+def test_validate_eddn_reports_message_errors():
+    errors = validate_eddn({
+        "$schemaRef": EDDN_SCHEMAS["COMMODITY"],
+        "header": {"uploaderID": "me", "softwareName": "test", "softwareVersion": "1.0"},
+        "message": {},
+    })
+    assert len(errors) > 0
+    assert "systemName is required" in errors

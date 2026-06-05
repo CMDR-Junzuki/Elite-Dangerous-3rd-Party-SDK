@@ -64,7 +64,20 @@ from .ws_journal import JournalWebSocketServer
 from .companion import CompanionClient
 from .edsm import EDSMClient
 from .inara import InaraClient
-from .eddn import EDDNClient, EDDNReceiver, EDDN_SCHEMAS, validate_commodity_message, validate_shipyard_message, validate_outfitting_message, validate_fc_materials_message
+from .eddn import (
+    EDDNClient, EDDNReceiver, EDDN_SCHEMAS,
+    validate_approach_settlement_message, validate_backpack_message,
+    validate_blackmarket_message, validate_carrier_jump_message,
+    validate_code_entry_message, validate_commodity_message,
+    validate_dispatch_message, validate_eddn,
+    validate_fc_materials_journal_message, validate_fc_materials_message,
+    validate_fsd_jump_message, validate_fss_discovered_message,
+    validate_journal_message, validate_location_message,
+    validate_nav_route_clear_message, validate_nav_route_message,
+    validate_outfitting_message, validate_saa_signals_found_message,
+    validate_scan_message, validate_ship_locker_message,
+    validate_shipyard_message,
+)
 from .spansh import SpanshClient
 from .elitebgs import EliteBGSClient
 from .elitebgs_models import (

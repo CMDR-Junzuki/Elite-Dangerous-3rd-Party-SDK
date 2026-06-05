@@ -5,13 +5,26 @@ import {
   EDDNReceiver,
   RELAY_URL,
   UPLOAD_URL,
+  validateApproachSettlementMessage,
+  validateBackpackMessage,
   validateBlackmarketMessage,
+  validateCarrierJumpMessage,
+  validateCodeEntryMessage,
   validateCommodityMessage,
+  validateDispatchMessage,
+  validateEDDN,
   validateFcMaterialsJournalMessage,
   validateFcMaterialsMessage,
+  validateFsdJumpMessage,
+  validateFssDiscoveredMessage,
   validateJournalMessage,
+  validateLocationMessage,
+  validateNavRouteClearMessage,
   validateNavRouteMessage,
   validateOutfittingMessage,
+  validateSaaSignalsFoundMessage,
+  validateScanMessage,
+  validateShipLockerMessage,
   validateShipyardMessage,
 } from "../src";
 
@@ -402,6 +415,192 @@ describe("eddn", () => {
           Items: [{ name: "Tritium" }],
         }),
       ).toHaveLength(0);
+    });
+  });
+
+  describe("validateApproachSettlementMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateApproachSettlementMessage({
+          settlementName: "Lonely Haven",
+          SystemAddress: 123,
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateScanMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateScanMessage({
+          timestamp: "2024-01-01T00:00:00Z",
+          BodyName: "Sol 1",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateFsdJumpMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateFsdJumpMessage({
+          StarSystem: "Sol",
+          SystemAddress: 123,
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateLocationMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateLocationMessage({
+          StarSystem: "Sol",
+          SystemAddress: 123,
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateCarrierJumpMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateCarrierJumpMessage({
+          StarSystem: "Sol",
+          SystemAddress: 123,
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateCodeEntryMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateCodeEntryMessage({
+          systemName: "Sol",
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateFssDiscoveredMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateFssDiscoveredMessage({
+          systemName: "Sol",
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateSaaSignalsFoundMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateSaaSignalsFoundMessage({
+          systemName: "Sol",
+          bodyName: "Sol 1",
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateDispatchMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateDispatchMessage({
+          Text: "Hello",
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateBackpackMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateBackpackMessage({
+          timestamp: "2024-01-01T00:00:00Z",
+          Items: ["Item1"],
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateShipLockerMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateShipLockerMessage({
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateNavRouteClearMessage", () => {
+    it("passes for valid message", () => {
+      expect(
+        validateNavRouteClearMessage({
+          timestamp: "2024-01-01T00:00:00Z",
+        }),
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("validateEDDN", () => {
+    it("returns errors for null envelope", () => {
+      expect(validateEDDN(null as any)).toEqual(["envelope is required"]);
+    });
+
+    it("returns errors for missing $schemaRef", () => {
+      const errs = validateEDDN({ header: { uploaderID: "x", softwareName: "y", softwareVersion: "z" }, message: { StarSystem: "Sol", SystemAddress: 1, timestamp: "t" } });
+      expect(errs).toContain("$schemaRef is required");
+    });
+
+    it("returns errors for missing header fields", () => {
+      const errs = validateEDDN({ $schemaRef: EDDN_SCHEMAS.FSDJUMP, header: {} as any, message: { StarSystem: "Sol", SystemAddress: 1, timestamp: "t" } });
+      expect(errs).toContain("header.uploaderID is required");
+      expect(errs).toContain("header.softwareName is required");
+      expect(errs).toContain("header.softwareVersion is required");
+    });
+
+    it("returns errors for unknown schema", () => {
+      const errs = validateEDDN({ $schemaRef: "https://unknown/schema", header: { uploaderID: "x", softwareName: "y", softwareVersion: "z" }, message: { x: 1 } });
+      expect(errs).toContain("unknown schema: https://unknown/schema");
+    });
+
+    it("validates a valid FSDJump envelope", () => {
+      const errs = validateEDDN({
+        $schemaRef: EDDN_SCHEMAS.FSDJUMP,
+        header: { uploaderID: "me", softwareName: "test", softwareVersion: "1.0" },
+        message: { StarSystem: "Sol", SystemAddress: 123, timestamp: "2024-01-01T00:00:00Z" },
+      });
+      expect(errs).toHaveLength(0);
+    });
+
+    it("validates a valid commodity envelope", () => {
+      const errs = validateEDDN({
+        $schemaRef: EDDN_SCHEMAS.COMMODITY,
+        header: { uploaderID: "me", softwareName: "test", softwareVersion: "1.0" },
+        message: { systemName: "Sol", stationName: "Station", marketId: 1, commodities: [{ name: "Gold", buyPrice: 100, sellPrice: 200 }] },
+      });
+      expect(errs).toHaveLength(0);
+    });
+
+    it("reports message-level errors through the envelope", () => {
+      const errs = validateEDDN({
+        $schemaRef: EDDN_SCHEMAS.COMMODITY,
+        header: { uploaderID: "me", softwareName: "test", softwareVersion: "1.0" },
+        message: {} as any,
+      });
+      expect(errs.length).toBeGreaterThan(0);
+      expect(errs).toContain("systemName is required");
     });
   });
 });

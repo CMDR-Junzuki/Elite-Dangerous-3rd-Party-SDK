@@ -38,110 +38,317 @@ EDDN_SCHEMAS = {
 }
 
 
-def validate_commodity_message(msg: dict) -> bool:
+def validate_commodity_message(msg: dict) -> list[str]:
+    errors: list[str] = []
     if not msg.get("systemName"):
-        return False
+        errors.append("systemName is required")
     if not msg.get("stationName"):
-        return False
+        errors.append("stationName is required")
     if not msg.get("marketId"):
-        return False
+        errors.append("marketId is required")
     commodities = msg.get("commodities")
     if not commodities or not isinstance(commodities, list):
-        return False
-    for c in commodities:
-        if not c.get("name"):
-            return False
-        if "buyPrice" not in c:
-            return False
-        if "sellPrice" not in c:
-            return False
-    return True
+        errors.append("commodities array is required")
+    else:
+        for c in commodities:
+            if not c.get("name"):
+                errors.append("commodity.name is required")
+            if "buyPrice" not in c:
+                errors.append("commodity.buyPrice is required")
+            if "sellPrice" not in c:
+                errors.append("commodity.sellPrice is required")
+    return errors
 
 
-def validate_shipyard_message(msg: dict) -> bool:
+def validate_shipyard_message(msg: dict) -> list[str]:
+    errors: list[str] = []
     if not msg.get("systemName"):
-        return False
+        errors.append("systemName is required")
     if not msg.get("stationName"):
-        return False
+        errors.append("stationName is required")
     if not msg.get("marketId"):
-        return False
+        errors.append("marketId is required")
     ships = msg.get("ships")
     if not ships or not isinstance(ships, list):
-        return False
-    return True
+        errors.append("ships array is required")
+    return errors
 
 
-def validate_outfitting_message(msg: dict) -> bool:
+def validate_outfitting_message(msg: dict) -> list[str]:
+    errors: list[str] = []
     if not msg.get("systemName"):
-        return False
+        errors.append("systemName is required")
     if not msg.get("stationName"):
-        return False
+        errors.append("stationName is required")
     if not msg.get("marketId"):
-        return False
+        errors.append("marketId is required")
     modules = msg.get("modules")
     if not modules or not isinstance(modules, list):
-        return False
-    return True
+        errors.append("modules array is required")
+    return errors
 
 
-def validate_fc_materials_message(msg: dict) -> bool:
+def validate_fc_materials_message(msg: dict) -> list[str]:
+    errors: list[str] = []
     if not msg.get("systemName"):
-        return False
+        errors.append("systemName is required")
     if not msg.get("stationName"):
-        return False
+        errors.append("stationName is required")
     if not msg.get("marketId"):
-        return False
+        errors.append("marketId is required")
     if not msg.get("carrierCallsign"):
-        return False
+        errors.append("carrierCallsign is required")
     if not msg.get("carrierDockingAccess"):
-        return False
-    return True
+        errors.append("carrierDockingAccess is required")
+    return errors
 
 
-def validate_journal_message(msg: dict) -> bool:
+def validate_journal_message(msg: dict) -> list[str]:
+    errors: list[str] = []
     if not msg or not isinstance(msg, dict):
-        return False
-    return True
+        errors.append("message must not be empty")
+    return errors
 
 
-def validate_blackmarket_message(msg: dict) -> bool:
+def validate_blackmarket_message(msg: dict) -> list[str]:
+    errors: list[str] = []
     if not msg.get("systemName"):
-        return False
+        errors.append("systemName is required")
     if not msg.get("stationName"):
-        return False
+        errors.append("stationName is required")
     if not msg.get("marketId"):
-        return False
+        errors.append("marketId is required")
     items = msg.get("items")
     if not items or not isinstance(items, list):
-        return False
-    for i in items:
-        if not i.get("name"):
-            return False
-    return True
+        errors.append("items array is required")
+    else:
+        for i in items:
+            if not i.get("name"):
+                errors.append("item.name is required")
+    return errors
 
 
-def validate_nav_route_message(msg: dict) -> bool:
+def validate_nav_route_message(msg: dict) -> list[str]:
+    errors: list[str] = []
     if not msg.get("systemName"):
-        return False
+        errors.append("systemName is required")
     route = msg.get("route")
     if not route or not isinstance(route, list):
-        return False
-    return True
+        errors.append("route array is required")
+    return errors
 
 
-def validate_fc_materials_journal_message(msg: dict) -> bool:
+def validate_fc_materials_journal_message(msg: dict) -> list[str]:
+    errors: list[str] = []
     if not msg.get("timestamp"):
-        return False
+        errors.append("timestamp is required")
     if not msg.get("event"):
-        return False
+        errors.append("event is required")
     if not msg.get("CarrierName"):
-        return False
+        errors.append("CarrierName is required")
     if not msg.get("MarketID"):
-        return False
+        errors.append("MarketID is required")
     items = msg.get("Items")
     if not items or not isinstance(items, list):
-        return False
-    return True
+        errors.append("Items array is required")
+    return errors
+
+
+def validate_approach_settlement_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("settlementName"):
+        errors.append("settlementName is required")
+    if not msg.get("SystemAddress"):
+        errors.append("SystemAddress is required")
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    return errors
+
+
+def validate_nav_route_clear_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if "route" in msg and not isinstance(msg["route"], list):
+        errors.append("route must be an array")
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    return errors
+
+
+def validate_scan_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    if not msg.get("BodyName") and not msg.get("BodyID"):
+        errors.append("BodyName or BodyID is required")
+    return errors
+
+
+def validate_code_entry_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("systemName"):
+        errors.append("systemName is required")
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    return errors
+
+
+def validate_fss_discovered_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("systemName"):
+        errors.append("systemName is required")
+    if "bodies" in msg and not isinstance(msg["bodies"], list):
+        errors.append("bodies must be an array")
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    return errors
+
+
+def validate_saa_signals_found_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("systemName"):
+        errors.append("systemName is required")
+    if not msg.get("bodyName"):
+        errors.append("bodyName is required")
+    if "signals" in msg and not isinstance(msg["signals"], list):
+        errors.append("signals must be an array")
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    return errors
+
+
+def validate_fsd_jump_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("StarSystem"):
+        errors.append("StarSystem is required")
+    if not msg.get("SystemAddress"):
+        errors.append("SystemAddress is required")
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    return errors
+
+
+def validate_location_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("StarSystem"):
+        errors.append("StarSystem is required")
+    if not msg.get("SystemAddress"):
+        errors.append("SystemAddress is required")
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    return errors
+
+
+def validate_carrier_jump_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("StarSystem"):
+        errors.append("StarSystem is required")
+    if not msg.get("SystemAddress"):
+        errors.append("SystemAddress is required")
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    return errors
+
+
+def validate_dispatch_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("Text") and not msg.get("Topics"):
+        errors.append("Text or Topics is required")
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    return errors
+
+
+def validate_backpack_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    if "Items" in msg and not isinstance(msg["Items"], list):
+        errors.append("Items must be an array")
+    if "Components" in msg and not isinstance(msg["Components"], list):
+        errors.append("Components must be an array")
+    if "Consumables" in msg and not isinstance(msg["Consumables"], list):
+        errors.append("Consumables must be an array")
+    if "Data" in msg and not isinstance(msg["Data"], list):
+        errors.append("Data must be an array")
+    return errors
+
+
+def validate_ship_locker_message(msg: dict) -> list[str]:
+    errors: list[str] = []
+    if not msg.get("timestamp"):
+        errors.append("timestamp is required")
+    if "Items" in msg and not isinstance(msg["Items"], list):
+        errors.append("Items must be an array")
+    if "Components" in msg and not isinstance(msg["Components"], list):
+        errors.append("Components must be an array")
+    if "Consumables" in msg and not isinstance(msg["Consumables"], list):
+        errors.append("Consumables must be an array")
+    if "Data" in msg and not isinstance(msg["Data"], list):
+        errors.append("Data must be an array")
+    return errors
+
+
+_SCHEMA_VALIDATORS: dict[str, callable] = {
+    EDDN_SCHEMAS["COMMODITY"]: validate_commodity_message,
+    EDDN_SCHEMAS["SHIPYARD"]: validate_shipyard_message,
+    EDDN_SCHEMAS["OUTFITTING"]: validate_outfitting_message,
+    EDDN_SCHEMAS["FCMATERIALS_CAPI"]: validate_fc_materials_message,
+    EDDN_SCHEMAS["JOURNAL"]: validate_journal_message,
+    EDDN_SCHEMAS["BLACKMARKET"]: validate_blackmarket_message,
+    EDDN_SCHEMAS["NAVROUTE"]: validate_nav_route_message,
+    EDDN_SCHEMAS["FCMATERIALS_JOURNAL"]: validate_fc_materials_journal_message,
+    EDDN_SCHEMAS["APPROACHSETTLEMENT"]: validate_approach_settlement_message,
+    EDDN_SCHEMAS["NAVROUTECLEAR"]: validate_nav_route_clear_message,
+    EDDN_SCHEMAS["SCAN"]: validate_scan_message,
+    EDDN_SCHEMAS["CODEENTRY"]: validate_code_entry_message,
+    EDDN_SCHEMAS["FSSDISCOVERED"]: validate_fss_discovered_message,
+    EDDN_SCHEMAS["SAASIGNSFOUND"]: validate_saa_signals_found_message,
+    EDDN_SCHEMAS["FSDJUMP"]: validate_fsd_jump_message,
+    EDDN_SCHEMAS["LOCATION"]: validate_location_message,
+    EDDN_SCHEMAS["CARRIERJUMP"]: validate_carrier_jump_message,
+    EDDN_SCHEMAS["DISPATCH"]: validate_dispatch_message,
+    EDDN_SCHEMAS["BACKPACK"]: validate_backpack_message,
+    EDDN_SCHEMAS["SHIPLOCKER"]: validate_ship_locker_message,
+}
+
+
+def validate_eddn(envelope: dict) -> list[str]:
+    """Validate a raw EDDN message by $schemaRef autodetection."""
+    errors: list[str] = []
+    if not envelope:
+        return ["envelope is required"]
+
+    if not envelope.get("$schemaRef"):
+        errors.append("$schemaRef is required")
+    header = envelope.get("header")
+    if header is None:
+        errors.append("header is required")
+    else:
+        if not header.get("uploaderID"):
+            errors.append("header.uploaderID is required")
+        if not header.get("softwareName"):
+            errors.append("header.softwareName is required")
+        if not header.get("softwareVersion"):
+            errors.append("header.softwareVersion is required")
+
+    message = envelope.get("message")
+    if message is None:
+        errors.append("message is required")
+        return errors
+
+    schema_ref = envelope.get("$schemaRef")
+    if not schema_ref:
+        return errors
+
+    validator = _SCHEMA_VALIDATORS.get(schema_ref)
+    if validator is None:
+        errors.append(f"unknown schema: {schema_ref}")
+        return errors
+
+    result = validator(message)
+    if result:
+        errors.extend(result)
+    return errors
 
 
 class EDDNClient:

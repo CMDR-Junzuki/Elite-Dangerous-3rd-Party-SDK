@@ -99,7 +99,7 @@ public class EddnClientTests
     }
 
     [Fact]
-    public void ValidateCommodity_Valid_ReturnsTrue()
+    public void ValidateCommodity_Valid_ReturnsEmpty()
     {
         var msg = new Dictionary<string, object?>
         {
@@ -111,18 +111,18 @@ public class EddnClientTests
                 new() { ["name"] = "Coffee", ["buyPrice"] = 1000, ["sellPrice"] = 1200, ["meanPrice"] = 1100, ["stockBracket"] = 2, ["demandBracket"] = 0, ["stock"] = 50000, ["demand"] = 0 }
             }
         };
-        Assert.True(EDDNClient.ValidateCommodityMessage(msg));
+        Assert.Empty(EDDNClient.ValidateCommodityMessage(msg));
     }
 
     [Fact]
-    public void ValidateCommodity_MissingField_ReturnsFalse()
+    public void ValidateCommodity_MissingField_ReturnsErrors()
     {
         var msg = new Dictionary<string, object?>
         {
             ["stationName"] = "Station",
             ["marketId"] = 12345L,
         };
-        Assert.False(EDDNClient.ValidateCommodityMessage(msg));
+        Assert.NotEmpty(EDDNClient.ValidateCommodityMessage(msg));
     }
 
     [Fact]
@@ -212,20 +212,20 @@ public class EddnClientTests
     }
 
     [Fact]
-    public void ValidateJournal_Valid_ReturnsTrue()
+    public void ValidateJournal_Valid_ReturnsEmpty()
     {
         var msg = new Dictionary<string, object?> { ["event"] = "FSDJump" };
-        Assert.True(EDDNClient.ValidateJournalMessage(msg));
+        Assert.Empty(EDDNClient.ValidateJournalMessage(msg));
     }
 
     [Fact]
-    public void ValidateJournal_Empty_ReturnsFalse()
+    public void ValidateJournal_Empty_ReturnsErrors()
     {
-        Assert.False(EDDNClient.ValidateJournalMessage(new Dictionary<string, object?>()));
+        Assert.NotEmpty(EDDNClient.ValidateJournalMessage(new Dictionary<string, object?>()));
     }
 
     [Fact]
-    public void ValidateBlackmarket_Valid_ReturnsTrue()
+    public void ValidateBlackmarket_Valid_ReturnsEmpty()
     {
         var msg = new Dictionary<string, object?>
         {
@@ -237,17 +237,17 @@ public class EddnClientTests
                 new() { ["name"] = "Gold" }
             }
         };
-        Assert.True(EDDNClient.ValidateBlackmarketMessage(msg));
+        Assert.Empty(EDDNClient.ValidateBlackmarketMessage(msg));
     }
 
     [Fact]
-    public void ValidateBlackmarket_Missing_ReturnsFalse()
+    public void ValidateBlackmarket_Missing_ReturnsErrors()
     {
-        Assert.False(EDDNClient.ValidateBlackmarketMessage(new Dictionary<string, object?>()));
+        Assert.NotEmpty(EDDNClient.ValidateBlackmarketMessage(new Dictionary<string, object?>()));
     }
 
     [Fact]
-    public void ValidateNavRoute_Valid_ReturnsTrue()
+    public void ValidateNavRoute_Valid_ReturnsEmpty()
     {
         var msg = new Dictionary<string, object?>
         {
@@ -257,17 +257,17 @@ public class EddnClientTests
                 new() { ["StarPos"] = new List<double> { 0, 0, 0 }, ["systemName"] = "Sol", ["systemAddress"] = 1L }
             }
         };
-        Assert.True(EDDNClient.ValidateNavRouteMessage(msg));
+        Assert.Empty(EDDNClient.ValidateNavRouteMessage(msg));
     }
 
     [Fact]
-    public void ValidateNavRoute_Missing_ReturnsFalse()
+    public void ValidateNavRoute_Missing_ReturnsErrors()
     {
-        Assert.False(EDDNClient.ValidateNavRouteMessage(new Dictionary<string, object?>()));
+        Assert.NotEmpty(EDDNClient.ValidateNavRouteMessage(new Dictionary<string, object?>()));
     }
 
     [Fact]
-    public void ValidateFcMaterialsJournal_Valid_ReturnsTrue()
+    public void ValidateFcMaterialsJournal_Valid_ReturnsEmpty()
     {
         var msg = new Dictionary<string, object?>
         {
@@ -280,13 +280,13 @@ public class EddnClientTests
                 new() { ["name"] = "Tritium" }
             }
         };
-        Assert.True(EDDNClient.ValidateFcMaterialsJournalMessage(msg));
+        Assert.Empty(EDDNClient.ValidateFcMaterialsJournalMessage(msg));
     }
 
     [Fact]
-    public void ValidateFcMaterialsJournal_Missing_ReturnsFalse()
+    public void ValidateFcMaterialsJournal_Missing_ReturnsErrors()
     {
-        Assert.False(EDDNClient.ValidateFcMaterialsJournalMessage(new Dictionary<string, object?>()));
+        Assert.NotEmpty(EDDNClient.ValidateFcMaterialsJournalMessage(new Dictionary<string, object?>()));
     }
 
     [Fact]
@@ -360,5 +360,228 @@ public class EddnClientTests
             "2024-01-01T00:00:00Z", "FCMaterials", "ABC-01", 1,
             new List<Dictionary<string, object?>> { new() { ["name"] = "Tritium" } });
         Assert.True(result);
+    }
+
+    [Fact]
+    public void ValidateApproachSettlement_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["settlementName"] = "Lonely Haven",
+            ["SystemAddress"] = 123L,
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateApproachSettlementMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateScan_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["timestamp"] = "2024-01-01T00:00:00Z",
+            ["BodyName"] = "Sol 1"
+        };
+        Assert.Empty(EDDNClient.ValidateScanMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateFsdJump_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["StarSystem"] = "Sol",
+            ["SystemAddress"] = 123L,
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateFsdJumpMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateLocation_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["StarSystem"] = "Sol",
+            ["SystemAddress"] = 123L,
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateLocationMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateCarrierJump_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["StarSystem"] = "Sol",
+            ["SystemAddress"] = 123L,
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateCarrierJumpMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateCodeEntry_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["systemName"] = "Sol",
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateCodeEntryMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateFssDiscovered_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["systemName"] = "Sol",
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateFssDiscoveredMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateSaaSignalsFound_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["systemName"] = "Sol",
+            ["bodyName"] = "Sol 1",
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateSaaSignalsFoundMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateDispatch_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["Text"] = "Hello",
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateDispatchMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateBackpack_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["timestamp"] = "2024-01-01T00:00:00Z",
+            ["Items"] = new List<string> { "Item1" }
+        };
+        Assert.Empty(EDDNClient.ValidateBackpackMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateShipLocker_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateShipLockerMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateNavRouteClear_Valid_ReturnsEmpty()
+    {
+        var msg = new Dictionary<string, object?>
+        {
+            ["timestamp"] = "2024-01-01T00:00:00Z"
+        };
+        Assert.Empty(EDDNClient.ValidateNavRouteClearMessage(msg));
+    }
+
+    [Fact]
+    public void ValidateEDDN_Null_ReturnsError()
+    {
+        var errs = EDDNClient.ValidateEDDN(null!);
+        Assert.Equal("envelope is required", Assert.Single(errs));
+    }
+
+    [Fact]
+    public void ValidateEDDN_MissingSchemaRef()
+    {
+        var errs = EDDNClient.ValidateEDDN(new Dictionary<string, object?>
+        {
+            ["header"] = new Dictionary<string, object?> { ["uploaderID"] = "x", ["softwareName"] = "y", ["softwareVersion"] = "z" },
+            ["message"] = new Dictionary<string, object?> { ["StarSystem"] = "Sol", ["SystemAddress"] = 1L, ["timestamp"] = "t" }
+        });
+        Assert.Contains("$schemaRef is required", errs);
+    }
+
+    [Fact]
+    public void ValidateEDDN_MissingHeaderFields()
+    {
+        var errs = EDDNClient.ValidateEDDN(new Dictionary<string, object?>
+        {
+            ["$schemaRef"] = EDDNClient.Schemas.FsdJump,
+            ["header"] = new Dictionary<string, object?>(),
+            ["message"] = new Dictionary<string, object?> { ["StarSystem"] = "Sol", ["SystemAddress"] = 1L, ["timestamp"] = "t" }
+        });
+        Assert.Contains("header.uploaderID is required", errs);
+        Assert.Contains("header.softwareName is required", errs);
+        Assert.Contains("header.softwareVersion is required", errs);
+    }
+
+    [Fact]
+    public void ValidateEDDN_UnknownSchema()
+    {
+        var errs = EDDNClient.ValidateEDDN(new Dictionary<string, object?>
+        {
+            ["$schemaRef"] = "https://unknown/schema",
+            ["header"] = new Dictionary<string, object?> { ["uploaderID"] = "x", ["softwareName"] = "y", ["softwareVersion"] = "z" },
+            ["message"] = new Dictionary<string, object?> { ["x"] = 1 }
+        });
+        Assert.Equal("unknown schema: https://unknown/schema", Assert.Single(errs));
+    }
+
+    [Fact]
+    public void ValidateEDDN_ValidFsdJump()
+    {
+        var errs = EDDNClient.ValidateEDDN(new Dictionary<string, object?>
+        {
+            ["$schemaRef"] = EDDNClient.Schemas.FsdJump,
+            ["header"] = new Dictionary<string, object?> { ["uploaderID"] = "me", ["softwareName"] = "test", ["softwareVersion"] = "1.0" },
+            ["message"] = new Dictionary<string, object?> { ["StarSystem"] = "Sol", ["SystemAddress"] = 123L, ["timestamp"] = "2024-01-01T00:00:00Z" }
+        });
+        Assert.Empty(errs);
+    }
+
+    [Fact]
+    public void ValidateEDDN_ValidCommodity()
+    {
+        var errs = EDDNClient.ValidateEDDN(new Dictionary<string, object?>
+        {
+            ["$schemaRef"] = EDDNClient.Schemas.Commodity,
+            ["header"] = new Dictionary<string, object?> { ["uploaderID"] = "me", ["softwareName"] = "test", ["softwareVersion"] = "1.0" },
+            ["message"] = new Dictionary<string, object?>
+            {
+                ["systemName"] = "Sol", ["stationName"] = "Station", ["marketId"] = 1L,
+                ["commodities"] = new List<Dictionary<string, object?>>
+                {
+                    new() { ["name"] = "Gold", ["buyPrice"] = 100, ["sellPrice"] = 200 }
+                }
+            }
+        });
+        Assert.Empty(errs);
+    }
+
+    [Fact]
+    public void ValidateEDDN_ReportsMessageErrors()
+    {
+        var errs = EDDNClient.ValidateEDDN(new Dictionary<string, object?>
+        {
+            ["$schemaRef"] = EDDNClient.Schemas.Commodity,
+            ["header"] = new Dictionary<string, object?> { ["uploaderID"] = "me", ["softwareName"] = "test", ["softwareVersion"] = "1.0" },
+            ["message"] = new Dictionary<string, object?>()
+        });
+        Assert.NotEmpty(errs);
+        Assert.Contains("systemName is required", errs);
     }
 }
