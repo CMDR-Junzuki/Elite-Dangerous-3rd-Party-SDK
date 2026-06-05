@@ -38,7 +38,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: pip install -e ".[ws-journal,test]"
-      - run: python -m pytest -v --tb=long -x tests/test_colonization.py
+      - run: python -m pytest -v --tb=long -x
 
   dotnet:
     runs-on: ubuntu-latest
