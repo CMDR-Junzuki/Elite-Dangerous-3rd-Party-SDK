@@ -111,7 +111,8 @@ export function validateFcMaterialsMessage(msg: {
 
 export function validateJournalMessage(msg: Record<string, unknown>): string[] {
   const errors: string[] = [];
-  if (!msg || Object.keys(msg).length === 0) errors.push("message must not be empty");
+  if (!msg || Object.keys(msg).length === 0)
+    errors.push("message must not be empty");
   return errors;
 }
 
@@ -125,7 +126,8 @@ export function validateBlackmarketMessage(msg: {
   if (!msg.systemName) errors.push("systemName is required");
   if (!msg.stationName) errors.push("stationName is required");
   if (!msg.marketId) errors.push("marketId is required");
-  if (!msg.items?.length) errors.push("items array is required and must not be empty");
+  if (!msg.items?.length)
+    errors.push("items array is required and must not be empty");
   for (const i of msg.items ?? []) {
     if (!i.name) errors.push("item.name is required for each item");
   }
@@ -138,7 +140,8 @@ export function validateNavRouteMessage(msg: {
 }): string[] {
   const errors: string[] = [];
   if (!msg.systemName) errors.push("systemName is required");
-  if (!msg.route?.length) errors.push("route array is required and must not be empty");
+  if (!msg.route?.length)
+    errors.push("route array is required and must not be empty");
   return errors;
 }
 

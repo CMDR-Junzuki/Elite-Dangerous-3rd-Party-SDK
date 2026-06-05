@@ -225,7 +225,11 @@ export class InaraClient {
     };
   }
 
-  setCommanderCredits(credits: number, loan?: number, assets?: number): InaraEvent {
+  setCommanderCredits(
+    credits: number,
+    loan?: number,
+    assets?: number,
+  ): InaraEvent {
     return {
       eventName: "setCommanderCredits",
       eventData: {

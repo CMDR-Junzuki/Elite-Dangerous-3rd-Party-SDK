@@ -141,12 +141,26 @@ describe("eddn", () => {
         return { ok: true } as Response;
       };
       try {
-        const client = new EDDNClient({ softwareName: "test", softwareVersion: "1.0" });
+        const client = new EDDNClient({
+          softwareName: "test",
+          softwareVersion: "1.0",
+        });
         await client.sendCommodity({
           systemName: "Sol",
           stationName: "Station",
           marketId: 1,
-          commodities: [{ name: "Gold", buyPrice: 100, sellPrice: 200, meanPrice: 150, stockBracket: 2, demandBracket: 0, stock: 1000, demand: 0 }],
+          commodities: [
+            {
+              name: "Gold",
+              buyPrice: 100,
+              sellPrice: 200,
+              meanPrice: 150,
+              stockBracket: 2,
+              demandBracket: 0,
+              stock: 1000,
+              demand: 0,
+            },
+          ],
         });
         expect(capturedBody.$schemaRef).toBe(EDDN_SCHEMAS.COMMODITY);
         expect(capturedBody.header.softwareName).toBe("test");
@@ -163,7 +177,10 @@ describe("eddn", () => {
         return { ok: true } as Response;
       };
       try {
-        const client = new EDDNClient({ softwareName: "test", softwareVersion: "1.0" });
+        const client = new EDDNClient({
+          softwareName: "test",
+          softwareVersion: "1.0",
+        });
         await client.sendShipyard({
           systemName: "Sol",
           stationName: "Station",
@@ -185,7 +202,10 @@ describe("eddn", () => {
         return { ok: true } as Response;
       };
       try {
-        const client = new EDDNClient({ softwareName: "test", softwareVersion: "1.0" });
+        const client = new EDDNClient({
+          softwareName: "test",
+          softwareVersion: "1.0",
+        });
         await client.sendOutfitting({
           systemName: "Sol",
           stationName: "Station",
@@ -207,7 +227,10 @@ describe("eddn", () => {
         return { ok: true } as Response;
       };
       try {
-        const client = new EDDNClient({ softwareName: "test", softwareVersion: "1.0" });
+        const client = new EDDNClient({
+          softwareName: "test",
+          softwareVersion: "1.0",
+        });
         await client.sendFleetCarrier({
           systemName: "Sol",
           stationName: "FC Test",
@@ -230,7 +253,10 @@ describe("eddn", () => {
         return { ok: true } as Response;
       };
       try {
-        const client = new EDDNClient({ softwareName: "test", softwareVersion: "1.0" });
+        const client = new EDDNClient({
+          softwareName: "test",
+          softwareVersion: "1.0",
+        });
         await client.sendJournal({ event: "FSDJump" });
         expect(capturedBody.$schemaRef).toBe(EDDN_SCHEMAS.JOURNAL);
         expect(capturedBody.header.softwareName).toBe("test");
@@ -247,7 +273,10 @@ describe("eddn", () => {
         return { ok: true } as Response;
       };
       try {
-        const client = new EDDNClient({ softwareName: "test", softwareVersion: "1.0" });
+        const client = new EDDNClient({
+          softwareName: "test",
+          softwareVersion: "1.0",
+        });
         await client.sendBlackmarket({
           systemName: "Sol",
           stationName: "Station",
@@ -269,7 +298,10 @@ describe("eddn", () => {
         return { ok: true } as Response;
       };
       try {
-        const client = new EDDNClient({ softwareName: "test", softwareVersion: "1.0" });
+        const client = new EDDNClient({
+          softwareName: "test",
+          softwareVersion: "1.0",
+        });
         await client.sendNavRoute({
           systemName: "Sol",
           route: [{ StarPos: [0, 0, 0], systemName: "Sol", systemAddress: 1 }],
@@ -289,7 +321,10 @@ describe("eddn", () => {
         return { ok: true } as Response;
       };
       try {
-        const client = new EDDNClient({ softwareName: "test", softwareVersion: "1.0" });
+        const client = new EDDNClient({
+          softwareName: "test",
+          softwareVersion: "1.0",
+        });
         await client.sendFcMaterialsJournal({
           timestamp: "2024-01-01T00:00:00Z",
           event: "FCMaterials",

@@ -15,30 +15,39 @@
  * when the refresh token expires or is revoked.
  */
 
+import * as fs from "node:fs";
+import * as path from "node:path";
 import {
   CompanionClient,
   FrontierAuth,
   generateCodeChallenge,
   generateCodeVerifier,
 } from "@elite-dangerous-sdk/companion";
-import * as fs from "node:fs";
-import * as path from "node:path";
 
 // === Token persistence ===
 const TOKEN_FILE = path.join(
-  process.env.XDG_CONFIG_HOME || path.join(process.env.HOME || process.env.USERPROFILE || ".", ".config"),
+  process.env.XDG_CONFIG_HOME ||
+    path.join(process.env.HOME || process.env.USERPROFILE || ".", ".config"),
   "elite-dangerous-sdk",
   "companion-tokens.json",
 );
 
-function _saveTokens(tokens: { accessToken: string; refreshToken: string; expiresAt: number }) {
+function _saveTokens(tokens: {
+  accessToken: string;
+  refreshToken: string;
+  expiresAt: number;
+}) {
   const dir = path.dirname(TOKEN_FILE);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(TOKEN_FILE, JSON.stringify(tokens, null, 2), "utf-8");
   console.log(`Tokens saved to ${TOKEN_FILE}`);
 }
 
-function _loadTokens(): { accessToken: string; refreshToken: string; expiresAt: number } | null {
+function _loadTokens(): {
+  accessToken: string;
+  refreshToken: string;
+  expiresAt: number;
+} | null {
   try {
     const raw = fs.readFileSync(TOKEN_FILE, "utf-8");
     return JSON.parse(raw);
@@ -99,7 +108,11 @@ async function _handleCallback(
     `Access token expires at: ${new Date(tokens.expiresAt).toISOString()}`,
   );
 
-  _saveTokens({ accessToken: tokens.accessToken, refreshToken: tokens.refreshToken, expiresAt: tokens.expiresAt });
+  _saveTokens({
+    accessToken: tokens.accessToken,
+    refreshToken: tokens.refreshToken,
+    expiresAt: tokens.expiresAt,
+  });
 }
 
 // === Step 4: Use the API ===

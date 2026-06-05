@@ -438,16 +438,16 @@ export class EDSMClient {
     return this.get<CommanderRanksResponse>("/api-commander-v1/get-ranks");
   }
 
-  async getCommanderLogs(
-    options?: {
-      systemName?: string;
-      startDateTime?: string;
-      endDateTime?: string;
-      showId?: boolean;
-    },
-  ): Promise<CommanderLogsResponse> {
+  async getCommanderLogs(options?: {
+    systemName?: string;
+    startDateTime?: string;
+    endDateTime?: string;
+    showId?: boolean;
+  }): Promise<CommanderLogsResponse> {
     return this.get<CommanderLogsResponse>("/api-logs-v1/get-logs", {
-      ...EDSMClient.boolOpts(options ?? {}),
+      ...(options?.showId !== undefined
+        ? { showId: options.showId ? 1 : 0 }
+        : {}),
     });
   }
 

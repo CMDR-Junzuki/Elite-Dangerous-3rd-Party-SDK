@@ -187,7 +187,9 @@ export class CompanionClient {
 
     if (resp.status === 102) {
       if (retries <= 0) {
-        throw new Error(`CAPI ${path} still processing after retries exhausted`);
+        throw new Error(
+          `CAPI ${path} still processing after retries exhausted`,
+        );
       }
       await new Promise((r) => setTimeout(r, 10000));
       return this.requestBinary(path, retries - 1);
