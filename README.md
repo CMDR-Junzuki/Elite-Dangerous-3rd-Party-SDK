@@ -17,6 +17,37 @@
 | **🧮 Ship Stats** | Jump, shields, speed, weapons, distributor — matches Coriolis exactly |
 | **🔧 Planners** | Engineering, trade routes, fleet carriers, powerplay 2.0, BGS, thargoid war, colonization, exobiology |
 
+## Package Maturity
+
+| Package | Status | Tests | Notes |
+|---------|--------|-------|-------|
+| journal | **Stable** | 48 | 170+ typed events, reader/watcher/parser |
+| inara | **Stable** | 62 | 50+ events, full TS/Python/C# parity |
+| eddn | **Stable** | 32 | 4 schemas, send + ZMQ receive |
+| edsm | **Stable** | 19 | Full API coverage |
+| data | **Stable** | 31 | Embedded FDevIDs + coriolis-data |
+| utils | **Stable** | 6 | Coordinates, bitflags, listify |
+| stats | **Stable** | 14 | Matches coriolis-web Calculations.js exactly |
+| companion | **Beta** | 20 | oAuth2 PKCE, 6 endpoints, typed models |
+| spansh | **Beta** | 15 | System/station search, route planner |
+| elitebgs | **Beta** | 9 | Systems, factions, tick detection |
+| ws-journal | **Beta** | 4 | WebSocket journal event streaming |
+| planner | **Experimental** | 72 | Engineering, trade, FC, powerplay, colonization, BGS, thargoid, exobiology, on-foot |
+
+**Stable** — API is stable and tested. Breaking changes will be avoided and documented.  
+**Beta** — Functional and tested. Minor API refinements may occur.  
+**Experimental** — In development. API may change significantly without notice.
+
+## Versioning
+
+This project uses **semantic versioning** (MAJOR.MINOR.PATCH). All language packages share a single unified version.
+
+- **MAJOR** — breaking API changes (renamed types, removed functions, changed signatures)
+- **MINOR** — new features, new event types, new API endpoints (backward-compatible)
+- **PATCH** — bug fixes, documentation, internal improvements (no API change)
+
+Until 1.0.0, MINOR bumps may include breaking changes as the API stabilizes. After 1.0.0, breaking changes only occur on MAJOR bumps.
+
 ## Quick Start
 
 ```bash
@@ -44,13 +75,19 @@ for event in reader.read_events():
 
 ```
 elite-dangerous-sdk/
-├── core/packages/     # TypeScript (12 packages, npm workspaces)
-├── python/            # Python port (all-in-one package)
-├── dotnet/            # C# .NET port (all-in-one package)
-├── specs/             # JSON schemas + game data (single source of truth)
+├── specs/             # ← single source of truth (JSON schemas + game data)
+│   ├── journal/       #   178 event schemas
+│   ├── companion/     #   CAPI endpoint schemas
+│   ├── community/     #   EDSM, Inara, Spansh, EliteBGS schemas
+│   └── data/          #   FDevIDs CSVs + coriolis-data JSONs
+├── core/packages/     # TypeScript (12 packages, npm workspaces) — reference impl
+├── python/            # Python port — mirrors TypeScript API
+├── dotnet/            # C# .NET port — mirrors TypeScript API
 ├── docs/              # API reference
 └── scripts/           # Codegen, build, test scripts
 ```
+
+The `specs/` directory is the authoritative source. TypeScript is the reference implementation — all types and APIs are designed in TypeScript first, then ported to Python and C# with automated checks preventing drift.
 
 ## Data Sources
 

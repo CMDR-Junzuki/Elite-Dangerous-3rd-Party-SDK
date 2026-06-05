@@ -1,3 +1,7 @@
+// Hand-written reference types — single source of truth for journal events.
+// Python and C# types are generated from specs/journal/events/ schemas
+// (see scripts/generate-journal-types.ts). Keep this file in sync with those schemas.
+
 export type ID = number | bigint;
 
 export interface FileHeader {
