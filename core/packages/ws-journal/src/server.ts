@@ -19,6 +19,7 @@ export class JournalWebSocketServer {
   private httpServer: Server | null = null;
   private watcher: JournalWatcher | null = null;
   private clients: Set<WebSocket> = new Set();
+  private eventBuffer: object[] = [];
   private running = false;
   private _actualPort = 0;
 
@@ -51,6 +52,13 @@ export class JournalWebSocketServer {
 
     this.wss.on("connection", (ws) => {
       this.clients.add(ws);
+      // Flush buffered events to the newly connected client
+      for (const data of this.eventBuffer) {
+        if (ws.readyState === WebSocket.OPEN) {
+          ws.send(JSON.stringify(data));
+        }
+      }
+      this.eventBuffer = [];
       ws.on("close", () => this.clients.delete(ws));
       ws.on("error", () => this.clients.delete(ws));
     });
@@ -93,6 +101,10 @@ export class JournalWebSocketServer {
   }
 
   broadcast(data: object): void {
+    if (this.clients.size === 0) {
+      this.eventBuffer.push(data);
+      return;
+    }
     const message = JSON.stringify(data);
     for (const ws of this.clients) {
       if (ws.readyState === WebSocket.OPEN) {
@@ -108,5 +120,6 @@ export class JournalWebSocketServer {
     this.wss?.close();
     this.httpServer?.close();
     this.clients.clear();
+    this.eventBuffer = [];
   }
 }

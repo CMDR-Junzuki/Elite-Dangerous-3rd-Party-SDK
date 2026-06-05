@@ -69,20 +69,19 @@ describe("JournalWebSocketServer", () => {
     const messages: string[] = [];
 
     await new Promise<void>((resolve, reject) => {
-      const timer = setTimeout(() => reject(new Error("timeout")), 3000);
+      const timer = setTimeout(() => reject(new Error("timeout")), 5000);
       ws.on("open", () => {
-        // Give the async iterator time to yield events
-        setTimeout(() => {
-          clearTimeout(timer);
-          resolve();
-        }, 200);
-      });
-      ws.on("message", (data) => {
-        messages.push(data.toString());
+        ws.on("message", (data) => {
+          messages.push(data.toString());
+          if (messages.some((m) => m.includes("FSDJump"))) {
+            clearTimeout(timer);
+            resolve();
+          }
+        });
       });
     });
 
-    expect(messages.length).toBeGreaterThanOrEqual(1);
+    expect(messages.length).toBeGreaterThanOrEqual(2);
     expect(messages.some((m) => m.includes("FileHeader"))).toBe(true);
     expect(messages.some((m) => m.includes("FSDJump"))).toBe(true);
 
@@ -103,15 +102,13 @@ describe("JournalWebSocketServer", () => {
     const messages: string[] = [];
 
     await new Promise<void>((resolve, reject) => {
-      const timer = setTimeout(() => reject(new Error("timeout")), 3000);
+      const timer = setTimeout(() => reject(new Error("timeout")), 5000);
       ws.on("open", () => {
-        setTimeout(() => {
+        ws.on("message", (data) => {
+          messages.push(data.toString());
           clearTimeout(timer);
           resolve();
-        }, 200);
-      });
-      ws.on("message", (data) => {
-        messages.push(data.toString());
+        });
       });
     });
 
