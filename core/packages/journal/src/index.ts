@@ -5,6 +5,8 @@ export {
   readMarketFile,
   readStatusFile,
 } from "./Journal.js";
+export { JournalReplay } from "./JournalReplay.js";
+export type { JournalReplayOptions, ReplayState } from "./JournalReplay.js";
 export { JournalWatcher } from "./JournalWatcher.js";
 export {
   isEventType,

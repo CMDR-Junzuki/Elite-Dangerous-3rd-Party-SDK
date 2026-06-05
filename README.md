@@ -101,9 +101,9 @@ All game data is sourced from community-maintained repositories — no scraping,
 
 | Language | Tests | Status |
 |----------|-------|--------|
-| TypeScript | 304 | ✅ |
-| Python | 407 | ✅ |
-| C# | 453 | ✅ |
+| TypeScript | 336 | ✅ |
+| Python | 421 | ✅ |
+| C# | 468 | ✅ |
 
 ## Resources
 

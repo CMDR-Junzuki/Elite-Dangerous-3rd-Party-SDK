@@ -10,6 +10,7 @@ from .journal import (
     stringify_event, stringify_bigint_json, is_event_type,
 )
 from .journal_watcher import JournalWatcher
+from .journal_replay import JournalReplay
 from .journal_types import (
     FileHeader, LoadGame, Location, FSDJump, Docked, Undocked,
     Scan, SupercruiseEntry, SupercruiseExit, Touchdown, Liftoff,
