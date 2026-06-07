@@ -157,7 +157,7 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 
 | Priority | Feature | Description |
 |----------|---------|-------------|
-| High | Test Parity Gaps | ws-journal: add Python/C# tests (TS has 4). inara: bump TS tests to match Python (6 → 50+). companion: bump TS tests to match C# coverage. |
+| High | Test Parity Gaps | ✅ Done — ws-journal had parity already (4 tests each). inara TS: 6 → 74. companion TS: 21 → 36. |
 | High | CI/CD Pipeline | GitHub Actions for automated TS/Python/C# test runs on PR/merge. |
 | High | Package Publishing | Automate publish to npm, PyPI, and NuGet on tagged releases. |
 | Medium | User Guides | Tutorials and getting-started guides per language beyond the auto-generated API.md. |

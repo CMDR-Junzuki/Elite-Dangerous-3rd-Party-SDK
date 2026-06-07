@@ -22,13 +22,13 @@
 | Package | Status | Tests | Notes |
 |---------|--------|-------|-------|
 | journal | **Stable** | 48 | 170+ typed events, reader/watcher/parser |
-| inara | **Stable** | 62 | 50+ events, full TS/Python/C# parity |
+| inara | **Stable** | 74 | 50+ events, full TS/Python/C# parity |
 | eddn | **Stable** | 32 | 4 schemas, send + ZMQ receive |
 | edsm | **Stable** | 19 | Full API coverage |
 | data | **Stable** | 31 | Embedded FDevIDs + coriolis-data |
 | utils | **Stable** | 6 | Coordinates, bitflags, listify |
 | stats | **Stable** | 14 | Matches coriolis-web Calculations.js exactly |
-| companion | **Stable** | 21 | oAuth2 PKCE, 6 endpoints, typed models |
+| companion | **Stable** | 36 | oAuth2 PKCE, 6 endpoints, typed models |
 | spansh | **Stable** | 15 | System/station search, route planner |
 | elitebgs | **Stable** | 17 | Systems, factions, influence tracking, tick detection |
 | ws-journal | **Stable** | 4 | WebSocket journal event streaming |

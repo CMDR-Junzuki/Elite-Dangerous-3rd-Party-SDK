@@ -12,8 +12,8 @@ import type { FrontierAuth } from "./auth.js";
  * - /visitedstars     -> Visited stars cache download
  */
 
-const LIVE_HOST = "https://companion.orerve.net";
-const LEGACY_HOST = "https://legacy-companion.orerve.net";
+export const LIVE_HOST = "https://companion.orerve.net";
+export const LEGACY_HOST = "https://legacy-companion.orerve.net";
 
 export type GalaxyType = "live" | "legacy";
 
