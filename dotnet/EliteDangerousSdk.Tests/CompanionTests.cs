@@ -283,13 +283,13 @@ public class CompanionClientTests
             return new HttpResponseMessage(HttpStatusCode.OK)
             {
                 Content = new StringContent(
-                    @"{""events"":[]}",
+                    @"{""journal"":[]}",
                     Encoding.UTF8, "application/json")
             };
         });
         var (_, client) = CreateClient(http);
         var result = await client.GetJournalAsync(2024, 1, 15);
-        Assert.Equal(0, result.GetProperty("events").GetArrayLength());
+        Assert.Empty(result.Journal!);
     }
 
     [Fact]
@@ -301,13 +301,13 @@ public class CompanionClientTests
             return new HttpResponseMessage(HttpStatusCode.OK)
             {
                 Content = new StringContent(
-                    @"{""goals"":[]}",
+                    @"{""communitygoals"":[]}",
                     Encoding.UTF8, "application/json")
             };
         });
         var (_, client) = CreateClient(http);
         var result = await client.GetCommunityGoalsAsync();
-        Assert.Equal(0, result.GetProperty("goals").GetArrayLength());
+        Assert.Empty(result.CommunityGoals!);
     }
 
     [Fact]

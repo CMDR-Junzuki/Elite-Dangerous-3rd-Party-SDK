@@ -60,6 +60,59 @@ def test_get_ticks(mock_httpx):
 
 
 @patch("elite_dangerous_sdk.elitebgs.httpx.Client")
+def test_get_systems_with_advanced_filters(mock_httpx):
+    mock_resp = MagicMock()
+    mock_resp.json.return_value = {"docs": [], "total": 0, "page": 1, "pages": 1, "limit": 10}
+    mock_httpx.return_value.get.return_value = mock_resp
+
+    client = EliteBGSClient(rpm=60000)
+    client.get_systems(
+        name="Sol",
+        secondary_economy="Refinery",
+        reference_system_id="123",
+        reference_distance_min=50,
+        faction_id="fid1",
+        faction_control=True,
+        faction_allegiance=["Alliance", "Federation"],
+        faction_government="Democracy",
+        faction_history=True,
+        minimal=True,
+    )
+    call_url = mock_httpx.return_value.get.call_args[0][0]
+    assert "name=Sol" in call_url
+    assert "secondaryEconomy=Refinery" in call_url
+    assert "referenceSystemId=123" in call_url
+    assert "referenceDistanceMin=50" in call_url
+    assert "factionId=fid1" in call_url
+    assert "factionControl=true" in call_url
+    assert "factionAllegiance=Alliance" in call_url
+    assert "factionAllegiance=Federation" in call_url
+    assert "factionGovernment=Democracy" in call_url
+    assert "factionHistory=true" in call_url
+    assert "minimal=true" in call_url
+
+
+@patch("elite_dangerous_sdk.elitebgs.httpx.Client")
+def test_get_factions_with_advanced_filters(mock_httpx):
+    mock_resp = MagicMock()
+    mock_resp.json.return_value = {"docs": [], "total": 0, "page": 1, "pages": 1, "limit": 10}
+    mock_httpx.return_value.get.return_value = mock_resp
+
+    client = EliteBGSClient(rpm=60000)
+    client.get_factions(
+        name="The Fatherhood",
+        system_id="sys1",
+        filter_system_in_history=True,
+        minimal=True,
+    )
+    call_url = mock_httpx.return_value.get.call_args[0][0]
+    assert "name=The+F" in call_url or "name=The%20F" in call_url
+    assert "systemId=sys1" in call_url
+    assert "filterSystemInHistory=true" in call_url
+    assert "minimal=true" in call_url
+
+
+@patch("elite_dangerous_sdk.elitebgs.httpx.Client")
 def test_get_system_by_name(mock_httpx):
     mock_resp = MagicMock()
     mock_resp.json.return_value = {"docs": [], "total": 0, "page": 1, "pages": 1, "limit": 10}

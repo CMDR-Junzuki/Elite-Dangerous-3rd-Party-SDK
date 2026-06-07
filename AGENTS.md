@@ -151,6 +151,9 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 | Live Event Stream Layer | ✅ | ✅ | ✅ |
 | Squadron & BGS Toolkit | ✅ | ✅ | ✅ |
 
-## Planned Features (from ChatGPT proposals)
+## Planned Features
 
-_None — all proposed features implemented._
+| Priority | Feature | Description |
+|----------|---------|-------------|
+| High | Package Maturity Promotions | Promote companion, spansh, elitebgs, ws-journal to Stable; planner to Beta. Fix test counts in README, add missing tests, close parity gaps. |
+| Medium | Planner API Lockdown | ✅ Done — colonization system API signatures standardized, Python modules split, OnFootEngineeringData moved to Planner namespace. |

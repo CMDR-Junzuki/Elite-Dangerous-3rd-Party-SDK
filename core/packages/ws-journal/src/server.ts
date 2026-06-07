@@ -102,14 +102,24 @@ export class JournalWebSocketServer {
 
   broadcast(data: object): void {
     if (this.clients.size === 0) {
-      this.eventBuffer.push(data);
+      if (this.eventBuffer.length < 100) {
+        this.eventBuffer.push(data);
+      }
       return;
     }
     const message = JSON.stringify(data);
+    const failed: WebSocket[] = [];
     for (const ws of this.clients) {
       if (ws.readyState === WebSocket.OPEN) {
-        ws.send(message);
+        try {
+          ws.send(message);
+        } catch {
+          failed.push(ws);
+        }
       }
+    }
+    for (const ws of failed) {
+      this.clients.delete(ws);
     }
   }
 

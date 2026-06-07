@@ -18,6 +18,17 @@ describe("SpanshClient", () => {
     expect(client).toBeInstanceOf(SpanshClient);
   });
 
+  it("accepts custom base URL", () => {
+    const client = new SpanshClient("https://spansh.test");
+    expect(client).toBeInstanceOf(SpanshClient);
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ system: { name: "Sol", id64: 1 } }),
+    });
+    client.getSystem(1);
+    expect(mockFetch).toHaveBeenCalledWith("https://spansh.test/api/system/1");
+  });
+
   it("getSystem fetches by id64", async () => {
     const client = new SpanshClient();
     const result = await client.getSystem(1);

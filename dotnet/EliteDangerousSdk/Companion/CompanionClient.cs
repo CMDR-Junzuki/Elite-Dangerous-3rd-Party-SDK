@@ -214,7 +214,7 @@ public class CompanionClient
     public Task<CapMarketResponse> GetMarketAsync() => RequestAsync<CapMarketResponse>("/market");
     public Task<CapShipyardResponse> GetShipyardAsync() => RequestAsync<CapShipyardResponse>("/shipyard");
     public Task<CapFleetCarrierResponse> GetFleetCarrierAsync() => RequestAsync<CapFleetCarrierResponse>("/fleetcarrier");
-    public Task<JsonElement> GetJournalAsync(int? year = null, int? month = null, int? day = null)
+    public Task<CapJournalResponse> GetJournalAsync(int? year = null, int? month = null, int? day = null)
     {
         var path = "/journal";
         if (year.HasValue)
@@ -227,9 +227,9 @@ public class CompanionClient
                     path += $"/{day}";
             }
         }
-        return RequestAsync<JsonElement>(path);
+        return RequestAsync<CapJournalResponse>(path);
     }
-    public Task<JsonElement> GetCommunityGoalsAsync() => RequestAsync<JsonElement>("/communitygoals");
+    public Task<CapCommunityGoalsResponse> GetCommunityGoalsAsync() => RequestAsync<CapCommunityGoalsResponse>("/communitygoals");
 
     public async Task<bool> IsDockedAsync()
     {

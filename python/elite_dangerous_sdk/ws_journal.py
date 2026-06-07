@@ -47,6 +47,7 @@ class JournalWebSocketServer:
         self._filter = filter or []
         self._server = None
         self._clients: set[ServerConnection] = set()
+        self._event_buffer: list[dict[str, Any]] = []
         self._running = False
         self._actual_port = 0
         self._watch_task: asyncio.Task | None = None
@@ -92,9 +93,17 @@ class JournalWebSocketServer:
             await self._server.wait_closed()
             self._server = None
         self._clients.clear()
+        self._event_buffer.clear()
 
     async def _handle_connection(self, websocket: ServerConnection) -> None:
         self._clients.add(websocket)
+        # Flush buffered events to the newly connected client
+        for data in self._event_buffer:
+            try:
+                await websocket.send(json.dumps(data))
+            except Exception:
+                pass
+        self._event_buffer.clear()
         try:
             async for _ in websocket:
                 pass  # we only send, never receive
@@ -106,6 +115,8 @@ class JournalWebSocketServer:
     def broadcast(self, data: dict[str, Any]) -> None:
         """Send a JSON event to all connected clients."""
         if not self._clients:
+            if len(self._event_buffer) < 100:
+                self._event_buffer.append(data)
             return
         message = json.dumps(data)
         closed: list[ServerConnection] = []

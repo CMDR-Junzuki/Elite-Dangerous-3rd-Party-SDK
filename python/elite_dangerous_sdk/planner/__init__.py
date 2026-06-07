@@ -44,16 +44,18 @@ from .colonization import (
     COLONY_STATE_NAMES,
     create_construction_site, get_resource_shortfall, get_total_progress,
     parse_colonisation_construction_depot,
-    apply_tax, get_pre_req_needed, has_pre_req2, predict_surface_slots,
-    sum_tier_points, get_snapshot,
+)
+from .colonization_system import (
+    RawBod, RawSite, RawSys, SiteTypeValidity, SysSnapshot,
+    map_sys_unlocks,
+    build_system_model2, sum_tier_points, apply_tax, get_pre_req_needed,
+    has_pre_req2, is_type_valid2, predict_surface_slots, get_snapshot,
 )
 from .colonization_economy import (
-    EconAudit, TierPoints, SiteTypeValidity,
+    EconAudit, TierPoints,
     calculate_colony_economies2, apply_body_type,
     apply_strong_links2, apply_strong_link_boost, apply_buffs,
-    body_is_tidal_to_star, build_system_model2,
-    is_type_valid2,
-    map_sys_unlocks,
+    body_is_tidal_to_star,
 )
 from .bgs import (
     FactionPresence, Conflict, SystemBgsData,

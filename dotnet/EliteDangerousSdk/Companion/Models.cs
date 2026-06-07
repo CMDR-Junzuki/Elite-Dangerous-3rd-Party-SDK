@@ -67,7 +67,11 @@ public record CapFleetCarrierResponse(
 );
 
 public record CapJournalResponse(
-    [property: JsonPropertyName("journal")] System.Text.Json.JsonElement? Journal
+    [property: JsonPropertyName("journal")] string[]? Journal
+);
+
+public record CapCommunityGoalsResponse(
+    [property: JsonPropertyName("communitygoals")] CapCommunityGoal[]? CommunityGoals
 );
 
 public record CapCommunityGoal(

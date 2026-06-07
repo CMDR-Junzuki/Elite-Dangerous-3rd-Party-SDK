@@ -1,4 +1,4 @@
-namespace EliteDangerousSdk.Data;
+namespace EliteDangerousSdk.Planner;
 
 public static class OnFootEngineeringData
 {

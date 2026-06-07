@@ -113,5 +113,89 @@ describe("companion", () => {
       const client = new CompanionClient({ auth });
       expect(client).toBeInstanceOf(CompanionClient);
     });
+
+    it("makes authenticated requests to the correct host", async () => {
+      const auth = new FrontierAuth({
+        clientId: "test",
+        redirectUri: "http://localhost",
+        appName: "t",
+        appVersion: "1",
+      });
+      // Mock getValidToken
+      auth.getValidToken = async () => "mock-token";
+      const client = new CompanionClient({ auth });
+
+      const originalFetch = globalThis.fetch;
+      let capturedUrl = "";
+      let capturedHeaders: Record<string, string> = {};
+      globalThis.fetch = async (url: RequestInfo | URL, init?: RequestInit) => {
+        capturedUrl = typeof url === "string" ? url : url.toString();
+        capturedHeaders = (init?.headers as Record<string, string>) || {};
+        return new Response(JSON.stringify({}), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        });
+      };
+
+      try {
+        await client.getProfile();
+        expect(capturedUrl).toBe("https://companion.orerve.net/profile");
+        expect(capturedHeaders["Authorization"]).toBe("Bearer mock-token");
+      } finally {
+        globalThis.fetch = originalFetch;
+      }
+    });
+
+    it("handles Legacy galaxy host selection", async () => {
+      const auth = new FrontierAuth({
+        clientId: "test",
+        redirectUri: "http://localhost",
+        appName: "t",
+        appVersion: "1",
+      });
+      auth.getValidToken = async () => "mock-token";
+      const client = new CompanionClient({ auth, galaxy: "legacy" });
+
+      const originalFetch = globalThis.fetch;
+      let capturedUrl = "";
+      globalThis.fetch = async (url: RequestInfo | URL) => {
+        capturedUrl = typeof url === "string" ? url : url.toString();
+        return new Response(JSON.stringify({}), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        });
+      };
+
+      try {
+        await client.getProfile();
+        expect(capturedUrl).toBe("https://legacy-companion.orerve.net/profile");
+      } finally {
+        globalThis.fetch = originalFetch;
+      }
+    });
+
+    it("handles 401 by throwing", async () => {
+      const auth = new FrontierAuth({
+        clientId: "test",
+        redirectUri: "http://localhost",
+        appName: "t",
+        appVersion: "1",
+      });
+      auth.getValidToken = async () => "mock-token";
+      const client = new CompanionClient({ auth });
+
+      const originalFetch = globalThis.fetch;
+      globalThis.fetch = async () =>
+        new Response("Unauthorized", {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+
+      try {
+        await expect(client.getProfile()).rejects.toThrow();
+      } finally {
+        globalThis.fetch = originalFetch;
+      }
+    });
   });
 });

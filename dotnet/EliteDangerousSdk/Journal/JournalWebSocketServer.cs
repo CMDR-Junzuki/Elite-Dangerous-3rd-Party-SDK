@@ -15,6 +15,8 @@ public class JournalWebSocketServer : IAsyncDisposable
     private readonly int _pollIntervalMs;
     private HttpListener? _listener;
     private readonly ConcurrentDictionary<WebSocket, byte> _clients = new();
+    private readonly List<Dictionary<string, object?>> _eventBuffer = [];
+    private readonly object _bufferLock = new();
     private CancellationTokenSource? _cts;
     private Task? _acceptLoop;
     private Task? _watchLoop;
@@ -77,6 +79,7 @@ public class JournalWebSocketServer : IAsyncDisposable
             ws.Dispose();
         }
         _clients.Clear();
+        lock (_bufferLock) { _eventBuffer.Clear(); }
 
         if (_listener != null)
         {
@@ -124,6 +127,7 @@ public class JournalWebSocketServer : IAsyncDisposable
                 catch (WebSocketException) { continue; }
 
                 _clients.TryAdd(ws, 0);
+                FlushBufferToClientAsync(ws);
                 _ = ReceiveLoopAsync(ws);
             }
         }
@@ -216,9 +220,42 @@ public class JournalWebSocketServer : IAsyncDisposable
         return eventName != null && _filter.Contains(eventName);
     }
 
+    private void FlushBufferToClientAsync(WebSocket ws)
+    {
+        List<Dictionary<string, object?>> snapshot;
+        lock (_bufferLock)
+        {
+            snapshot = [.. _eventBuffer];
+            _eventBuffer.Clear();
+        }
+        if (snapshot.Count == 0) return;
+        _ = Task.Run(async () =>
+        {
+            foreach (var data in snapshot)
+            {
+                if (ws.State != WebSocketState.Open) break;
+                try
+                {
+                    var json = JsonSerializer.Serialize(data);
+                    var bytes = Encoding.UTF8.GetBytes(json);
+                    await ws.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
+                }
+                catch { break; }
+            }
+        });
+    }
+
     public void Broadcast(Dictionary<string, object?> eventData)
     {
-        if (_clients.IsEmpty) return;
+        if (_clients.IsEmpty)
+        {
+            lock (_bufferLock)
+            {
+                if (_eventBuffer.Count < 100)
+                    _eventBuffer.Add(eventData);
+            }
+            return;
+        }
 
         var json = JsonSerializer.Serialize(eventData);
         var bytes = Encoding.UTF8.GetBytes(json);

@@ -1,4 +1,4 @@
-using EliteDangerousSdk.Data;
+using EliteDangerousSdk.Planner;
 
 namespace EliteDangerousSdk.Stats;
 

@@ -1,5 +1,5 @@
 using Xunit;
-using EliteDangerousSdk.Data;
+using EliteDangerousSdk.Planner;
 using EliteDangerousSdk.Stats;
 
 namespace EliteDangerousSdk.Tests;

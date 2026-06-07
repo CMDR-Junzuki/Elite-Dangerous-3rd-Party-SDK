@@ -28,11 +28,11 @@
 | data | **Stable** | 31 | Embedded FDevIDs + coriolis-data |
 | utils | **Stable** | 6 | Coordinates, bitflags, listify |
 | stats | **Stable** | 14 | Matches coriolis-web Calculations.js exactly |
-| companion | **Beta** | 20 | oAuth2 PKCE, 6 endpoints, typed models |
-| spansh | **Beta** | 15 | System/station search, route planner |
-| elitebgs | **Beta** | 9 | Systems, factions, tick detection |
-| ws-journal | **Beta** | 4 | WebSocket journal event streaming |
-| planner | **Experimental** | 72 | Engineering, trade, FC, powerplay, colonization, BGS, thargoid, exobiology, on-foot |
+| companion | **Stable** | 21 | oAuth2 PKCE, 6 endpoints, typed models |
+| spansh | **Stable** | 15 | System/station search, route planner |
+| elitebgs | **Stable** | 17 | Systems, factions, influence tracking, tick detection |
+| ws-journal | **Stable** | 4 | WebSocket journal event streaming |
+| planner | **Stable** | 115 | Engineering, trade, FC, powerplay, colonization, BGS, thargoid, exobiology, on-foot |
 
 **Stable** — API is stable and tested. Breaking changes will be avoided and documented.  
 **Beta** — Functional and tested. Minor API refinements may occur.  
