@@ -150,10 +150,17 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 | Canonical Elite ID Resolution | ✅ | ✅ | ✅ |
 | Live Event Stream Layer | ✅ | ✅ | ✅ |
 | Squadron & BGS Toolkit | ✅ | ✅ | ✅ |
+| Package Maturity Promotions | ✅ | ✅ | ✅ |
+| Planner API Lockdown | ✅ | ✅ | ✅ |
 
 ## Planned Features
 
 | Priority | Feature | Description |
 |----------|---------|-------------|
-| High | Package Maturity Promotions | Promote companion, spansh, elitebgs, ws-journal to Stable; planner to Beta. Fix test counts in README, add missing tests, close parity gaps. |
-| Medium | Planner API Lockdown | ✅ Done — colonization system API signatures standardized, Python modules split, OnFootEngineeringData moved to Planner namespace. |
+| High | Test Parity Gaps | ws-journal: add Python/C# tests (TS has 4). inara: bump TS tests to match Python (6 → 50+). companion: bump TS tests to match C# coverage. |
+| High | CI/CD Pipeline | GitHub Actions for automated TS/Python/C# test runs on PR/merge. |
+| High | Package Publishing | Automate publish to npm, PyPI, and NuGet on tagged releases. |
+| Medium | User Guides | Tutorials and getting-started guides per language beyond the auto-generated API.md. |
+| Medium | Examples Coverage | Comprehensive usage examples across all features in all 3 languages. |
+| Low | Schema Validation Coverage | All 178 journal event schemas should have corresponding typed interfaces and validation tests (currently ~170 of 178 covered). |
+| Low | Game Version Tracking | Mechanism to flag when new journal events appear in game updates (compare against known schema list). |
