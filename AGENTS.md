@@ -152,14 +152,16 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 | Squadron & BGS Toolkit | ✅ | ✅ | ✅ |
 | Package Maturity Promotions | ✅ | ✅ | ✅ |
 | Planner API Lockdown | ✅ | ✅ | ✅ |
+| CI/CD Pipeline | ✅ | ✅ | ✅ |
+| Package Publishing | ✅ | ✅ | ✅ |
 
 ## Planned Features
 
 | Priority | Feature | Description |
 |----------|---------|-------------|
 | High | Test Parity Gaps | ✅ Done — ws-journal had parity already (4 tests each). inara TS: 6 → 74. companion TS: 21 → 36. |
-| High | CI/CD Pipeline | GitHub Actions for automated TS/Python/C# test runs on PR/merge. |
-| High | Package Publishing | Automate publish to npm, PyPI, and NuGet on tagged releases. |
+| High | CI/CD Pipeline | ✅ Done — GitHub Actions runs TS (Node 18/20/22), Python (3.10–3.13), C# (8/9) on PR/push. |
+| High | Package Publishing | ✅ Done — publish workflow triggered on `v*` tags, pushes to npm, PyPI, and NuGet. |
 | Medium | User Guides | Tutorials and getting-started guides per language beyond the auto-generated API.md. |
 | Medium | Examples Coverage | Comprehensive usage examples across all features in all 3 languages. |
 | Low | Schema Validation Coverage | All 178 journal event schemas should have corresponding typed interfaces and validation tests (currently ~170 of 178 covered). |

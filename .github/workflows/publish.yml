@@ -1,0 +1,80 @@
+name: Publish
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  publish-npm:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm run build
+
+      - name: Publish base packages (data, utils, journal, eddn)
+        run: |
+          npm publish -w @elite-dangerous-sdk/data --access public
+          npm publish -w @elite-dangerous-sdk/utils --access public
+          npm publish -w @elite-dangerous-sdk/journal --access public
+          npm publish -w @elite-dangerous-sdk/eddn --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish leaf packages (no cross-deps)
+        run: |
+          npm publish -w @elite-dangerous-sdk/edsm --access public
+          npm publish -w @elite-dangerous-sdk/inara --access public
+          npm publish -w @elite-dangerous-sdk/spansh --access public
+          npm publish -w @elite-dangerous-sdk/elitebgs --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish dependent packages
+        run: |
+          npm publish -w @elite-dangerous-sdk/stats --access public
+          npm publish -w @elite-dangerous-sdk/companion --access public
+          npm publish -w @elite-dangerous-sdk/planner --access public
+          npm publish -w @elite-dangerous-sdk/ws-journal --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-pypi:
+    needs: ci
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install build twine
+      - run: python -m build
+      - run: python -m twine upload dist/*
+        env:
+          TWINE_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+
+  publish-nuget:
+    needs: ci
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./dotnet
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0"
+      - run: dotnet pack EliteDangerousSdk --configuration Release
+      - run: dotnet nuget push EliteDangerousSdk/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
