@@ -3,6 +3,10 @@ from .materials import (
     MATERIAL_CAPS, MICRO_RESOURCE_CAPS,
     create_inventory, update_inventory, can_craft_blueprint,
 )
+from .dependency_graph import (
+    MaterialRequirement, TradeUpOption, MissingMaterial, BuildEvaluation,
+    trade_ratio, evaluate_build,
+)
 from .engineers import (
     EngineerInfo,
     get_all_engineers, find_engineer, get_engineer_unlock_requirements,
@@ -55,6 +59,13 @@ from .bgs import (
     FactionPresence, Conflict, SystemBgsData,
     get_state_description, is_positive_state, is_negative_state,
     predict_conflict_winner,
+    faction_state_effect, influence_effect, analyze_conflict,
+    expansion_targets, retreat_risk,
+)
+from .route_optimizer import (
+    StationMarket, MultiHopRoute,
+    compute_single_hop_routes, find_round_trips, find_multi_hop_routes,
+    suggest_material_farming,
 )
 from .exobiology import (
     SpeciesEntry, GenusEntry, BioSample,

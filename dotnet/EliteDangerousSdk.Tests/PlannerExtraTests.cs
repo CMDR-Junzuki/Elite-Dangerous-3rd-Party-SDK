@@ -612,6 +612,208 @@ public class BgsTests
         Assert.Equal("War", BgsStates.War);
         Assert.Equal("Colonisation", BgsStates.Colonisation);
     }
+
+    [Fact]
+    public void FactionStateEffect_KnownState_ReturnsEffects()
+    {
+        var effect = Bgs.FactionStateEffect("Boom");
+        Assert.Equal("positive", effect.InfluenceTrend);
+        Assert.Contains("trade", effect.AffectedActivities);
+    }
+
+    [Fact]
+    public void FactionStateEffect_KnownState_Retreat()
+    {
+        var effect = Bgs.FactionStateEffect("Retreat");
+        Assert.Equal("negative", effect.InfluenceTrend);
+        Assert.Contains("all", effect.AffectedActivities);
+    }
+
+    [Fact]
+    public void FactionStateEffect_UnknownState_ReturnsNeutral()
+    {
+        var effect = Bgs.FactionStateEffect("MysteryState");
+        Assert.Equal("neutral", effect.InfluenceTrend);
+        Assert.Empty(effect.AffectedActivities);
+    }
+
+    [Fact]
+    public void InfluenceEffect_HighValueMission()
+    {
+        var result = Bgs.InfluenceEffect("mission_completed", new() { ["reward"] = 5000000.0 });
+        Assert.Equal(0.02, result.InfluenceDelta);
+        Assert.Equal("medium", result.Confidence);
+    }
+
+    [Fact]
+    public void InfluenceEffect_StandardMission()
+    {
+        var result = Bgs.InfluenceEffect("mission_completed", new() { ["reward"] = 500000.0 });
+        Assert.Equal(0.004, result.InfluenceDelta);
+    }
+
+    [Fact]
+    public void InfluenceEffect_Bounty()
+    {
+        var result = Bgs.InfluenceEffect("bounty", new() { ["amount"] = 200000.0 });
+        Assert.Equal(0.04, result.InfluenceDelta);
+        Assert.Equal("low", result.Confidence);
+    }
+
+    [Fact]
+    public void InfluenceEffect_Murder()
+    {
+        var result = Bgs.InfluenceEffect("murder", new() { ["count"] = 2.0 });
+        Assert.Equal(-0.004, result.InfluenceDelta);
+    }
+
+    [Fact]
+    public void InfluenceEffect_UnknownAction()
+    {
+        var result = Bgs.InfluenceEffect("unknown", new());
+        Assert.Equal(0, result.InfluenceDelta);
+        Assert.Equal("low", result.Confidence);
+    }
+
+    [Fact]
+    public void AnalyzeConflict_PredictsWinner()
+    {
+        var result = Bgs.AnalyzeConflict(
+            new Conflict { Type = "election", Status = "active", Faction1 = "A", Faction2 = "B" },
+            new List<FactionPresence>
+            {
+                new() { Name = "A", FactionState = "None", Influence = 0.6, Allegiance = "Fed", Government = "Dem" },
+                new() { Name = "B", FactionState = "None", Influence = 0.4, Allegiance = "Ind", Government = "Corp" },
+            });
+        Assert.NotNull(result);
+        Assert.Equal("A", result.PredictedWinner);
+        Assert.True(result.Faction1Advantage > 0);
+        Assert.Contains("significant influence advantage", result.Analysis);
+    }
+
+    [Fact]
+    public void AnalyzeConflict_ReturnsNullIfFactionMissing()
+    {
+        var result = Bgs.AnalyzeConflict(
+            new Conflict { Type = "war", Status = "active", Faction1 = "A", Faction2 = "Missing" },
+            new List<FactionPresence>
+            {
+                new() { Name = "A", FactionState = "None", Influence = 0.5, Allegiance = "", Government = "" },
+            });
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public void ExpansionTargets_ScoresAndRanks()
+    {
+        var current = new SystemBgsData
+        {
+            System = "Home",
+            Population = 1000000,
+            Allegiance = "Federation",
+            Government = "Democracy",
+            Security = "Medium",
+            Economy = "HighTech",
+            Factions = new List<FactionPresence>
+            {
+                new() { Name = "MyFaction", FactionState = "None", Influence = 0.5, Allegiance = "Federation", Government = "Democracy" },
+            },
+        };
+        var nearby = new List<SystemBgsData>
+        {
+            new()
+            {
+                System = "Target1",
+                Population = 5000000,
+                Allegiance = "Federation",
+                Government = "Democracy",
+                Security = "Medium",
+                Economy = "Agriculture",
+                Factions = new List<FactionPresence>
+                {
+                    new() { Name = "Other", FactionState = "None", Influence = 0.05, Allegiance = "Independent", Government = "Corp" },
+                },
+            },
+            new()
+            {
+                System = "Target2",
+                Population = 50000,
+                Allegiance = "Independent",
+                Government = "Anarchy",
+                Security = "Low",
+                Economy = "Extraction",
+                Factions = new List<FactionPresence>(),
+            },
+        };
+        var targets = Bgs.ExpansionTargets(current, nearby, "MyFaction");
+        Assert.Equal(2, targets.Count);
+        Assert.Equal("Target1", targets[0].System);
+        Assert.True(targets[0].Score > targets[1].Score);
+        Assert.NotEmpty(targets[0].Reasons);
+    }
+
+    [Fact]
+    public void ExpansionTargets_SkipsCurrentSystem()
+    {
+        var current = new SystemBgsData { System = "Home", Population = 1000 };
+        var targets = Bgs.ExpansionTargets(current, new List<SystemBgsData> { current }, "MyFaction");
+        Assert.Empty(targets);
+    }
+
+    [Fact]
+    public void ExpansionTargets_SkipsSystemWithFaction()
+    {
+        var current = new SystemBgsData { System = "Home", Population = 1000 };
+        var sysWithFaction = new SystemBgsData
+        {
+            System = "Elsewhere",
+            Population = 1000,
+            Factions = new List<FactionPresence>
+            {
+                new() { Name = "MyFaction", FactionState = "None", Influence = 0.1 },
+            },
+        };
+        var targets = Bgs.ExpansionTargets(current, new List<SystemBgsData> { sysWithFaction }, "MyFaction");
+        Assert.Empty(targets);
+    }
+
+    [Fact]
+    public void RetreatRisk_CriticalForVeryLowInfluence()
+    {
+        var risk = Bgs.RetreatRisk(new FactionPresence { Name = "Faction", FactionState = "None", Influence = 0.005 });
+        Assert.Equal("critical", risk.RiskLevel);
+        Assert.False(risk.InRetreatState);
+    }
+
+    [Fact]
+    public void RetreatRisk_HighForBelow2_5Percent()
+    {
+        var risk = Bgs.RetreatRisk(new FactionPresence { Name = "Faction", FactionState = "None", Influence = 0.02 });
+        Assert.Equal("high", risk.RiskLevel);
+    }
+
+    [Fact]
+    public void RetreatRisk_CriticalForRetreatStateLowInfluence()
+    {
+        var risk = Bgs.RetreatRisk(new FactionPresence { Name = "Faction", FactionState = "Retreat", Influence = 0.02 });
+        Assert.Equal("critical", risk.RiskLevel);
+        Assert.True(risk.InRetreatState);
+    }
+
+    [Fact]
+    public void RetreatRisk_NoneForAbove7_5Percent()
+    {
+        var risk = Bgs.RetreatRisk(new FactionPresence { Name = "Faction", FactionState = "None", Influence = 0.1 });
+        Assert.Equal("none", risk.RiskLevel);
+    }
+
+    [Fact]
+    public void RetreatRisk_IncludesAnalysisText()
+    {
+        var risk = Bgs.RetreatRisk(new FactionPresence { Name = "TestFaction", FactionState = "Retreat", Influence = 0.04 });
+        Assert.Contains("TestFaction", risk.Analysis);
+        Assert.Contains("high", risk.Analysis);
+    }
 }
 
 public class CompareTests
@@ -783,6 +985,160 @@ public class CompareTests
         foreach (var row in rows)
         {
             Assert.Null(row.Values[0]);
+        }
+    }
+
+    public class DependencyGraphTests
+    {
+        static DependencyGraphTests()
+        {
+            var dataPath = EliteDangerousSdk.Data.DataProvider.ResolveDataPath();
+            EliteDangerousSdk.Data.DataProvider.Initialize(dataPath);
+        }
+
+        [Fact]
+        public void EvaluateBuild_Empty_ReturnsEmpty()
+        {
+            var result = DependencyGraph.EvaluateBuild(new List<PlannedModification>());
+            Assert.Empty(result.Plan.Materials);
+            Assert.Empty(result.Requirements);
+            Assert.Empty(result.Missing);
+            Assert.True(result.CanCraftAll);
+            Assert.True(result.CanCraftWithTrades);
+            Assert.Equal(0, result.TotalMaterialsNeeded);
+            Assert.Equal(0, result.TotalMissing);
+            Assert.Empty(result.Engineers);
+        }
+
+        [Fact]
+        public void EvaluateBuild_FSD_G5_ComputesRequirements()
+        {
+            var result = DependencyGraph.EvaluateBuild(new List<PlannedModification>
+            {
+                new() { ModuleGroup = "fsd", BlueprintName = "FSD_LongRange", Grade = 5 },
+            });
+            Assert.NotEmpty(result.Requirements);
+            Assert.True(result.TotalMaterialsNeeded > 0);
+            Assert.Contains("Felicity Farseer", result.Engineers);
+            Assert.False(result.CanCraftAll);
+        }
+
+        [Fact]
+        public void EvaluateBuild_SufficientInventory()
+        {
+            var inv = new MaterialInventory();
+            // Add one entry per required material with plenty of stock
+            var reqs = EngineeringPlanner.PlanEngineering(new List<PlannedModification>
+            {
+                new() { ModuleGroup = "fsd", BlueprintName = "FSD_LongRange", Grade = 5 },
+            });
+            foreach (var kv in reqs.MaterialTotal)
+            {
+                inv.Materials.Add(new MaterialEntry { Name = kv.Key, Count = 9999, MaxCapacity = 3000 });
+            }
+
+            var result = DependencyGraph.EvaluateBuild(
+                new List<PlannedModification>
+                {
+                    new() { ModuleGroup = "fsd", BlueprintName = "FSD_LongRange", Grade = 5 },
+                },
+                inv);
+
+            Assert.True(result.CanCraftAll);
+            Assert.Empty(result.Missing);
+            Assert.Equal(0, result.TotalMissing);
+        }
+
+        [Fact]
+        public void EvaluateBuild_PartialInventory()
+        {
+            var inv = new MaterialInventory();
+            inv.Materials.Add(new MaterialEntry { Name = "Arsenic", Count = 1, MaxCapacity = 3000 });
+
+            var result = DependencyGraph.EvaluateBuild(
+                new List<PlannedModification>
+                {
+                    new() { ModuleGroup = "fsd", BlueprintName = "FSD_LongRange", Grade = 5 },
+                },
+                inv);
+
+            var arsenicReq = result.Requirements.FirstOrDefault(r => r.Name == "Arsenic");
+            Assert.NotNull(arsenicReq);
+            Assert.Equal(1, arsenicReq.Available);
+            Assert.Equal(arsenicReq.Needed - 1, arsenicReq.Missing);
+        }
+
+        [Fact]
+        public void EvaluateBuild_TradeUpOptions()
+        {
+            var inv = new MaterialInventory();
+            // Add G1 Raw materials with plenty of stock
+            static int ParseRarity(JsonElement el)
+            {
+                if (!el.TryGetProperty("rarity", out var r)) return 99;
+                if (r.ValueKind == JsonValueKind.Number) return r.GetInt32();
+                if (r.ValueKind == JsonValueKind.String && int.TryParse(r.GetString(), out var p)) return p;
+                return 99;
+            }
+
+            foreach (var m in EliteDangerousSdk.Data.DataProvider.Materials)
+            {
+                var name = m.TryGetProperty("name", out var n) ? n.GetString() : null;
+                var rarity = ParseRarity(m);
+                var type = m.TryGetProperty("type", out var t) ? t.GetString() : "";
+                if (name != null && rarity == 1 && type?.ToLowerInvariant() == "raw")
+                {
+                    inv.Materials.Add(new MaterialEntry { Name = name, Count = 3000, MaxCapacity = 3000 });
+                }
+            }
+
+            var result = DependencyGraph.EvaluateBuild(
+                new List<PlannedModification>
+                {
+                    new() { ModuleGroup = "fsd", BlueprintName = "FSD_LongRange", Grade = 5 },
+                },
+                inv);
+
+            Assert.NotEmpty(result.Missing);
+            foreach (var mm in result.Missing)
+            {
+                if (mm.Category == "raw")
+                {
+                    Assert.NotEmpty(mm.TradeUps);
+                }
+            }
+        }
+
+        [Fact]
+        public void TradeRatio_SameGrade()
+        {
+            Assert.Equal(6, DependencyGraph.TradeRatio(1, 1));
+            Assert.Equal(6, DependencyGraph.TradeRatio(5, 5));
+        }
+
+        [Fact]
+        public void TradeRatio_OneGradeApart()
+        {
+            Assert.Equal(6, DependencyGraph.TradeRatio(1, 2));
+            Assert.Equal(6, DependencyGraph.TradeRatio(4, 5));
+        }
+
+        [Fact]
+        public void TradeRatio_TwoGradesApart()
+        {
+            Assert.Equal(36, DependencyGraph.TradeRatio(1, 3));
+        }
+
+        [Fact]
+        public void TradeRatio_ThreeGradesApart()
+        {
+            Assert.Equal(216, DependencyGraph.TradeRatio(1, 4));
+        }
+
+        [Fact]
+        public void TradeRatio_FourGradesApart()
+        {
+            Assert.Equal(1296, DependencyGraph.TradeRatio(1, 5));
         }
     }
 

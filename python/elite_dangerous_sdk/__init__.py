@@ -10,7 +10,15 @@ from .journal import (
     stringify_event, stringify_bigint_json, is_event_type,
 )
 from .journal_watcher import JournalWatcher
+from .journal_stream import create_journal_stream
 from .journal_replay import JournalReplay
+from .commander_state import (
+    CommanderStateEngine, CommanderState, MaterialEntry, MissionState,
+    ShipModuleState, FleetEntry, NavRouteEntry, CarrierState,
+)
+from .query import (
+    JournalQuery, query, count_where, filter_where, count_by_type,
+)
 from .journal_types import (
     FileHeader, LoadGame, Location, FSDJump, Docked, Undocked,
     Scan, SupercruiseEntry, SupercruiseExit, Touchdown, Liftoff,

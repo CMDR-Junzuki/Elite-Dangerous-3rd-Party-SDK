@@ -559,27 +559,46 @@ describe("eddn", () => {
     });
 
     it("returns errors for missing $schemaRef", () => {
-      const errs = validateEDDN({ header: { uploaderID: "x", softwareName: "y", softwareVersion: "z" }, message: { StarSystem: "Sol", SystemAddress: 1, timestamp: "t" } });
+      const errs = validateEDDN({
+        header: { uploaderID: "x", softwareName: "y", softwareVersion: "z" },
+        message: { StarSystem: "Sol", SystemAddress: 1, timestamp: "t" },
+      });
       expect(errs).toContain("$schemaRef is required");
     });
 
     it("returns errors for missing header fields", () => {
-      const errs = validateEDDN({ $schemaRef: EDDN_SCHEMAS.FSDJUMP, header: {} as any, message: { StarSystem: "Sol", SystemAddress: 1, timestamp: "t" } });
+      const errs = validateEDDN({
+        $schemaRef: EDDN_SCHEMAS.FSDJUMP,
+        header: {} as any,
+        message: { StarSystem: "Sol", SystemAddress: 1, timestamp: "t" },
+      });
       expect(errs).toContain("header.uploaderID is required");
       expect(errs).toContain("header.softwareName is required");
       expect(errs).toContain("header.softwareVersion is required");
     });
 
     it("returns errors for unknown schema", () => {
-      const errs = validateEDDN({ $schemaRef: "https://unknown/schema", header: { uploaderID: "x", softwareName: "y", softwareVersion: "z" }, message: { x: 1 } });
+      const errs = validateEDDN({
+        $schemaRef: "https://unknown/schema",
+        header: { uploaderID: "x", softwareName: "y", softwareVersion: "z" },
+        message: { x: 1 },
+      });
       expect(errs).toContain("unknown schema: https://unknown/schema");
     });
 
     it("validates a valid FSDJump envelope", () => {
       const errs = validateEDDN({
         $schemaRef: EDDN_SCHEMAS.FSDJUMP,
-        header: { uploaderID: "me", softwareName: "test", softwareVersion: "1.0" },
-        message: { StarSystem: "Sol", SystemAddress: 123, timestamp: "2024-01-01T00:00:00Z" },
+        header: {
+          uploaderID: "me",
+          softwareName: "test",
+          softwareVersion: "1.0",
+        },
+        message: {
+          StarSystem: "Sol",
+          SystemAddress: 123,
+          timestamp: "2024-01-01T00:00:00Z",
+        },
       });
       expect(errs).toHaveLength(0);
     });
@@ -587,8 +606,17 @@ describe("eddn", () => {
     it("validates a valid commodity envelope", () => {
       const errs = validateEDDN({
         $schemaRef: EDDN_SCHEMAS.COMMODITY,
-        header: { uploaderID: "me", softwareName: "test", softwareVersion: "1.0" },
-        message: { systemName: "Sol", stationName: "Station", marketId: 1, commodities: [{ name: "Gold", buyPrice: 100, sellPrice: 200 }] },
+        header: {
+          uploaderID: "me",
+          softwareName: "test",
+          softwareVersion: "1.0",
+        },
+        message: {
+          systemName: "Sol",
+          stationName: "Station",
+          marketId: 1,
+          commodities: [{ name: "Gold", buyPrice: 100, sellPrice: 200 }],
+        },
       });
       expect(errs).toHaveLength(0);
     });
@@ -596,7 +624,11 @@ describe("eddn", () => {
     it("reports message-level errors through the envelope", () => {
       const errs = validateEDDN({
         $schemaRef: EDDN_SCHEMAS.COMMODITY,
-        header: { uploaderID: "me", softwareName: "test", softwareVersion: "1.0" },
+        header: {
+          uploaderID: "me",
+          softwareName: "test",
+          softwareVersion: "1.0",
+        },
         message: {} as any,
       });
       expect(errs.length).toBeGreaterThan(0);

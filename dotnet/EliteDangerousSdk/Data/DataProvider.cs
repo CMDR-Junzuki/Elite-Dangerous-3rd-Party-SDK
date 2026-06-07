@@ -10,6 +10,11 @@ namespace EliteDangerousSdk.Data
     {
         private static string? _dataPath;
 
+        static DataProvider()
+        {
+            LoadAll();
+        }
+
         public static void Initialize(string dataPath)
         {
             _dataPath = dataPath;
@@ -139,7 +144,7 @@ namespace EliteDangerousSdk.Data
                             Commodities = arr;
                             foreach (var c in arr)
                             {
-                                if (c.TryGetProperty("id", out var idEl) && idEl.TryGetInt64(out var id))
+                                if (c.TryGetProperty("id", out var idEl) && TryGetInt64Safe(idEl, out var id))
                                     CommoditiesById[id] = c;
                                 if (c.TryGetProperty("symbol", out var symEl))
                                 {
@@ -277,9 +282,23 @@ namespace EliteDangerousSdk.Data
         {
             foreach (var item in items)
             {
-                if (item.TryGetProperty("id", out var idEl) && idEl.TryGetInt64(out var id))
-                    target[id] = item;
+                if (item.TryGetProperty("id", out var idEl))
+                {
+                    if (TryGetInt64Safe(idEl, out var id))
+                        target[id] = item;
+                }
             }
+        }
+
+        private static bool TryGetInt64Safe(JsonElement el, out long value)
+        {
+            if (el.ValueKind == JsonValueKind.Number)
+                return el.TryGetInt64(out value);
+            var s = el.GetString();
+            if (s != null && long.TryParse(s, out value))
+                return true;
+            value = 0;
+            return false;
         }
 
         private static void IndexByStringId(List<JsonElement> items, Dictionary<string, JsonElement> target)

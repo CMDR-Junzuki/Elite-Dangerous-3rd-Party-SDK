@@ -135,3 +135,22 @@ ws-journal (journal)
 ## Import Convention
 
 TypeScript packages use `.js` extension in relative imports with `NodeNext` module resolution. This is the standard NodeNext convention — TypeScript resolves `./foo.js` to the `./foo.ts` source file during compilation. Vitest/tsx handle this automatically at runtime.
+
+## Implemented Features (from ChatGPT proposals)
+
+| Feature | TS | Python | C# |
+|---------|----|--------|----|
+| JournalReplay | ✅ | ✅ | ✅ |
+| CommanderStateEngine | ✅ | ✅ | ✅ |
+| EDDN Message Validation | ✅ | ✅ | ✅ |
+| Saveable Commander Snapshots | ✅ | ✅ | ✅ |
+| Event Query Engine | ✅ | ✅ | ✅ |
+| Material & Engineering Dependency Graph | ✅ | ✅ | ✅ |
+| Route Optimization APIs | ✅ | ✅ | ✅ |
+| Canonical Elite ID Resolution | ✅ | ✅ | ✅ |
+| Live Event Stream Layer | ✅ | ✅ | ✅ |
+| Squadron & BGS Toolkit | ✅ | ✅ | ✅ |
+
+## Planned Features (from ChatGPT proposals)
+
+_None — all proposed features implemented._

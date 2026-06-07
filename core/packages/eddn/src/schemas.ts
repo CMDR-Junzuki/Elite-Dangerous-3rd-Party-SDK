@@ -164,7 +164,9 @@ export function validateFcMaterialsJournalMessage(msg: {
 /**
  * Validate an approach settlement message.
  */
-export function validateApproachSettlementMessage(msg: Record<string, unknown>): string[] {
+export function validateApproachSettlementMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
   if (!msg.settlementName) errors.push("settlementName is required");
   if (!msg.SystemAddress) errors.push("SystemAddress is required");
@@ -175,9 +177,12 @@ export function validateApproachSettlementMessage(msg: Record<string, unknown>):
 /**
  * Validate a nav route clear message.
  */
-export function validateNavRouteClearMessage(msg: Record<string, unknown>): string[] {
+export function validateNavRouteClearMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
-  if (msg.route !== undefined && !Array.isArray(msg.route)) errors.push("route must be an array");
+  if (msg.route !== undefined && !Array.isArray(msg.route))
+    errors.push("route must be an array");
   if (!msg.timestamp) errors.push("timestamp is required");
   return errors;
 }
@@ -188,14 +193,17 @@ export function validateNavRouteClearMessage(msg: Record<string, unknown>): stri
 export function validateScanMessage(msg: Record<string, unknown>): string[] {
   const errors: string[] = [];
   if (!msg.timestamp) errors.push("timestamp is required");
-  if (!msg.BodyName && !msg.BodyID) errors.push("BodyName or BodyID is required");
+  if (!msg.BodyName && !msg.BodyID)
+    errors.push("BodyName or BodyID is required");
   return errors;
 }
 
 /**
  * Validate a code entry message.
  */
-export function validateCodeEntryMessage(msg: Record<string, unknown>): string[] {
+export function validateCodeEntryMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
   if (!msg.systemName) errors.push("systemName is required");
   if (!msg.timestamp) errors.push("timestamp is required");
@@ -205,10 +213,13 @@ export function validateCodeEntryMessage(msg: Record<string, unknown>): string[]
 /**
  * Validate an FSS discovered message.
  */
-export function validateFssDiscoveredMessage(msg: Record<string, unknown>): string[] {
+export function validateFssDiscoveredMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
   if (!msg.systemName) errors.push("systemName is required");
-  if (msg.bodies !== undefined && !Array.isArray(msg.bodies)) errors.push("bodies must be an array");
+  if (msg.bodies !== undefined && !Array.isArray(msg.bodies))
+    errors.push("bodies must be an array");
   if (!msg.timestamp) errors.push("timestamp is required");
   return errors;
 }
@@ -216,11 +227,14 @@ export function validateFssDiscoveredMessage(msg: Record<string, unknown>): stri
 /**
  * Validate an SAA signals found message.
  */
-export function validateSaaSignalsFoundMessage(msg: Record<string, unknown>): string[] {
+export function validateSaaSignalsFoundMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
   if (!msg.systemName) errors.push("systemName is required");
   if (!msg.bodyName) errors.push("bodyName is required");
-  if (msg.signals !== undefined && !Array.isArray(msg.signals)) errors.push("signals must be an array");
+  if (msg.signals !== undefined && !Array.isArray(msg.signals))
+    errors.push("signals must be an array");
   if (!msg.timestamp) errors.push("timestamp is required");
   return errors;
 }
@@ -239,7 +253,9 @@ export function validateFsdJumpMessage(msg: Record<string, unknown>): string[] {
 /**
  * Validate a location message.
  */
-export function validateLocationMessage(msg: Record<string, unknown>): string[] {
+export function validateLocationMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
   if (!msg.StarSystem) errors.push("StarSystem is required");
   if (!msg.SystemAddress) errors.push("SystemAddress is required");
@@ -250,7 +266,9 @@ export function validateLocationMessage(msg: Record<string, unknown>): string[] 
 /**
  * Validate a carrier jump message.
  */
-export function validateCarrierJumpMessage(msg: Record<string, unknown>): string[] {
+export function validateCarrierJumpMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
   if (!msg.StarSystem) errors.push("StarSystem is required");
   if (!msg.SystemAddress) errors.push("SystemAddress is required");
@@ -261,7 +279,9 @@ export function validateCarrierJumpMessage(msg: Record<string, unknown>): string
 /**
  * Validate a dispatch message.
  */
-export function validateDispatchMessage(msg: Record<string, unknown>): string[] {
+export function validateDispatchMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
   if (!msg.Text && !msg.Topics) errors.push("Text or Topics is required");
   if (!msg.timestamp) errors.push("timestamp is required");
@@ -271,26 +291,38 @@ export function validateDispatchMessage(msg: Record<string, unknown>): string[] 
 /**
  * Validate a backpack message.
  */
-export function validateBackpackMessage(msg: Record<string, unknown>): string[] {
+export function validateBackpackMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
   if (!msg.timestamp) errors.push("timestamp is required");
-  if (msg.Items !== undefined && !Array.isArray(msg.Items)) errors.push("Items must be an array");
-  if (msg.Components !== undefined && !Array.isArray(msg.Components)) errors.push("Components must be an array");
-  if (msg.Consumables !== undefined && !Array.isArray(msg.Consumables)) errors.push("Consumables must be an array");
-  if (msg.Data !== undefined && !Array.isArray(msg.Data)) errors.push("Data must be an array");
+  if (msg.Items !== undefined && !Array.isArray(msg.Items))
+    errors.push("Items must be an array");
+  if (msg.Components !== undefined && !Array.isArray(msg.Components))
+    errors.push("Components must be an array");
+  if (msg.Consumables !== undefined && !Array.isArray(msg.Consumables))
+    errors.push("Consumables must be an array");
+  if (msg.Data !== undefined && !Array.isArray(msg.Data))
+    errors.push("Data must be an array");
   return errors;
 }
 
 /**
  * Validate a ship locker message.
  */
-export function validateShipLockerMessage(msg: Record<string, unknown>): string[] {
+export function validateShipLockerMessage(
+  msg: Record<string, unknown>,
+): string[] {
   const errors: string[] = [];
   if (!msg.timestamp) errors.push("timestamp is required");
-  if (msg.Items !== undefined && !Array.isArray(msg.Items)) errors.push("Items must be an array");
-  if (msg.Components !== undefined && !Array.isArray(msg.Components)) errors.push("Components must be an array");
-  if (msg.Consumables !== undefined && !Array.isArray(msg.Consumables)) errors.push("Consumables must be an array");
-  if (msg.Data !== undefined && !Array.isArray(msg.Data)) errors.push("Data must be an array");
+  if (msg.Items !== undefined && !Array.isArray(msg.Items))
+    errors.push("Items must be an array");
+  if (msg.Components !== undefined && !Array.isArray(msg.Components))
+    errors.push("Components must be an array");
+  if (msg.Consumables !== undefined && !Array.isArray(msg.Consumables))
+    errors.push("Consumables must be an array");
+  if (msg.Data !== undefined && !Array.isArray(msg.Data))
+    errors.push("Data must be an array");
   return errors;
 }
 
@@ -298,14 +330,31 @@ type MessageRecord = Record<string, unknown>;
 
 /** Schema-to-validator dispatch map. */
 const SCHEMA_VALIDATORS: Record<string, (msg: MessageRecord) => string[]> = {
-  [EDDN_SCHEMAS.COMMODITY]: (m) => validateCommodityMessage(m as Parameters<typeof validateCommodityMessage>[0]),
-  [EDDN_SCHEMAS.SHIPYARD]: (m) => validateShipyardMessage(m as Parameters<typeof validateShipyardMessage>[0]),
-  [EDDN_SCHEMAS.OUTFITTING]: (m) => validateOutfittingMessage(m as Parameters<typeof validateOutfittingMessage>[0]),
-  [EDDN_SCHEMAS.FCMATERIALS_CAPI]: (m) => validateFcMaterialsMessage(m as Parameters<typeof validateFcMaterialsMessage>[0]),
+  [EDDN_SCHEMAS.COMMODITY]: (m) =>
+    validateCommodityMessage(
+      m as Parameters<typeof validateCommodityMessage>[0],
+    ),
+  [EDDN_SCHEMAS.SHIPYARD]: (m) =>
+    validateShipyardMessage(m as Parameters<typeof validateShipyardMessage>[0]),
+  [EDDN_SCHEMAS.OUTFITTING]: (m) =>
+    validateOutfittingMessage(
+      m as Parameters<typeof validateOutfittingMessage>[0],
+    ),
+  [EDDN_SCHEMAS.FCMATERIALS_CAPI]: (m) =>
+    validateFcMaterialsMessage(
+      m as Parameters<typeof validateFcMaterialsMessage>[0],
+    ),
   [EDDN_SCHEMAS.JOURNAL]: (m) => validateJournalMessage(m),
-  [EDDN_SCHEMAS.BLACKMARKET]: (m) => validateBlackmarketMessage(m as Parameters<typeof validateBlackmarketMessage>[0]),
-  [EDDN_SCHEMAS.NAVROUTE]: (m) => validateNavRouteMessage(m as Parameters<typeof validateNavRouteMessage>[0]),
-  [EDDN_SCHEMAS.FCMATERIALS_JOURNAL]: (m) => validateFcMaterialsJournalMessage(m as Parameters<typeof validateFcMaterialsJournalMessage>[0]),
+  [EDDN_SCHEMAS.BLACKMARKET]: (m) =>
+    validateBlackmarketMessage(
+      m as Parameters<typeof validateBlackmarketMessage>[0],
+    ),
+  [EDDN_SCHEMAS.NAVROUTE]: (m) =>
+    validateNavRouteMessage(m as Parameters<typeof validateNavRouteMessage>[0]),
+  [EDDN_SCHEMAS.FCMATERIALS_JOURNAL]: (m) =>
+    validateFcMaterialsJournalMessage(
+      m as Parameters<typeof validateFcMaterialsJournalMessage>[0],
+    ),
   [EDDN_SCHEMAS.APPROACHSETTLEMENT]: validateApproachSettlementMessage,
   [EDDN_SCHEMAS.NAVROUTECLEAR]: validateNavRouteClearMessage,
   [EDDN_SCHEMAS.SCAN]: validateScanMessage,
@@ -329,7 +378,11 @@ const SCHEMA_VALIDATORS: Record<string, (msg: MessageRecord) => string[]> = {
  */
 export function validateEDDN(envelope: {
   $schemaRef?: string;
-  header?: { uploaderID?: string; softwareName?: string; softwareVersion?: string };
+  header?: {
+    uploaderID?: string;
+    softwareName?: string;
+    softwareVersion?: string;
+  };
   message?: MessageRecord;
 }): string[] {
   const errors: string[] = [];
@@ -340,9 +393,12 @@ export function validateEDDN(envelope: {
   if (!envelope.header) {
     errors.push("header is required");
   } else {
-    if (!envelope.header.uploaderID) errors.push("header.uploaderID is required");
-    if (!envelope.header.softwareName) errors.push("header.softwareName is required");
-    if (!envelope.header.softwareVersion) errors.push("header.softwareVersion is required");
+    if (!envelope.header.uploaderID)
+      errors.push("header.uploaderID is required");
+    if (!envelope.header.softwareName)
+      errors.push("header.softwareName is required");
+    if (!envelope.header.softwareVersion)
+      errors.push("header.softwareVersion is required");
   }
 
   if (!envelope.message) {

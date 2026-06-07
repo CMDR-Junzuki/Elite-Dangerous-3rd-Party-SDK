@@ -28,3 +28,4 @@ export {
 } from "./lookups";
 export * from "./maps";
 export * from "./on-foot-engineering";
+export * from "./resolver.js";

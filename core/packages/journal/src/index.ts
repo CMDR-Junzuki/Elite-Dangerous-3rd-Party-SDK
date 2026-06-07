@@ -1,3 +1,10 @@
+export type {
+  CommanderState,
+  MaterialEntry,
+  MissionState,
+  ShipModuleState,
+} from "./commander-state.js";
+export { CommanderStateEngine } from "./commander-state.js";
 export {
   getJournalDirectory,
   Journal,
@@ -5,9 +12,11 @@ export {
   readMarketFile,
   readStatusFile,
 } from "./Journal.js";
-export { JournalReplay } from "./JournalReplay.js";
 export type { JournalReplayOptions, ReplayState } from "./JournalReplay.js";
+export { JournalReplay } from "./JournalReplay.js";
 export { JournalWatcher } from "./JournalWatcher.js";
+export type { JournalStream, JournalStreamOptions } from "./journal-stream.js";
+export { createJournalStream } from "./journal-stream.js";
 export {
   isEventType,
   parseLine,
@@ -16,6 +25,13 @@ export {
   stringifyBigIntJSON,
   stringifyEvent,
 } from "./parser.js";
+export {
+  countByType,
+  countWhere,
+  filterWhere,
+  JournalQuery,
+  query,
+} from "./query.js";
 export type {
   AfmuRepairs,
   AppliedToSquadron,

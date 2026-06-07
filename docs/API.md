@@ -308,6 +308,54 @@ File: `core\packages\data\src\on-foot-engineering.ts`
 
 File: `core\packages\data\src\on-foot-engineering.ts`
 
+### resolveModule
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveShip
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveShipByName
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveCommodity
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveEngineer
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveEngineerByName
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveMaterial
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveMaterialBySymbol
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveMicroresource
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveMicroresourceBySymbol
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveOutfitting
+
+File: `core\packages\data\src\resolver.ts`
+
+### resolveShipyard
+
+File: `core\packages\data\src\resolver.ts`
+
 ## @elite-dangerous-sdk/eddn
 
 ### UPLOAD_URL
@@ -417,6 +465,84 @@ Validate a fleet carrier materials message.
 File: `core\packages\eddn\src\schemas.ts`
 
 Validate a fleet carrier materials message.
+
+### validateApproachSettlementMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate an approach settlement message.
+
+### validateNavRouteClearMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate a nav route clear message.
+
+### validateScanMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate a scan/exploration message.
+
+### validateCodeEntryMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate a code entry message.
+
+### validateFssDiscoveredMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate an FSS discovered message.
+
+### validateSaaSignalsFoundMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate an SAA signals found message.
+
+### validateFsdJumpMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate an FSD jump message.
+
+### validateLocationMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate a location message.
+
+### validateCarrierJumpMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate a carrier jump message.
+
+### validateDispatchMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate a dispatch message.
+
+### validateBackpackMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate a backpack message.
+
+### validateShipLockerMessage
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validate a ship locker message.
+
+### validateEDDN
+
+File: `core\packages\eddn\src\schemas.ts`
+
+Validates a raw EDDN message by inspecting its `$schemaRef` field.  Accepts a full EDDN message object (with `$schemaRef`, `header`, `message`). Returns an array of validation error strings (empty = valid). Returns `["unknown schema: <ref>"]` if the schema ref is not recognized.
 
 ## @elite-dangerous-sdk/edsm
 
@@ -684,6 +810,50 @@ File: `core\packages\inara\src\types.ts`
 
 ## @elite-dangerous-sdk/journal
 
+### MaterialEntry
+
+File: `core\packages\journal\src\commander-state.ts`
+
+### MissionState
+
+File: `core\packages\journal\src\commander-state.ts`
+
+### ShipModuleState
+
+File: `core\packages\journal\src\commander-state.ts`
+
+### FactionStateInfo
+
+File: `core\packages\journal\src\commander-state.ts`
+
+### ConflictInfo
+
+File: `core\packages\journal\src\commander-state.ts`
+
+### SquadronInfo
+
+File: `core\packages\journal\src\commander-state.ts`
+
+### CommanderState
+
+File: `core\packages\journal\src\commander-state.ts`
+
+### CommanderStateEngine
+
+File: `core\packages\journal\src\commander-state.ts`
+
+### JournalStreamOptions
+
+File: `core\packages\journal\src\journal-stream.ts`
+
+### JournalStream
+
+File: `core\packages\journal\src\journal-stream.ts`
+
+### createJournalStream
+
+File: `core\packages\journal\src\journal-stream.ts`
+
 ### getJournalDirectory
 
 File: `core\packages\journal\src\Journal.ts`
@@ -695,6 +865,18 @@ File: `core\packages\journal\src\Journal.ts`
 ### Journal
 
 File: `core\packages\journal\src\Journal.ts`
+
+### JournalReplayOptions
+
+File: `core\packages\journal\src\JournalReplay.ts`
+
+### ReplayState
+
+File: `core\packages\journal\src\JournalReplay.ts`
+
+### JournalReplay
+
+File: `core\packages\journal\src\JournalReplay.ts`
 
 ### JournalWatcher
 
@@ -723,6 +905,26 @@ File: `core\packages\journal\src\parser.ts`
 ### isEventType
 
 File: `core\packages\journal\src\parser.ts`
+
+### JournalQuery
+
+File: `core\packages\journal\src\query.ts`
+
+### query
+
+File: `core\packages\journal\src\query.ts`
+
+### countWhere
+
+File: `core\packages\journal\src\query.ts`
+
+### filterWhere
+
+File: `core\packages\journal\src\query.ts`
+
+### countByType
+
+File: `core\packages\journal\src\query.ts`
 
 ### ID
 
@@ -1586,6 +1788,66 @@ File: `core\packages\planner\src\bgs.ts`
 
 Determine which faction would win a conflict based on influence.
 
+### StateEffect
+
+File: `core\packages\planner\src\bgs.ts`
+
+Determine which faction would win a conflict based on influence.
+
+### factionStateEffect
+
+File: `core\packages\planner\src\bgs.ts`
+
+Get the effect of a BGS state on influence and activities.
+
+### InfluenceEstimate
+
+File: `core\packages\planner\src\bgs.ts`
+
+Get the effect of a BGS state on influence and activities.
+
+### influenceEffect
+
+File: `core\packages\planner\src\bgs.ts`
+
+Estimate influence change from BGS actions. Based on observed community data points (Frontier does not publish exact formulas).
+
+### ConflictAnalysis
+
+File: `core\packages\planner\src\bgs.ts`
+
+Estimate influence change from BGS actions. Based on observed community data points (Frontier does not publish exact formulas).
+
+### analyzeConflict
+
+File: `core\packages\planner\src\bgs.ts`
+
+Analyze a conflict and provide detailed breakdown.
+
+### ExpansionTarget
+
+File: `core\packages\planner\src\bgs.ts`
+
+Analyze a conflict and provide detailed breakdown.
+
+### expansionTargets
+
+File: `core\packages\planner\src\bgs.ts`
+
+Evaluate nearby systems as potential expansion targets for a faction.
+
+### RetreatRisk
+
+File: `core\packages\planner\src\bgs.ts`
+
+Evaluate nearby systems as potential expansion targets for a faction.
+
+### retreatRisk
+
+File: `core\packages\planner\src\bgs.ts`
+
+Assess the retreat risk for a faction presence. Factions below 2.5% influence are at risk of retreating. Factions in Retreat state below 5% are at critical risk.
+
 ### EconAudit
 
 File: `core\packages\planner\src\colonization-economy.ts`
@@ -1745,6 +2007,34 @@ File: `core\packages\planner\src\compare.ts`
 ### formatComparisonTable
 
 File: `core\packages\planner\src\compare.ts`
+
+### MaterialRequirement
+
+File: `core\packages\planner\src\dependency-graph.ts`
+
+### TradeUpOption
+
+File: `core\packages\planner\src\dependency-graph.ts`
+
+### MissingMaterial
+
+File: `core\packages\planner\src\dependency-graph.ts`
+
+### BuildEvaluation
+
+File: `core\packages\planner\src\dependency-graph.ts`
+
+### tradeRatio
+
+File: `core\packages\planner\src\dependency-graph.ts`
+
+Compute material trader trade ratio: For same-category: 6^max(1, gradeDiff) lower-grade units → 1 higher-grade unit Same grade = 6:1, 1 apart = 6:1, 2 apart = 36:1, 3 apart = 216:1, 4 apart = 1296:1
+
+### evaluateBuild
+
+File: `core\packages\planner\src\dependency-graph.ts`
+
+Evaluate a planned build against an optional inventory. Returns requirements, missing materials, and trade-up possibilities.
 
 ### EngineerInfo
 
@@ -2043,6 +2333,48 @@ Calculate merits to next rank.
 File: `core\packages\planner\src\powerplay.ts`
 
 Estimate merits earned per hour for a given activity (Powerplay 2.0). Powerplay 2.0 (Update 18) introduced 4x-20x merit multipliers, dramatically increasing rates vs Powerplay 1.0. Source: INARA Powerplay 2.0 guide, player reports.
+
+### StationMarket
+
+File: `core\packages\planner\src\route-optimizer.ts`
+
+A station with its full market data (what it buys and sells).
+
+### MultiHopRoute
+
+File: `core\packages\planner\src\route-optimizer.ts`
+
+A multi-hop trade route (sequence of hops).
+
+### RouteOptimizerOptions
+
+File: `core\packages\planner\src\route-optimizer.ts`
+
+Options for route optimization.
+
+### computeSingleHopRoutes
+
+File: `core\packages\planner\src\route-optimizer.ts`
+
+Compute all profitable single-hop routes between station pairs. A->B is profitable if A supplies a commodity that B demands at a higher price.
+
+### findRoundTrips
+
+File: `core\packages\planner\src\route-optimizer.ts`
+
+Find profitable round-trip trade routes (A->B->A with different commodities).
+
+### findMultiHopRoutes
+
+File: `core\packages\planner\src\route-optimizer.ts`
+
+Find multi-hop trade routes up to maxHops hops. For maxHops=2, equivalent to findRoundTrips. For maxHops=3, finds A->B->C->A loops.
+
+### suggestMaterialFarming
+
+File: `core\packages\planner\src\route-optimizer.ts`
+
+Suggest material farming activities based on material category and grade. Returns a list of known activity sources for the given material.
 
 ### THARGOID_WAR_STATE_NAMES
 

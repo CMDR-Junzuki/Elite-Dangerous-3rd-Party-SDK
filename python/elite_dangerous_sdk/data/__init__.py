@@ -97,6 +97,14 @@ from .coriolis import (
     module_blueprint_map,
 )
 
+from .resolver import (
+    resolve_module, resolve_ship, resolve_ship_by_name,
+    resolve_commodity, resolve_engineer, resolve_engineer_by_name,
+    resolve_material, resolve_material_by_symbol,
+    resolve_microresource, resolve_microresource_by_symbol,
+    resolve_outfitting, resolve_shipyard,
+)
+
 __all__ = [
     "commodities",
     "commodities_by_id",
@@ -188,4 +196,9 @@ __all__ = [
     "get_site_type",
     "get_colonization_costs",
     "get_total_haul",
+    "resolve_module", "resolve_ship", "resolve_ship_by_name",
+    "resolve_commodity", "resolve_engineer", "resolve_engineer_by_name",
+    "resolve_material", "resolve_material_by_symbol",
+    "resolve_microresource", "resolve_microresource_by_symbol",
+    "resolve_outfitting", "resolve_shipyard",
 ]
