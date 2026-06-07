@@ -46,7 +46,7 @@ This project uses **semantic versioning** (MAJOR.MINOR.PATCH). All language pack
 - **MINOR** — new features, new event types, new API endpoints (backward-compatible)
 - **PATCH** — bug fixes, documentation, internal improvements (no API change)
 
-Until 1.0.0, MINOR bumps may include breaking changes as the API stabilizes. After 1.0.0, breaking changes only occur on MAJOR bumps.
+The SDK is currently at **v1.0.0** — the API is considered stable. Breaking changes only occur on MAJOR version bumps.
 
 ## Quick Start
 

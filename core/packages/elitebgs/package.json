@@ -1,6 +1,6 @@
 {
 	"name": "@elite-dangerous-sdk/elitebgs",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "EliteBGS API client for Elite Dangerous BGS data",
 	"type": "module",
 	"main": "dist/index.js",

@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <RootNamespace>EliteDangerousSdk</RootNamespace>
     <PackageId>EliteDangerousSdk</PackageId>
-    <Version>0.1.0</Version>
+    <Version>1.0.0</Version>
     <Description>Elite Dangerous 3rd Party SDK - Journal, CAPI, and community API clients</Description>
     <Authors>Elite 3P SDK</Authors>
     <RepositoryUrl>https://github.com/your-org/elite-dangerous-sdk</RepositoryUrl>

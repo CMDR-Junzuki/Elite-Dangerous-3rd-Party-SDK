@@ -1,6 +1,6 @@
 {
 	"name": "@elite-dangerous-sdk/data",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Elite Dangerous game data (FDevIDs, coriolis ship/module/modification data)",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

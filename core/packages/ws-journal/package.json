@@ -1,6 +1,6 @@
 {
 	"name": "@elite-dangerous-sdk/ws-journal",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "WebSocket server that streams Elite Dangerous journal events to connected clients in real time",
 	"type": "module",
 	"main": "dist/index.js",
@@ -18,7 +18,7 @@
 		"lint": "biome check src/ __tests__/"
 	},
 	"dependencies": {
-		"@elite-dangerous-sdk/journal": "0.1.0",
+		"@elite-dangerous-sdk/journal": "1.0.0",
 		"ws": "^8.16.0"
 	},
 	"devDependencies": {

@@ -1,6 +1,6 @@
 {
 	"name": "@elite-dangerous-sdk/journal",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Elite Dangerous Player Journal reader, watcher, and typed event definitions",
 	"type": "module",
 	"main": "dist/index.js",

@@ -1,6 +1,6 @@
 {
 	"name": "@elite-dangerous-sdk/edsm",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Elite Dangerous Star Map (EDSM) API client",
 	"type": "module",
 	"main": "dist/index.js",

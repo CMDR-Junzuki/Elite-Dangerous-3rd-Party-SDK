@@ -1,6 +1,6 @@
 {
 	"name": "@elite-dangerous-sdk/spansh",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Spansh API client for Elite Dangerous route planning, system/station search",
 	"type": "module",
 	"main": "dist/index.js",
