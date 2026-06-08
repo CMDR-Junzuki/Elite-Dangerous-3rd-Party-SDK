@@ -33,7 +33,7 @@ dotnet build
 
 See [AGENTS.md](./AGENTS.md) for a detailed project layout. In short:
 
-- **TypeScript** — 11 packages in `core/packages/` as an npm workspace
+- **TypeScript** — 12 packages in `core/packages/` as an npm workspace
 - **Python** — All-in-one package in `python/elite_dangerous_sdk/`
 - **C#** — All-in-one project in `dotnet/EliteDangerousSdk/`
 - **Data** — EDCD/FDevIDs CSVs and EDCD/coriolis-data JSONs live in `specs/data/`

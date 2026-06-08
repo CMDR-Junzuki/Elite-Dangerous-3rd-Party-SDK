@@ -174,3 +174,9 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 | TypeScript | 576 | 765 |
 | Python | 542 | 719 |
 | C# | 619 | 804 |
+
+## CI Fixes
+
+| Issue | Fix |
+|-------|-----|
+| Node 22 TS build (`number \| undefined` in overloaded Inara auto-send methods) | Cast entire call to `any` instead of just the first param (`9fc400d`) |

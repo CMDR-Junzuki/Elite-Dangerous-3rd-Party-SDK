@@ -87,12 +87,16 @@ elite-dangerous-sdk/
 │   ├── elitebgs/            # BGS faction API
 │   ├── data/                # Ship/module/commodity data
 │   ├── stats/               # Ship stat calculator
-│   └── planner/             # All planner tools
+│   ├── utils/               # Coordinate maths, bitflags
+│   ├── planner/             # Engineering, trade, FC, BGS, colonization, powerplay, thargoid
+│   └── ws-journal/          # WebSocket journal streaming
 ├── python/                  # Python version (same stuff)
 │   ├── elite_dangerous_sdk/
-│   └── examples/
+│   ├── examples/
+│   └── tests/
 ├── dotnet/                  # C# version (same stuff)
 │   ├── EliteDangerousSdk/
+│   ├── EliteDangerousSdk.Tests/
 │   └── Examples/
 ├── specs/                   # Game data files (don't touch)
 └── docs/                    # API reference

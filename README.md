@@ -21,22 +21,20 @@
 
 | Package | Status | Tests | Notes |
 |---------|--------|-------|-------|
-| journal | **Stable** | 48 | 170+ typed events, reader/watcher/parser |
-| inara | **Stable** | 74 | 50+ events, full TS/Python/C# parity |
-| eddn | **Stable** | 32 | 4 schemas, send + ZMQ receive |
-| edsm | **Stable** | 19 | Full API coverage |
-| data | **Stable** | 31 | Embedded FDevIDs + coriolis-data |
-| utils | **Stable** | 6 | Coordinates, bitflags, listify |
-| stats | **Stable** | 14 | Matches coriolis-web Calculations.js exactly |
-| companion | **Stable** | 36 | oAuth2 PKCE, 6 endpoints, typed models |
-| spansh | **Stable** | 15 | System/station search, route planner |
-| elitebgs | **Stable** | 17 | Systems, factions, influence tracking, tick detection |
-| ws-journal | **Stable** | 4 | WebSocket journal event streaming |
+| journal | **Stable** | 281 | 170+ typed events, reader/watcher/parser, replay, state engine, query |
+| data | **Stable** | 80 | Embedded FDevIDs + coriolis-data + codegen |
+| inara | **Stable** | 84 | 50+ events, auto-send + builder, full TS/Python/C# parity |
+| eddn | **Stable** | 49 | 15 schemas, send + ZMQ receive + validation |
 | planner | **Stable** | 115 | Engineering, trade, FC, powerplay, colonization, BGS, thargoid, exobiology, on-foot |
+| stats | **Stable** | 60 | Matches coriolis-web Calculations.js exactly |
+| companion | **Stable** | 36 | oAuth2 PKCE, 6 endpoints, typed models |
+| elitebgs | **Stable** | 17 | Systems, factions, influence tracking, tick detection |
+| edsm | **Stable** | 13 | Full API coverage |
+| spansh | **Stable** | 15 | System/station search, route planner |
+| utils | **Stable** | 11 | Coordinates, bitflags, listify |
+| ws-journal | **Stable** | 4 | WebSocket journal event streaming |
 
-**Stable** — API is stable and tested. Breaking changes will be avoided and documented.  
-**Beta** — Functional and tested. Minor API refinements may occur.  
-**Experimental** — In development. API may change significantly without notice.
+**Stable** — API is final and tested. Breaking changes only on MAJOR version bumps.
 
 ## Versioning
 
@@ -101,9 +99,9 @@ All game data is sourced from community-maintained repositories — no scraping,
 
 | Language | Tests | Status |
 |----------|-------|--------|
-| TypeScript | 336 | ✅ |
-| Python | 421 | ✅ |
-| C# | 468 | ✅ |
+| TypeScript | 765 | ✅ |
+| Python | 719 | ✅ |
+| C# | 804 | ✅ |
 
 ## Resources
 
