@@ -244,7 +244,7 @@ export class InaraClient {
     rankStage?: string,
     rankValue?: number,
   ): Promise<InaraResponse> {
-    return this.sendEvents([this.setCommanderRankEngineer(engineerNameOrItems as any, rankStage, rankValue)]);
+    return this.sendEvents([(this.setCommanderRankEngineer as any)(engineerNameOrItems, rankStage, rankValue)]);
   }
 
   async setCommanderRankPilotAsync(
@@ -270,7 +270,7 @@ export class InaraClient {
     rankValue?: number,
     rankProgress?: number,
   ): Promise<InaraResponse> {
-    return this.sendEvents([this.setCommanderRankPilot(rankNameOrItems as any, rankValue, rankProgress)]);
+    return this.sendEvents([(this.setCommanderRankPilot as any)(rankNameOrItems, rankValue, rankProgress)]);
   }
 
   async setCommanderRankPowerAsync(
@@ -300,7 +300,7 @@ export class InaraClient {
         }>,
     majorfactionReputation?: number,
   ): Promise<InaraResponse> {
-    return this.sendEvents([this.setCommanderReputationMajorFaction(majorfactionNameOrItems as any, majorfactionReputation)]);
+    return this.sendEvents([(this.setCommanderReputationMajorFaction as any)(majorfactionNameOrItems, majorfactionReputation)]);
   }
 
   async setCommanderReputationMinorFactionAsync(
@@ -322,7 +322,7 @@ export class InaraClient {
         }>,
     minorfactionReputation?: number,
   ): Promise<InaraResponse> {
-    return this.sendEvents([this.setCommanderReputationMinorFaction(minorfactionNameOrItems as any, minorfactionReputation)]);
+    return this.sendEvents([(this.setCommanderReputationMinorFaction as any)(minorfactionNameOrItems, minorfactionReputation)]);
   }
 
   async addCommanderInventoryItemAsync(
@@ -357,7 +357,7 @@ export class InaraClient {
       | Array<{ itemType: string; itemLocation?: string }>,
     itemLocation?: string,
   ): Promise<InaraResponse> {
-    return this.sendEvents([this.resetCommanderInventory(itemTypeOrItems as any, itemLocation)]);
+    return this.sendEvents([(this.resetCommanderInventory as any)(itemTypeOrItems, itemLocation)]);
   }
 
   async setCommanderInventoryItemAsync(
