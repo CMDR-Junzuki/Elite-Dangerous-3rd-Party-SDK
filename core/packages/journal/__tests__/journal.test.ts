@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import { describe, expect, it } from "vitest";
 import {
   getJournalDirectory,
@@ -116,6 +119,64 @@ describe("journal", () => {
 
     it("readMarketFile returns null for missing file", async () => {
       await expect(readMarketFile("nonexistent.json")).resolves.toBeNull();
+    });
+  });
+
+  describe("schema coverage", () => {
+    it("every schema file has a matching export in index.ts", () => {
+      const testDir = path.dirname(fileURLToPath(import.meta.url));
+      const schemaDir = path.resolve(
+        testDir,
+        "../../../../specs/journal/events",
+      );
+      const schemas = new Set(
+        fs
+          .readdirSync(schemaDir)
+          .filter((f) => f.endsWith(".json"))
+          .map((f) => f.replace(/\.json$/, "")),
+      );
+
+      const indexContent = fs.readFileSync(
+        path.resolve(testDir, "../src/index.ts"),
+        "utf-8",
+      );
+
+      schemas.forEach((s) => {
+        expect(
+          indexContent.includes(s) ||
+            s === "Market" ||
+            s === "Status" ||
+            s === "FuelStatus",
+        ).toBe(true);
+      });
+    });
+
+    it("every schema file has a matching interface in types.ts", () => {
+      const testDir = path.dirname(fileURLToPath(import.meta.url));
+      const schemaDir = path.resolve(
+        testDir,
+        "../../../../specs/journal/events",
+      );
+      const schemas = new Set(
+        fs
+          .readdirSync(schemaDir)
+          .filter((f) => f.endsWith(".json"))
+          .map((f) => f.replace(/\.json$/, "")),
+      );
+
+      const typesContent = fs.readFileSync(
+        path.resolve(testDir, "../src/types.ts"),
+        "utf-8",
+      );
+
+      schemas.forEach((s) => {
+        expect(
+          typesContent.includes(`interface ${s}`) ||
+            s === "Market" ||
+            s === "Status" ||
+            s === "FuelStatus",
+        ).toBe(true);
+      });
     });
   });
 });

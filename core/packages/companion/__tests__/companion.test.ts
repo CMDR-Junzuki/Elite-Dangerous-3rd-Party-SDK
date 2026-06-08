@@ -5,11 +5,11 @@ import {
   Flags2,
   FrontierAuth,
   GuiFocus,
-  LEGACY_HOST,
-  LIVE_HOST,
-  LegalStatus,
   generateCodeChallenge,
   generateCodeVerifier,
+  LEGACY_HOST,
+  LegalStatus,
+  LIVE_HOST,
 } from "../src";
 
 describe("companion", () => {
@@ -202,8 +202,7 @@ describe("companion", () => {
       let capturedUserAgent = "";
       globalThis.fetch = async (url, init) => {
         capturedMethod = init?.method || "GET";
-        capturedPath =
-          typeof url === "string" ? new URL(url).pathname : "";
+        capturedPath = typeof url === "string" ? new URL(url).pathname : "";
         capturedBody = (init?.body as string) || "";
         const headers = (init?.headers as Record<string, string>) || {};
         capturedContentType = headers["Content-Type"] || "";
@@ -224,9 +223,7 @@ describe("companion", () => {
         expect(capturedBody).toContain("grant_type=authorization_code");
         expect(capturedBody).toContain("code=thecode");
         expect(capturedBody).toContain("client_id=client123");
-        expect(capturedContentType).toBe(
-          "application/x-www-form-urlencoded",
-        );
+        expect(capturedContentType).toBe("application/x-www-form-urlencoded");
         expect(capturedUserAgent).toContain("EDCD-");
       } finally {
         globalThis.fetch = originalFetch;
@@ -438,12 +435,11 @@ describe("companion", () => {
       const originalFetch = globalThis.fetch;
       let capturedUrl = "";
       globalThis.fetch = async (url) => {
-        capturedUrl =
-          typeof url === "string" ? url : url.toString();
-        return new Response(
-          JSON.stringify({ entries: ["line1", "line2"] }),
-          { status: 200, headers: { "Content-Type": "application/json" } },
-        );
+        capturedUrl = typeof url === "string" ? url : url.toString();
+        return new Response(JSON.stringify({ entries: ["line1", "line2"] }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        });
       };
       try {
         const result = await client.getJournal(2024, 1, 15);
@@ -507,10 +503,10 @@ describe("companion", () => {
 
       const originalFetch = globalThis.fetch;
       globalThis.fetch = async () =>
-        new Response(
-          JSON.stringify({ commander: { docked: true } }),
-          { status: 200, headers: { "Content-Type": "application/json" } },
-        );
+        new Response(JSON.stringify({ commander: { docked: true } }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        });
       try {
         const result = await client.isDocked();
         expect(result).toBe(true);

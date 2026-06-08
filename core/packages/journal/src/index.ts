@@ -119,6 +119,7 @@ export type {
   FSSSignalDiscovered,
   FuelScoop,
   FuelStatus,
+  FuelStatusEvent,
   HeatDamage,
   HeatWarning,
   HullDamage,

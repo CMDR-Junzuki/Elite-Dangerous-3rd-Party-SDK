@@ -1,10 +1,30 @@
-import { createReadStream, statSync } from "node:fs";
-import { join } from "node:path";
+import { createReadStream, existsSync, readdirSync, statSync } from "node:fs";
+import { join, resolve } from "node:path";
 import { createInterface } from "node:readline";
 import { watch } from "chokidar";
 
 import { parseLine } from "./parser.js";
 import type { JournalEvent } from "./types.js";
+
+const SCHEMA_EVENTS = loadKnownEvents();
+
+function loadKnownEvents(): Set<string> {
+  const eventsDir = resolve("specs/journal/events");
+  if (!existsSync(eventsDir)) return new Set();
+  return new Set(
+    readdirSync(eventsDir)
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => f.replace(/\.json$/, "")),
+  );
+}
+
+function warnIfUnknown(event: JournalEvent, warnOnUnknown: boolean): void {
+  if (!warnOnUnknown) return;
+  if (SCHEMA_EVENTS.size === 0) return;
+  if (event.event && !SCHEMA_EVENTS.has(event.event)) {
+    console.warn(`[JournalWatcher] Unknown event type: "${event.event}"`);
+  }
+}
 
 export class JournalWatcher {
   private dir: string;
@@ -12,9 +32,11 @@ export class JournalWatcher {
   private knownFiles: Set<string> = new Set();
   private fileSizes: Map<string, number> = new Map();
   private abortController = new AbortController();
+  private _warnOnUnknown: boolean;
 
-  constructor(dir: string) {
+  constructor(dir: string, warnOnUnknown = false) {
     this.dir = dir;
+    this._warnOnUnknown = warnOnUnknown;
   }
 
   async *watchEvents(): AsyncIterableIterator<JournalEvent> {
@@ -80,6 +102,7 @@ export class JournalWatcher {
               if (!trimmed) continue;
               try {
                 const event = parseLine(trimmed);
+                warnIfUnknown(event, this._warnOnUnknown);
                 yield event;
               } catch {
                 // skip malformed

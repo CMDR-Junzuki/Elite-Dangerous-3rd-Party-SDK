@@ -2886,6 +2886,15 @@ public record FuelStatus
     public double FuelReservoir { get; init; }
 }
 
+public record FuelStatusEvent
+{
+    public string timestamp { get; init; } = "";
+    [JsonPropertyName("event")]
+    public string @event { get; init; } = "FuelStatus";
+    public double FuelMain { get; init; }
+    public double FuelReservoir { get; init; }
+}
+
 public record DestinationStatus
 {
     public long System { get; init; }

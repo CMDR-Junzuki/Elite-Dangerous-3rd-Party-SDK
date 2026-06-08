@@ -66,7 +66,7 @@ from .journal_types import (
     Conflict, ConflictFaction, ThargoidWarInfo, CommodityItem,
     ParentBody, Ring, AtmosphereComposition, Composition,
     EngineeringMod, Modifier, ModuleItem, ShipItem, FuelStatus,
-    DestinationStatus, JournalPosition,
+    FuelStatusEvent, DestinationStatus, JournalPosition,
 )
 from .ws_journal import JournalWebSocketServer
 from .companion import CompanionClient

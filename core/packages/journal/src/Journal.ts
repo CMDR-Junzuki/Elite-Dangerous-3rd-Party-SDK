@@ -14,6 +14,26 @@ import type {
 } from "./types.js";
 import { JOURNAL_DIRECTORY } from "./types.js";
 
+const SCHEMA_EVENTS = loadKnownEvents();
+
+function loadKnownEvents(): Set<string> {
+  const eventsDir = resolve("specs/journal/events");
+  if (!existsSync(eventsDir)) return new Set();
+  return new Set(
+    readdirSync(eventsDir)
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => f.replace(/\.json$/, "")),
+  );
+}
+
+function warnIfUnknown(event: JournalEvent, warnOnUnknown: boolean): void {
+  if (!warnOnUnknown) return;
+  if (SCHEMA_EVENTS.size === 0) return;
+  if (event.event && !SCHEMA_EVENTS.has(event.event)) {
+    console.warn(`[Journal] Unknown event type: "${event.event}"`);
+  }
+}
+
 const JOURNAL_REGEX = /^Journal\.\d{4}-\d{2}-\d{2}T\d{6}_\d{2}\.log$/;
 
 function getDefaultJournalDir(): string {
@@ -65,9 +85,11 @@ export class Journal {
   private dir: string;
   private position: JournalPosition | null = null;
   private _watching = false;
+  private _warnOnUnknown: boolean;
 
   constructor(options: JournalOptions = {}) {
     this.dir = getJournalDirectory(options.directory);
+    this._warnOnUnknown = options.warnOnUnknown ?? false;
 
     if (options.position) {
       if (options.position === "start") {
@@ -120,6 +142,7 @@ export class Journal {
 
         try {
           const event = parseLine(trimmed);
+          warnIfUnknown(event, this._warnOnUnknown);
           this.position = {
             file,
             offset: stream.bytesRead + startOffset,

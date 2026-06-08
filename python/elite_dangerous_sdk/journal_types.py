@@ -2442,6 +2442,13 @@ class FuelStatus:
     FuelReservoir: float
 
 @dataclass
+class FuelStatusEvent:
+    timestamp: str
+    event: str = field(default="FuelStatus")
+    FuelMain: float = 0.0
+    FuelReservoir: float = 0.0
+
+@dataclass
 class DestinationStatus:
     System: int
     Body: int

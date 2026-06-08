@@ -13,7 +13,9 @@
     "lint": "biome check --write core/packages core/examples scripts",
     "lint:check": "biome check core/packages core/examples scripts",
     "format": "biome format --write core/packages core/examples scripts",
-    "typecheck": "npm run typecheck --workspaces"
+    "typecheck": "npm run typecheck --workspaces",
+    "check-versions": "npx tsx scripts/check-journal-versions.ts",
+    "generate-schema-tests": "npx tsx scripts/generate-schema-tests.ts"
 	},
 	"engines": {
 		"node": ">=18"

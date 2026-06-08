@@ -684,6 +684,13 @@ export interface FuelStatus {
   FuelReservoir: number;
 }
 
+export interface FuelStatusEvent {
+  timestamp: string;
+  event: "FuelStatus";
+  FuelMain: number;
+  FuelReservoir: number;
+}
+
 export interface SelfDestruct {
   timestamp: string;
   event: "SelfDestruct";
@@ -2281,6 +2288,7 @@ export type JournalEvent =
   | TradeMicroResources
   | TransferMicroResources
   | BuyMicroResources
+  | FuelStatusEvent
   | { timestamp: string; event: string; [key: string]: unknown };
 
 export interface JournalPosition {
@@ -2293,6 +2301,7 @@ export interface JournalOptions {
   directory?: string;
   position?: "start" | "end" | JournalPosition;
   watch?: boolean;
+  warnOnUnknown?: boolean;
 }
 
 export const JOURNAL_DIRECTORY =

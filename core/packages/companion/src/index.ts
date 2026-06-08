@@ -19,6 +19,6 @@ export type {
   CapShipyardResponse,
   GalaxyType,
 } from "./client.js";
-export { CompanionClient, LIVE_HOST, LEGACY_HOST } from "./client.js";
+export { CompanionClient, LEGACY_HOST, LIVE_HOST } from "./client.js";
 export type { ModuleFlag } from "./flags.js";
 export { Flags, Flags2, GuiFocus, LegalStatus } from "./flags.js";

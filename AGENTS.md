@@ -164,5 +164,13 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 | High | Package Publishing | ✅ Done — publish workflow triggered on `v*` tags, pushes to npm, PyPI, and NuGet. |
 | Medium | User Guides | Tutorials and getting-started guides per language beyond the auto-generated API.md. |
 | Medium | Examples Coverage | Comprehensive usage examples across all features in all 3 languages. |
-| Low | Schema Validation Coverage | All 178 journal event schemas should have corresponding typed interfaces and validation tests (currently ~170 of 178 covered). |
-| Low | Game Version Tracking | Mechanism to flag when new journal events appear in game updates (compare against known schema list). |
+| Low | Schema Validation Coverage | ✅ Done — All 178 journal event schemas have matching typed interfaces + FuelStatusEvent added to union. Auto-generated smoke tests (177 per language) verify every event parses correctly. |
+| Low | Game Version Tracking | ✅ Done — `scripts/check-journal-versions.ts` compares observed journal events vs known schemas. `warnOnUnknown` flag on Journal/JournalWatcher emits runtime warnings. |
+
+## Test Counts
+
+| Language | Before | After |
+|----------|--------|-------|
+| TypeScript | 576 | 755 |
+| Python | 542 | 719 |
+| C# | 619 | 796 |
