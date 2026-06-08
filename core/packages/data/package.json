@@ -18,5 +18,5 @@
 		"vitest": "^2.0.0",
 		"@types/node": "^20.0.0"
 	},
-	"files": ["dist/", "src/", "README.md"],
+	"files": ["dist/", "src/", "README.md"]
 }
