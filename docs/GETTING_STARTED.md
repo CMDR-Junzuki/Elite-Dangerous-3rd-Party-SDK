@@ -5,10 +5,12 @@ Multi-language SDK (TypeScript, Python, C#) covering the Player Journal, Frontie
 ## TypeScript
 
 ```bash
-npm install @elite-dangerous-sdk/journal @elite-dangerous-sdk/edsm @elite-dangerous-sdk/inara
+# From repo root — uses npm workspaces
+npm install && npm run build
 ```
 
 ```typescript
+// Imports work from any package in the workspace
 import { JournalReader } from "@elite-dangerous-sdk/journal";
 import { EDSMClient } from "@elite-dangerous-sdk/edsm";
 import { InaraClient } from "@elite-dangerous-sdk/inara";
@@ -40,7 +42,8 @@ Full examples: `core/examples/`
 ## Python
 
 ```bash
-pip install elite-dangerous-sdk
+# From repo root — local editable install
+pip install -e python/
 ```
 
 ```python
@@ -71,7 +74,8 @@ Full examples: `python/examples/`
 ## C#
 
 ```bash
-dotnet add package EliteDangerousSdk
+# From repo root
+dotnet restore dotnet && dotnet build dotnet
 ```
 
 ```csharp

@@ -153,7 +153,6 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 | Package Maturity Promotions | ✅ | ✅ | ✅ |
 | Planner API Lockdown | ✅ | ✅ | ✅ |
 | CI/CD Pipeline | ✅ | ✅ | ✅ |
-| Package Publishing | ✅ | ✅ | ✅ |
 
 ## Planned Features
 
@@ -161,7 +160,7 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 |----------|---------|-------------|
 | High | Test Parity Gaps | ✅ Done — ws-journal had parity already (4 tests each). inara TS: 6 → 74. companion TS: 21 → 36. |
 | High | CI/CD Pipeline | ✅ Done — GitHub Actions runs TS (Node 18/20/22), Python (3.10–3.13), C# (8/9) on PR/push. |
-| High | Package Publishing | ✅ Done — publish workflow triggered on `v*` tags, pushes to npm, PyPI, and NuGet. |
+
 | Medium | User Guides | ✅ Done — `docs/GETTING_STARTED.md` created with per-language quickstart + module table. |
 | Medium | Examples Coverage | ✅ Done — C# journal + community APIs examples added (`dotnet/Examples/`), matching TS/Python coverage. |
 | Low | Schema Validation Coverage | ✅ Done — All 178 journal event schemas have matching typed interfaces + FuelStatusEvent added to union. Auto-generated smoke tests (177 per language) verify every event parses correctly. |

@@ -27,7 +27,4 @@
 		"vitest": "^2.0.0"
 	},
 	"files": ["dist/", "src/", "README.md"],
-	"publishConfig": {
-		"access": "public"
-	}
 }

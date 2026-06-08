@@ -36,26 +36,16 @@
 
 **Stable** — API is final and tested. Breaking changes only on MAJOR version bumps.
 
-## Versioning
-
-This project uses **semantic versioning** (MAJOR.MINOR.PATCH). All language packages share a single unified version.
-
-- **MAJOR** — breaking API changes (renamed types, removed functions, changed signatures)
-- **MINOR** — new features, new event types, new API endpoints (backward-compatible)
-- **PATCH** — bug fixes, documentation, internal improvements (no API change)
-
-The SDK is currently at **v1.0.0** — the API is considered stable. Breaking changes only occur on MAJOR version bumps.
-
 ## Quick Start
 
 ```bash
-# TypeScript
+# TypeScript (workspace)
 npm install && npm run build
 
-# Python
+# Python (local)
 pip install -e python/
 
-# C#
+# C# (local)
 dotnet restore dotnet && dotnet build dotnet
 ```
 
