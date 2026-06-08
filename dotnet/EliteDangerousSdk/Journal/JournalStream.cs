@@ -8,6 +8,7 @@ public record JournalStreamOptions
     public string From { get; init; } = "end";
     public string[]? Filter { get; init; }
     public int PollIntervalMs { get; init; } = 500;
+    public bool WarnOnUnknown { get; init; }
 }
 
 public static class JournalStream
@@ -19,6 +20,7 @@ public static class JournalStream
         var dir = options?.Directory ?? JournalReader.GetDefaultJournalDir();
         var filterSet = options?.Filter is { Length: > 0 } ? new HashSet<string>(options.Filter) : null;
         var pollInterval = options?.PollIntervalMs ?? 500;
+        var warnOnUnknown = options?.WarnOnUnknown ?? false;
         var trackedSizes = new Dictionary<string, long>();
 
         var files = JournalReader.ListJournalFiles(dir);
@@ -49,6 +51,7 @@ public static class JournalStream
                     catch { }
                     if (ev != null && (filterSet == null || filterSet.Contains(ev.GetValueOrDefault("event") as string ?? "")))
                     {
+                        JournalReader.WarnIfUnknown(ev, warnOnUnknown);
                         yield return ev;
                     }
                 }
@@ -95,6 +98,7 @@ public static class JournalStream
                         catch { }
                         if (ev != null && (filterSet == null || filterSet.Contains(ev.GetValueOrDefault("event") as string ?? "")))
                         {
+                            JournalReader.WarnIfUnknown(ev, warnOnUnknown);
                             yield return ev;
                         }
                     }

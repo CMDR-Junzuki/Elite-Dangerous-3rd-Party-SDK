@@ -46,6 +46,304 @@ public class InaraClient
         return data;
     }
 
+    // === Auto-Send Convenience Methods ===
+    // Each builds an event and immediately sends it (matching Python InaraClient pattern)
+
+    public async Task<InaraResponse> AddCommanderAsync(string commanderName, string? frontierId = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommander(commanderName, frontierId) });
+    }
+
+    public async Task<InaraResponse> GetCommanderProfileAsync()
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { GetCommanderProfile() });
+    }
+
+    public async Task<InaraResponse> SetCommanderShipAsync(string shipType, int shipGameId,
+        string? shipName = null, string? shipIdent = null, string? shipRole = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderShip(shipType, shipGameId, shipName, shipIdent, shipRole) });
+    }
+
+    public async Task<InaraResponse> SetCommanderShipLoadoutAsync(int shipId,
+        List<Dictionary<string, object>> modules)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderShipLoadout(shipId, modules) });
+    }
+
+    public async Task<InaraResponse> AddCommanderTravelFsdJumpAsync(string systemName,
+        double[]? systemCoords = null, string? date = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderTravelFsdJump(systemName, systemCoords, date) });
+    }
+
+    public async Task<InaraResponse> AddCommanderTravelDockAsync(string stationName,
+        string systemName, string? date = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderTravelDock(stationName, systemName, date) });
+    }
+
+    public async Task<InaraResponse> AddCommanderTravelCarrierJumpAsync(string systemName,
+        double[]? systemCoords = null, string? date = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderTravelCarrierJump(systemName, systemCoords, date) });
+    }
+
+    public async Task<InaraResponse> SetCommanderTravelLocationAsync(string systemName,
+        double[]? systemCoords = null, string? date = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderTravelLocation(systemName, systemCoords, date) });
+    }
+
+    public async Task<InaraResponse> SetCommanderRankAsync(int? combat = null, int? trade = null,
+        int? explore = null, int? cqc = null, int? federation = null,
+        int? empire = null, int? power = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderRank(combat, trade, explore, cqc, federation, empire, power) });
+    }
+
+    public async Task<InaraResponse> SetCommanderCreditsAsync(long credits, long? loan = null, long? assets = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderCredits(credits, loan, assets) });
+    }
+
+    public async Task<InaraResponse> SetCommanderInventoryAsync(
+        List<Dictionary<string, object>>? cargo = null,
+        List<Dictionary<string, object>>? materials = null,
+        List<Dictionary<string, object>>? components = null,
+        List<Dictionary<string, object>>? data_ = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderInventory(cargo, materials, components, data_) });
+    }
+
+    public async Task<InaraResponse> SetCommanderCommunityGoalProgressAsync(int goalId,
+        int contribution, double? percentile = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderCommunityGoalProgress(goalId, contribution, percentile) });
+    }
+
+    public async Task<InaraResponse> SetCommunityGoalAsync(string name, string systemName,
+        string stationName, string goalObjective, string goalExpiry,
+        int? totalContributions = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommunityGoal(name, systemName, stationName, goalObjective, goalExpiry, totalContributions) });
+    }
+
+    public async Task<InaraResponse> AddCommanderFriendAsync(string commanderName, string? gamePlatform = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderFriend(commanderName, gamePlatform) });
+    }
+
+    public async Task<InaraResponse> DelCommanderFriendAsync(string commanderName, string? gamePlatform = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { DelCommanderFriend(commanderName, gamePlatform) });
+    }
+
+    public async Task<InaraResponse> AddCommanderPermitAsync(string starsystemName)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderPermit(starsystemName) });
+    }
+
+    public async Task<InaraResponse> SetCommanderGameStatisticsAsync(Dictionary<string, object> statistics)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderGameStatistics(statistics) });
+    }
+
+    public async Task<InaraResponse> SetCommanderRankEngineerAsync(string engineerName, int rankValue)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderRankEngineer(engineerName, rankValue) });
+    }
+
+    public async Task<InaraResponse> SetCommanderRankEngineerAsync(List<Dictionary<string, object>> entries)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderRankEngineer(entries) });
+    }
+
+    public async Task<InaraResponse> SetCommanderRankPilotAsync(string rankName, int rankValue)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderRankPilot(rankName, rankValue) });
+    }
+
+    public async Task<InaraResponse> SetCommanderRankPilotAsync(List<Dictionary<string, object>> entries)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderRankPilot(entries) });
+    }
+
+    public async Task<InaraResponse> SetCommanderRankPowerAsync(string powerName, int rankValue, int? meritsValue = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderRankPower(powerName, rankValue, meritsValue) });
+    }
+
+    public async Task<InaraResponse> SetCommanderReputationMajorFactionAsync(string majorfactionName, double majorfactionReputation)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderReputationMajorFaction(majorfactionName, majorfactionReputation) });
+    }
+
+    public async Task<InaraResponse> SetCommanderReputationMajorFactionAsync(List<Dictionary<string, object>> entries)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderReputationMajorFaction(entries) });
+    }
+
+    public async Task<InaraResponse> SetCommanderReputationMinorFactionAsync(string minorfactionName, double minorfactionReputation)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderReputationMinorFaction(minorfactionName, minorfactionReputation) });
+    }
+
+    public async Task<InaraResponse> SetCommanderReputationMinorFactionAsync(List<Dictionary<string, object>> entries)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderReputationMinorFaction(entries) });
+    }
+
+    public async Task<InaraResponse> AddCommanderInventoryItemAsync(string itemName, int itemCount, string itemType, string? itemLocation = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderInventoryItem(itemName, itemCount, itemType, itemLocation) });
+    }
+
+    public async Task<InaraResponse> DelCommanderInventoryItemAsync(string itemName, int itemCount, string itemType, string? itemLocation = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { DelCommanderInventoryItem(itemName, itemCount, itemType, itemLocation) });
+    }
+
+    public async Task<InaraResponse> ResetCommanderInventoryAsync(string itemType, string? itemLocation = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { ResetCommanderInventory(itemType, itemLocation) });
+    }
+
+    public async Task<InaraResponse> SetCommanderInventoryItemAsync(string itemName, int itemCount, string itemType, string? itemLocation = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderInventoryItem(itemName, itemCount, itemType, itemLocation) });
+    }
+
+    public async Task<InaraResponse> AddCommanderInventoryCargoItemAsync(string itemName, int itemCount, bool? isStolen = null, int? missionGameID = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderInventoryCargoItem(itemName, itemCount, isStolen, missionGameID) });
+    }
+
+    public async Task<InaraResponse> AddCommanderInventoryMaterialsItemAsync(string itemName, int itemCount)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderInventoryMaterialsItem(itemName, itemCount) });
+    }
+
+    public async Task<InaraResponse> DelCommanderInventoryCargoItemAsync(string itemName, int itemCount, bool? isStolen = null, int? missionGameID = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { DelCommanderInventoryCargoItem(itemName, itemCount, isStolen, missionGameID) });
+    }
+
+    public async Task<InaraResponse> DelCommanderInventoryMaterialsItemAsync(string itemName, int itemCount)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { DelCommanderInventoryMaterialsItem(itemName, itemCount) });
+    }
+
+    public async Task<InaraResponse> SetCommanderInventoryCargoAsync(List<Dictionary<string, object>> items)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderInventoryCargo(items) });
+    }
+
+    public async Task<InaraResponse> SetCommanderInventoryCargoItemAsync(string itemName, int itemCount, bool? isStolen = null, int? missionGameID = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderInventoryCargoItem(itemName, itemCount, isStolen, missionGameID) });
+    }
+
+    public async Task<InaraResponse> SetCommanderInventoryMaterialsAsync(List<Dictionary<string, object>> items)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderInventoryMaterials(items) });
+    }
+
+    public async Task<InaraResponse> SetCommanderInventoryMaterialsItemAsync(string itemName, int itemCount)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderInventoryMaterialsItem(itemName, itemCount) });
+    }
+
+    public async Task<InaraResponse> SetCommanderStorageModulesAsync(List<Dictionary<string, object>> modules)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderStorageModules(modules) });
+    }
+
+    public async Task<InaraResponse> AddCommanderShipAsync(string shipType, int shipGameID)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderShip(shipType, shipGameID) });
+    }
+
+    public async Task<InaraResponse> DelCommanderShipAsync(string shipType, int shipGameID)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { DelCommanderShip(shipType, shipGameID) });
+    }
+
+    public async Task<InaraResponse> SetCommanderShipTransferAsync(string shipType, int shipGameID, string starsystemName, string stationName, long? marketID = null, int? transferTime = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderShipTransfer(shipType, shipGameID, starsystemName, stationName, marketID, transferTime) });
+    }
+
+    public async Task<InaraResponse> DelCommanderSuitLoadoutAsync(long loadoutGameID)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { DelCommanderSuitLoadout(loadoutGameID) });
+    }
+
+    public async Task<InaraResponse> SetCommanderSuitLoadoutAsync(Dictionary<string, object> data)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderSuitLoadout(data) });
+    }
+
+    public async Task<InaraResponse> UpdateCommanderSuitLoadoutAsync(Dictionary<string, object> data)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { UpdateCommanderSuitLoadout(data) });
+    }
+
+    public async Task<InaraResponse> AddCommanderTravelLandAsync(string starsystemName, string bodyName)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderTravelLand(starsystemName, bodyName) });
+    }
+
+    public async Task<InaraResponse> AddCommanderMissionAsync(string missionName, int missionGameID, string? starsystemName = null, string? stationName = null, string? minorFactionName = null, int? influenceValue = null, string? reputationValue = null, long? reward = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderMission(missionName, missionGameID, starsystemName, stationName, minorFactionName, influenceValue, reputationValue, reward) });
+    }
+
+    public async Task<InaraResponse> SetCommanderMissionAbandonedAsync(int missionGameID)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderMissionAbandoned(missionGameID) });
+    }
+
+    public async Task<InaraResponse> SetCommanderMissionCompletedAsync(int missionGameID)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderMissionCompleted(missionGameID) });
+    }
+
+    public async Task<InaraResponse> SetCommanderMissionFailedAsync(int missionGameID)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { SetCommanderMissionFailed(missionGameID) });
+    }
+
+    public async Task<InaraResponse> AddCommanderCombatDeathAsync(string starsystemName, string? opponentName = null, string? opponentShipType = null, bool? isPlayer = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderCombatDeath(starsystemName, opponentName, opponentShipType, isPlayer) });
+    }
+
+    public async Task<InaraResponse> AddCommanderCombatInterdictedAsync(string starsystemName, string opponentName, bool isPlayer, string? combatResult = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderCombatInterdicted(starsystemName, opponentName, isPlayer, combatResult) });
+    }
+
+    public async Task<InaraResponse> AddCommanderCombatInterdictionAsync(string starsystemName, string opponentName, bool isPlayer, string? combatResult = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderCombatInterdiction(starsystemName, opponentName, isPlayer, combatResult) });
+    }
+
+    public async Task<InaraResponse> AddCommanderCombatInterdictionEscapeAsync(string starsystemName, string opponentName, bool isPlayer)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderCombatInterdictionEscape(starsystemName, opponentName, isPlayer) });
+    }
+
+    public async Task<InaraResponse> AddCommanderCombatKillAsync(string starsystemName, string? opponentName = null, string? opponentShipType = null, bool? isPlayer = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { AddCommanderCombatKill(starsystemName, opponentName, opponentShipType, isPlayer) });
+    }
+
+    public async Task<InaraResponse> GetCommunityGoalsRecentAsync(string? starsystemName = null)
+    {
+        return await SendEventsAsync(new List<Dictionary<string, object>> { GetCommunityGoalsRecent(starsystemName) });
+    }
+
     // === Event Builders ===
 
     public Dictionary<string, object> AddCommander(string commanderName, string? frontierId = null) => new()

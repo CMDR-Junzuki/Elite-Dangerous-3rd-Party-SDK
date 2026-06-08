@@ -8,10 +8,12 @@ public class JournalWatcher : IDisposable
     private readonly string _directory;
     private CancellationTokenSource? _cts;
     private readonly ConcurrentDictionary<string, long> _positions = new();
+    private readonly bool _warnOnUnknown;
 
-    public JournalWatcher(string directory)
+    public JournalWatcher(string directory, bool warnOnUnknown = false)
     {
         _directory = directory;
+        _warnOnUnknown = warnOnUnknown;
     }
 
     public async IAsyncEnumerable<Dictionary<string, object?>> WatchEventsAsync([EnumeratorCancellation] CancellationToken ct = default)
@@ -51,6 +53,7 @@ public class JournalWatcher : IDisposable
                         catch { }
                         if (ev != null)
                         {
+                            JournalReader.WarnIfUnknown(ev, _warnOnUnknown);
                             yield return ev;
                         }
                     }

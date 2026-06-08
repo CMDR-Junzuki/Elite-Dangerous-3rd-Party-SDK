@@ -8,6 +8,7 @@ public record JournalOptions
 {
     public string? Directory { get; init; }
     public JournalPosition? Position { get; init; }
+    public bool WarnOnUnknown { get; init; }
 
     public static JournalOptions StartFromBeginning() => new() { Position = new JournalPosition("", 0, 0) };
     public static JournalOptions Default() => new();
@@ -15,12 +16,47 @@ public record JournalOptions
 
 public class JournalReader
 {
+    private static readonly HashSet<string> _knownEvents = LoadKnownEvents();
+
+    private static HashSet<string> LoadKnownEvents()
+    {
+        var candidates = new[]
+        {
+            Path.Combine(Environment.CurrentDirectory, "specs", "journal", "events"),
+            Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "specs", "journal", "events"),
+        };
+        foreach (var candidate in candidates)
+        {
+            var resolved = Path.GetFullPath(candidate);
+            if (System.IO.Directory.Exists(resolved))
+            {
+                return new HashSet<string>(
+                    System.IO.Directory.GetFiles(resolved, "*.json")
+                        .Select(Path.GetFileNameWithoutExtension)
+                        .Where(x => x != null)!
+                );
+            }
+        }
+        return new HashSet<string>();
+    }
+
+    internal static void WarnIfUnknown(Dictionary<string, object?> event_, bool warnOnUnknown)
+    {
+        if (!warnOnUnknown || _knownEvents.Count == 0) return;
+        if (event_.TryGetValue("event", out var name) && name is string eventName && !_knownEvents.Contains(eventName))
+        {
+            Console.Error.WriteLine($"[Journal] Unknown event type: \"{eventName}\"");
+        }
+    }
+
     private readonly string _directory;
     private JournalPosition? _position;
+    private readonly bool _warnOnUnknown;
 
     public JournalReader(JournalOptions? options = null)
     {
         _directory = options?.Directory ?? GetDefaultJournalDir();
+        _warnOnUnknown = options?.WarnOnUnknown ?? false;
 
         if (options?.Position is { File: "", Offset: 0 })
         {
@@ -114,6 +150,7 @@ public class JournalReader
 
                 if (event_ != null)
                 {
+                    WarnIfUnknown(event_, _warnOnUnknown);
                     _position = new JournalPosition(file, stream.Position, 0);
                     yield return event_;
                 }

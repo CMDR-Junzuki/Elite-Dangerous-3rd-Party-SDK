@@ -5,10 +5,13 @@ export interface Ring {
 }
 
 export const rings: Ring[] = [
-  { id: "eRingClass_Icy", name: "Icy" },
-  { id: "eRingClass_Metalic", name: "Metallic" },
-  { id: "eRingClass_MetalRich", name: "Metal Rich" },
-  { id: "eRingClass_Rocky", name: "Rocky" },
+  { id: 'eRingClass_Icy', name: 'Icy' },
+  { id: 'eRingClass_Metalic', name: 'Metallic' },
+  { id: 'eRingClass_MetalRich', name: 'Metal Rich' },
+  { id: 'eRingClass_Rocky', name: 'Rocky' },
 ];
 
-export const ringsById = new Map<string, Ring>(rings.map((r) => [r.id, r]));
+export const ringsById = new Map<string, Ring>(
+  rings.map(r => [r.id, r])
+);
+

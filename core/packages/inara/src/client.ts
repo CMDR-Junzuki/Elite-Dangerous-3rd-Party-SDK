@@ -79,6 +79,538 @@ export class InaraClient {
     return data;
   }
 
+  // === Auto-Send Convenience Methods ===
+  // Each builds an event and immediately sends it (matching Python InaraClient pattern)
+
+  async addCommanderAsync(commanderName: string, frontierId?: string): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommander(commanderName, frontierId)]);
+  }
+
+  async getCommanderProfileAsync(): Promise<InaraResponse> {
+    return this.sendEvents([this.getCommanderProfile()]);
+  }
+
+  async setCommanderShipAsync(ship: {
+    shipType: string;
+    shipGameID: number;
+    shipName?: string;
+    shipIdent?: string;
+    shipRole?: string;
+  }): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderShip(ship)]);
+  }
+
+  async setCommanderShipLoadoutAsync(
+    shipId: number,
+    modules: Array<{
+      slotName: string;
+      itemName: string;
+      itemValue?: number;
+      engineering?: Array<{
+        engineerName?: string;
+        blueprintName?: string;
+        blueprintLevel?: number;
+        experimentalEffect?: string;
+      }>;
+    }>,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderShipLoadout(shipId, modules)]);
+  }
+
+  async addCommanderTravelFSDJumpAsync(
+    systemName: string,
+    systemCoords?: [number, number, number],
+    date?: string,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderTravelFSDJump(systemName, systemCoords, date)]);
+  }
+
+  async addCommanderTravelDockAsync(
+    stationName: string,
+    systemName: string,
+    date?: string,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderTravelDock(stationName, systemName, date)]);
+  }
+
+  async addCommanderTravelCarrierJumpAsync(
+    systemName: string,
+    systemCoords?: [number, number, number],
+    date?: string,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderTravelCarrierJump(systemName, systemCoords, date)]);
+  }
+
+  async setCommanderTravelLocationAsync(
+    systemName: string,
+    systemCoords?: [number, number, number],
+    date?: string,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderTravelLocation(systemName, systemCoords, date)]);
+  }
+
+  async setCommanderRankAsync(rankData: {
+    combat?: number;
+    trade?: number;
+    explore?: number;
+    cqc?: number;
+    federation?: number;
+    empire?: number;
+    power?: number;
+  }): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderRank(rankData)]);
+  }
+
+  async setCommanderCreditsAsync(
+    credits: number,
+    loan?: number,
+    assets?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderCredits(credits, loan, assets)]);
+  }
+
+  async setCommanderInventoryAsync(inventory: {
+    cargo?: Array<{ name: string; count: number }>;
+    materials?: Array<{ name: string; count: number }>;
+    components?: Array<{ name: string; count: number }>;
+    data?: Array<{ name: string; count: number }>;
+  }): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderInventory(inventory)]);
+  }
+
+  async setCommanderCommunityGoalProgressAsync(
+    goalId: number,
+    contribution: number,
+    percentile?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderCommunityGoalProgress(goalId, contribution, percentile)]);
+  }
+
+  async setCommunityGoalAsync(cg: {
+    name: string;
+    systemName: string;
+    stationName: string;
+    goalObjective: string;
+    goalExpiry: string;
+    totalContributions?: number;
+  }): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommunityGoal(cg)]);
+  }
+
+  async addCommanderFriendAsync(
+    commanderName: string,
+    gamePlatform?: "pc" | "xbox" | "ps4",
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderFriend(commanderName, gamePlatform)]);
+  }
+
+  async delCommanderFriendAsync(
+    commanderName: string,
+    gamePlatform?: "pc" | "xbox" | "ps4",
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.delCommanderFriend(commanderName, gamePlatform)]);
+  }
+
+  async addCommanderPermitAsync(starsystemName: string): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderPermit(starsystemName)]);
+  }
+
+  async setCommanderGameStatisticsAsync(
+    statistics: Record<string, Record<string, number>>,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderGameStatistics(statistics)]);
+  }
+
+  async setCommanderRankEngineerAsync(
+    engineerName: string,
+    rankStage?: string,
+    rankValue?: number,
+  ): Promise<InaraResponse>;
+  async setCommanderRankEngineerAsync(
+    items: Array<{
+      engineerName: string;
+      rankStage?: string;
+      rankValue?: number;
+    }>,
+  ): Promise<InaraResponse>;
+  async setCommanderRankEngineerAsync(
+    engineerNameOrItems:
+      | string
+      | Array<{
+          engineerName: string;
+          rankStage?: string;
+          rankValue?: number;
+        }>,
+    rankStage?: string,
+    rankValue?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderRankEngineer(engineerNameOrItems as any, rankStage, rankValue)]);
+  }
+
+  async setCommanderRankPilotAsync(
+    rankName: string,
+    rankValue?: number,
+    rankProgress?: number,
+  ): Promise<InaraResponse>;
+  async setCommanderRankPilotAsync(
+    items: Array<{
+      rankName: string;
+      rankValue?: number;
+      rankProgress?: number;
+    }>,
+  ): Promise<InaraResponse>;
+  async setCommanderRankPilotAsync(
+    rankNameOrItems:
+      | string
+      | Array<{
+          rankName: string;
+          rankValue?: number;
+          rankProgress?: number;
+        }>,
+    rankValue?: number,
+    rankProgress?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderRankPilot(rankNameOrItems as any, rankValue, rankProgress)]);
+  }
+
+  async setCommanderRankPowerAsync(
+    powerName: string,
+    rankValue: number,
+    meritsValue?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderRankPower(powerName, rankValue, meritsValue)]);
+  }
+
+  async setCommanderReputationMajorFactionAsync(
+    majorfactionName: string,
+    majorfactionReputation: number,
+  ): Promise<InaraResponse>;
+  async setCommanderReputationMajorFactionAsync(
+    items: Array<{
+      majorfactionName: string;
+      majorfactionReputation: number;
+    }>,
+  ): Promise<InaraResponse>;
+  async setCommanderReputationMajorFactionAsync(
+    majorfactionNameOrItems:
+      | string
+      | Array<{
+          majorfactionName: string;
+          majorfactionReputation: number;
+        }>,
+    majorfactionReputation?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderReputationMajorFaction(majorfactionNameOrItems as any, majorfactionReputation)]);
+  }
+
+  async setCommanderReputationMinorFactionAsync(
+    minorfactionName: string,
+    minorfactionReputation: number,
+  ): Promise<InaraResponse>;
+  async setCommanderReputationMinorFactionAsync(
+    items: Array<{
+      minorfactionName: string;
+      minorfactionReputation: number;
+    }>,
+  ): Promise<InaraResponse>;
+  async setCommanderReputationMinorFactionAsync(
+    minorfactionNameOrItems:
+      | string
+      | Array<{
+          minorfactionName: string;
+          minorfactionReputation: number;
+        }>,
+    minorfactionReputation?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderReputationMinorFaction(minorfactionNameOrItems as any, minorfactionReputation)]);
+  }
+
+  async addCommanderInventoryItemAsync(
+    itemName: string,
+    itemCount: number,
+    itemType: string,
+    itemLocation?: string,
+    isStolen?: boolean,
+    missionGameID?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderInventoryItem(itemName, itemCount, itemType, itemLocation, isStolen, missionGameID)]);
+  }
+
+  async delCommanderInventoryItemAsync(
+    itemName: string,
+    itemCount: number,
+    itemType: string,
+    itemLocation?: string,
+    isStolen?: boolean,
+    missionGameID?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.delCommanderInventoryItem(itemName, itemCount, itemType, itemLocation, isStolen, missionGameID)]);
+  }
+
+  async resetCommanderInventoryAsync(itemType: string, itemLocation?: string): Promise<InaraResponse>;
+  async resetCommanderInventoryAsync(
+    items: Array<{ itemType: string; itemLocation?: string }>,
+  ): Promise<InaraResponse>;
+  async resetCommanderInventoryAsync(
+    itemTypeOrItems:
+      | string
+      | Array<{ itemType: string; itemLocation?: string }>,
+    itemLocation?: string,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.resetCommanderInventory(itemTypeOrItems as any, itemLocation)]);
+  }
+
+  async setCommanderInventoryItemAsync(
+    itemName: string,
+    itemCount: number,
+    itemType: string,
+    itemLocation?: string,
+    isStolen?: boolean,
+    missionGameID?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderInventoryItem(itemName, itemCount, itemType, itemLocation, isStolen, missionGameID)]);
+  }
+
+  async addCommanderInventoryCargoItemAsync(
+    itemName: string,
+    itemCount: number,
+    isStolen?: boolean,
+    missionGameID?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderInventoryCargoItem(itemName, itemCount, isStolen, missionGameID)]);
+  }
+
+  async addCommanderInventoryMaterialsItemAsync(
+    itemName: string,
+    itemCount: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderInventoryMaterialsItem(itemName, itemCount)]);
+  }
+
+  async delCommanderInventoryCargoItemAsync(
+    itemName: string,
+    itemCount: number,
+    isStolen?: boolean,
+    missionGameID?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.delCommanderInventoryCargoItem(itemName, itemCount, isStolen, missionGameID)]);
+  }
+
+  async delCommanderInventoryMaterialsItemAsync(
+    itemName: string,
+    itemCount: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.delCommanderInventoryMaterialsItem(itemName, itemCount)]);
+  }
+
+  async setCommanderInventoryCargoAsync(
+    items: Array<{
+      itemName: string;
+      itemCount: number;
+      isStolen?: boolean;
+      missionGameID?: number;
+    }>,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderInventoryCargo(items)]);
+  }
+
+  async setCommanderInventoryCargoItemAsync(
+    itemName: string,
+    itemCount: number,
+    isStolen?: boolean,
+    missionGameID?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderInventoryCargoItem(itemName, itemCount, isStolen, missionGameID)]);
+  }
+
+  async setCommanderInventoryMaterialsAsync(
+    items: Array<{ itemName: string; itemCount: number }>,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderInventoryMaterials(items)]);
+  }
+
+  async setCommanderInventoryMaterialsItemAsync(
+    itemName: string,
+    itemCount: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderInventoryMaterialsItem(itemName, itemCount)]);
+  }
+
+  async setCommanderStorageModulesAsync(
+    modules: Array<{
+      itemName: string;
+      itemValue: number;
+      isHot?: boolean;
+      starsystemName?: string;
+      stationName?: string;
+      marketID?: number;
+      engineering?: Record<string, unknown>;
+    }>,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderStorageModules(modules)]);
+  }
+
+  async addCommanderShipAsync(shipType: string, shipGameID: number): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderShip(shipType, shipGameID)]);
+  }
+
+  async delCommanderShipAsync(shipType: string, shipGameID: number): Promise<InaraResponse> {
+    return this.sendEvents([this.delCommanderShip(shipType, shipGameID)]);
+  }
+
+  async setCommanderShipTransferAsync(
+    shipType: string,
+    shipGameID: number,
+    starsystemName: string,
+    stationName: string,
+    marketID?: number,
+    transferTime?: number,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderShipTransfer(shipType, shipGameID, starsystemName, stationName, marketID, transferTime)]);
+  }
+
+  async delCommanderSuitLoadoutAsync(loadoutGameID: number): Promise<InaraResponse> {
+    return this.sendEvents([this.delCommanderSuitLoadout(loadoutGameID)]);
+  }
+
+  async setCommanderSuitLoadoutAsync(data: {
+    loadoutGameID: number;
+    loadoutName?: string;
+    suitGameID?: number;
+    suitType?: string;
+    suitMods?: string[];
+    suitLoadout?: Array<{
+      slotName: string;
+      itemName: string;
+      itemClass: number;
+      itemGameID: number;
+      engineering?: Array<{ blueprintName: string }>;
+    }>;
+  }): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderSuitLoadout(data)]);
+  }
+
+  async updateCommanderSuitLoadoutAsync(data: {
+    loadoutGameID: number;
+    loadoutName?: string;
+    suitGameID?: number;
+    suitType?: string;
+    suitMods?: string[];
+    suitLoadout?: Array<{
+      slotName: string;
+      itemName: string;
+      itemClass: number;
+      itemGameID: number;
+      engineering?: Array<{ blueprintName: string }>;
+    }>;
+  }): Promise<InaraResponse> {
+    return this.sendEvents([this.updateCommanderSuitLoadout(data)]);
+  }
+
+  async addCommanderTravelLandAsync(starsystemName: string, bodyName: string): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderTravelLand(starsystemName, bodyName)]);
+  }
+
+  async addCommanderMissionAsync(
+    missionName: string,
+    missionGameID: number,
+    additionalData?: Partial<{
+      missionExpiry: string;
+      influenceGain: string;
+      reputationGain: string;
+      starsystemNameOrigin: string;
+      stationNameOrigin: string;
+      minorfactionNameOrigin: string;
+      starsystemNameTarget: string;
+      stationNameTarget: string;
+      minorfactionNameTarget: string;
+      commodityName: string;
+      commodityCount: number;
+      targetName: string;
+      targetType: string;
+      killCount: number;
+      passengerType: string;
+      passengerCount: number;
+      passengerIsVIP: boolean;
+      passengerIsWanted: boolean;
+    }>,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderMission(missionName, missionGameID, additionalData)]);
+  }
+
+  async setCommanderMissionAbandonedAsync(missionGameID: number): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderMissionAbandoned(missionGameID)]);
+  }
+
+  async setCommanderMissionCompletedAsync(
+    missionGameID: number,
+    additionalData?: Partial<{
+      donationCredits: number;
+      rewardCredits: number;
+      rewardPermits: Array<{ starsystemName: string }>;
+      rewardCommodities: Array<{ itemName: string; itemCount: number }>;
+      rewardMaterials: Array<{ itemName: string; itemCount: number }>;
+      minorfactionEffects: Array<{
+        minorfactionName: string;
+        influenceGain?: string;
+        reputationGain?: string;
+      }>;
+    }>,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderMissionCompleted(missionGameID, additionalData)]);
+  }
+
+  async setCommanderMissionFailedAsync(missionGameID: number): Promise<InaraResponse> {
+    return this.sendEvents([this.setCommanderMissionFailed(missionGameID)]);
+  }
+
+  async addCommanderCombatDeathAsync(
+    starsystemName: string,
+    opponentName?: string,
+    isPlayer?: boolean,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderCombatDeath(starsystemName, opponentName, isPlayer)]);
+  }
+
+  async addCommanderCombatInterdictedAsync(
+    starsystemName: string,
+    opponentName: string,
+    isPlayer: boolean,
+    isSubmit?: boolean,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderCombatInterdicted(starsystemName, opponentName, isPlayer, isSubmit)]);
+  }
+
+  async addCommanderCombatInterdictionAsync(
+    starsystemName: string,
+    opponentName: string,
+    isPlayer: boolean,
+    isSuccess?: boolean,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderCombatInterdiction(starsystemName, opponentName, isPlayer, isSuccess)]);
+  }
+
+  async addCommanderCombatInterdictionEscapeAsync(
+    starsystemName: string,
+    opponentName: string,
+    isPlayer: boolean,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderCombatInterdictionEscape(starsystemName, opponentName, isPlayer)]);
+  }
+
+  async addCommanderCombatKillAsync(
+    starsystemName: string,
+    opponentName?: string,
+    opponentShipType?: string,
+    isPlayer?: boolean,
+  ): Promise<InaraResponse> {
+    return this.sendEvents([this.addCommanderCombatKill(starsystemName, opponentName, opponentShipType, isPlayer)]);
+  }
+
+  async getCommunityGoalsRecentAsync(starsystemName?: string): Promise<InaraResponse> {
+    return this.sendEvents([this.getCommunityGoalsRecent(starsystemName)]);
+  }
+
   // === Event Builders ===
 
   addCommander(commanderName: string, frontierId?: string): InaraEvent {

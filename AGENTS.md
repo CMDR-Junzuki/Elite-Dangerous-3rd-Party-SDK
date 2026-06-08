@@ -34,7 +34,7 @@ elite-dangerous-sdk/
 ├── dotnet/                    # C# .NET port (all-in-one package)
 │   ├── EliteDangerousSdk/
 │   ├── EliteDangerousSdk.Tests/
-│   └── Examples/              # Usage examples (companion auth)
+│   └── Examples/              # Usage examples (companion auth, journal, community APIs)
 ├── docs/                      # API reference
 └── scripts/                   # Codegen + doc generation
 ```
@@ -162,8 +162,8 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 | High | Test Parity Gaps | ✅ Done — ws-journal had parity already (4 tests each). inara TS: 6 → 74. companion TS: 21 → 36. |
 | High | CI/CD Pipeline | ✅ Done — GitHub Actions runs TS (Node 18/20/22), Python (3.10–3.13), C# (8/9) on PR/push. |
 | High | Package Publishing | ✅ Done — publish workflow triggered on `v*` tags, pushes to npm, PyPI, and NuGet. |
-| Medium | User Guides | Tutorials and getting-started guides per language beyond the auto-generated API.md. |
-| Medium | Examples Coverage | Comprehensive usage examples across all features in all 3 languages. |
+| Medium | User Guides | ✅ Done — `docs/GETTING_STARTED.md` created with per-language quickstart + module table. |
+| Medium | Examples Coverage | ✅ Done — C# journal + community APIs examples added (`dotnet/Examples/`), matching TS/Python coverage. |
 | Low | Schema Validation Coverage | ✅ Done — All 178 journal event schemas have matching typed interfaces + FuelStatusEvent added to union. Auto-generated smoke tests (177 per language) verify every event parses correctly. |
 | Low | Game Version Tracking | ✅ Done — `scripts/check-journal-versions.ts` compares observed journal events vs known schemas. `warnOnUnknown` flag on Journal/JournalWatcher emits runtime warnings. |
 
@@ -171,6 +171,6 @@ TypeScript packages use `.js` extension in relative imports with `NodeNext` modu
 
 | Language | Before | After |
 |----------|--------|-------|
-| TypeScript | 576 | 755 |
+| TypeScript | 576 | 765 |
 | Python | 542 | 719 |
-| C# | 619 | 796 |
+| C# | 619 | 804 |

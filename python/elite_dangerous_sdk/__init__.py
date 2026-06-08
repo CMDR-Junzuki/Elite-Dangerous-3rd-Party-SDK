@@ -2,7 +2,7 @@
 Elite Dangerous 3rd Party SDK - Python Package
 """
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 from .journal import (
     JournalReader, JournalOptions, list_journal_files,

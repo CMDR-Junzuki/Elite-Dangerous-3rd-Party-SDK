@@ -852,3 +852,88 @@ describe("addCommanderCombatKill", () => {
     expect(event.eventData?.opponentShipType).toBe("Federal Corvette");
   });
 });
+
+// ===== AUTO-SEND CONVENIENCE METHODS =====
+
+describe("auto-send convenience methods", () => {
+  it("getCommanderProfileAsync sends event and returns response", async () => {
+    const client = new InaraClient(makeHeader());
+    const response = await client.getCommanderProfileAsync();
+    expect(response.header.eventStatus).toBe(200);
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("getCommanderProfile");
+  });
+
+  it("addCommanderAsync sends event with params", async () => {
+    const client = new InaraClient(makeHeader());
+    await client.addCommanderAsync("TestCmdr", "F123");
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("addCommander");
+    expect(body.events[0].eventData.commanderName).toBe("TestCmdr");
+  });
+
+  it("addCommanderTravelFSDJumpAsync sends event with coords", async () => {
+    const client = new InaraClient(makeHeader());
+    await client.addCommanderTravelFSDJumpAsync("Sol", [0, 0, 0]);
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("addCommanderTravelFSDJump");
+    expect(body.events[0].eventData.starSystemName).toBe("Sol");
+  });
+
+  it("setCommanderCreditsAsync sends event", async () => {
+    const client = new InaraClient(makeHeader());
+    await client.setCommanderCreditsAsync(1000000, 50000);
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("setCommanderCredits");
+    expect(body.events[0].eventData.commanderCredits).toBe(1000000);
+  });
+
+  it("setCommanderRankEngineerAsync single works", async () => {
+    const client = new InaraClient(makeHeader());
+    await client.setCommanderRankEngineerAsync("Felicity Farseer", undefined, 5);
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("setCommanderRankEngineer");
+    expect(body.events[0].eventData.engineerName).toBe("Felicity Farseer");
+  });
+
+  it("setCommanderRankEngineerAsync list works", async () => {
+    const client = new InaraClient(makeHeader());
+    await client.setCommanderRankEngineerAsync([{ engineerName: "Felicity Farseer", rankValue: 5 }]);
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("setCommanderRankEngineer");
+    expect(Array.isArray(body.events[0].eventData)).toBe(true);
+  });
+
+  it("addCommanderMissionAsync sends event with additionalData", async () => {
+    const client = new InaraClient(makeHeader());
+    await client.addCommanderMissionAsync("Mission1", 100, { starsystemNameTarget: "Sol" });
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("addCommanderMission");
+    expect(body.events[0].eventData.starsystemNameTarget).toBe("Sol");
+  });
+
+  it("addCommanderCombatDeathAsync sends event", async () => {
+    const client = new InaraClient(makeHeader());
+    await client.addCommanderCombatDeathAsync("Sol", "Cmdr X", true);
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("addCommanderCombatDeath");
+    expect(body.events[0].eventData.isPlayer).toBe(true);
+  });
+
+  it("setCommanderSuitLoadoutAsync sends event", async () => {
+    const client = new InaraClient(makeHeader());
+    await client.setCommanderSuitLoadoutAsync({ loadoutGameID: 1, suitType: "utilitysuit_class3" });
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("setCommanderSuitLoadout");
+    expect(body.events[0].eventData.suitType).toBe("utilitysuit_class3");
+  });
+
+  it("getCommunityGoalsRecentAsync sends event", async () => {
+    const client = new InaraClient(makeHeader());
+    await client.getCommunityGoalsRecentAsync("Sol");
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+    expect(body.events[0].eventName).toBe("getCommunityGoalsRecent");
+    expect(body.events[0].eventData.starsystemName).toBe("Sol");
+  });
+});

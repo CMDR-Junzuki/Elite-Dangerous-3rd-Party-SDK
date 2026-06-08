@@ -767,4 +767,166 @@ public class InaraTests
         Assert.Equal("getCommunityGoalsRecent", evt["eventName"]);
         Assert.False(evt.ContainsKey("eventData"));
     }
+
+    // === Auto-Send Convenience Method Tests ===
+
+    [Fact]
+    public async Task GetCommanderProfileAsync_SendsEvent()
+    {
+        var http = MockHttpMessageHandler.CreateClient("https://inara.cz", req =>
+        {
+            var body = JsonSerializer.Deserialize<JsonElement>(req.Content!.ReadAsStringAsync().Result);
+            Assert.Equal("getCommanderProfile", body.GetProperty("events")[0].GetProperty("eventName").GetString());
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(
+                    @"{""header"":{""eventStatus"":200},""events"":[{""eventStatus"":200}]}",
+                    Encoding.UTF8, "application/json")
+            };
+        });
+        var client = CreateClient(http);
+        var result = await client.GetCommanderProfileAsync();
+        Assert.Equal(200, result.Header.EventStatus);
+    }
+
+    [Fact]
+    public async Task AddCommanderAsync_SendsEvent()
+    {
+        var http = MockHttpMessageHandler.CreateClient("https://inara.cz", req =>
+        {
+            var body = JsonSerializer.Deserialize<JsonElement>(req.Content!.ReadAsStringAsync().Result);
+            var evt = body.GetProperty("events")[0];
+            Assert.Equal("addCommander", evt.GetProperty("eventName").GetString());
+            Assert.Equal("TestCmdr", evt.GetProperty("eventData").GetProperty("commanderName").GetString());
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(
+                    @"{""header"":{""eventStatus"":200},""events"":[{""eventStatus"":200}]}",
+                    Encoding.UTF8, "application/json")
+            };
+        });
+        var client = CreateClient(http);
+        await client.AddCommanderAsync("TestCmdr", "F123");
+    }
+
+    [Fact]
+    public async Task AddCommanderTravelFsdJumpAsync_SendsEvent()
+    {
+        var http = MockHttpMessageHandler.CreateClient("https://inara.cz", req =>
+        {
+            var body = JsonSerializer.Deserialize<JsonElement>(req.Content!.ReadAsStringAsync().Result);
+            var evt = body.GetProperty("events")[0];
+            Assert.Equal("addCommanderTravelFSDJump", evt.GetProperty("eventName").GetString());
+            Assert.Equal("Sol", evt.GetProperty("eventData").GetProperty("starSystemName").GetString());
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(
+                    @"{""header"":{""eventStatus"":200},""events"":[{""eventStatus"":200}]}",
+                    Encoding.UTF8, "application/json")
+            };
+        });
+        var client = CreateClient(http);
+        await client.AddCommanderTravelFsdJumpAsync("Sol", [0, 0, 0]);
+    }
+
+    [Fact]
+    public async Task SetCommanderCreditsAsync_SendsEvent()
+    {
+        var http = MockHttpMessageHandler.CreateClient("https://inara.cz", req =>
+        {
+            var body = JsonSerializer.Deserialize<JsonElement>(req.Content!.ReadAsStringAsync().Result);
+            var evt = body.GetProperty("events")[0];
+            Assert.Equal("setCommanderCredits", evt.GetProperty("eventName").GetString());
+            Assert.Equal(1000000, evt.GetProperty("eventData").GetProperty("commanderCredits").GetInt64());
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(
+                    @"{""header"":{""eventStatus"":200},""events"":[{""eventStatus"":200}]}",
+                    Encoding.UTF8, "application/json")
+            };
+        });
+        var client = CreateClient(http);
+        await client.SetCommanderCreditsAsync(1000000, 50000);
+    }
+
+    [Fact]
+    public async Task AddCommanderMissionAsync_SendsEvent()
+    {
+        var http = MockHttpMessageHandler.CreateClient("https://inara.cz", req =>
+        {
+            var body = JsonSerializer.Deserialize<JsonElement>(req.Content!.ReadAsStringAsync().Result);
+            var evt = body.GetProperty("events")[0];
+            Assert.Equal("addCommanderMission", evt.GetProperty("eventName").GetString());
+            Assert.Equal("Mission1", evt.GetProperty("eventData").GetProperty("missionName").GetString());
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(
+                    @"{""header"":{""eventStatus"":200},""events"":[{""eventStatus"":200}]}",
+                    Encoding.UTF8, "application/json")
+            };
+        });
+        var client = CreateClient(http);
+        await client.AddCommanderMissionAsync("Mission1", 100, "Sol", "Daedalus");
+    }
+
+    [Fact]
+    public async Task GetCommunityGoalsRecentAsync_SendsEvent()
+    {
+        var http = MockHttpMessageHandler.CreateClient("https://inara.cz", req =>
+        {
+            var body = JsonSerializer.Deserialize<JsonElement>(req.Content!.ReadAsStringAsync().Result);
+            var evt = body.GetProperty("events")[0];
+            Assert.Equal("getCommunityGoalsRecent", evt.GetProperty("eventName").GetString());
+            Assert.Equal("Sol", evt.GetProperty("eventData").GetProperty("starSystemName").GetString());
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(
+                    @"{""header"":{""eventStatus"":200},""events"":[{""eventStatus"":200}]}",
+                    Encoding.UTF8, "application/json")
+            };
+        });
+        var client = CreateClient(http);
+        await client.GetCommunityGoalsRecentAsync("Sol");
+    }
+
+    [Fact]
+    public async Task AddCommanderCombatDeathAsync_SendsEvent()
+    {
+        var http = MockHttpMessageHandler.CreateClient("https://inara.cz", req =>
+        {
+            var body = JsonSerializer.Deserialize<JsonElement>(req.Content!.ReadAsStringAsync().Result);
+            var evt = body.GetProperty("events")[0];
+            Assert.Equal("addCommanderCombatDeath", evt.GetProperty("eventName").GetString());
+            Assert.True(evt.GetProperty("eventData").GetProperty("isPlayer").GetBoolean());
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(
+                    @"{""header"":{""eventStatus"":200},""events"":[{""eventStatus"":200}]}",
+                    Encoding.UTF8, "application/json")
+            };
+        });
+        var client = CreateClient(http);
+        await client.AddCommanderCombatDeathAsync("Sol", "Cmdr X", isPlayer: true);
+    }
+
+    [Fact]
+    public async Task SetCommanderRankEngineerAsync_SendsEvent()
+    {
+        var http = MockHttpMessageHandler.CreateClient("https://inara.cz", req =>
+        {
+            var body = JsonSerializer.Deserialize<JsonElement>(req.Content!.ReadAsStringAsync().Result);
+            var evt = body.GetProperty("events")[0];
+            Assert.Equal("setCommanderRankEngineer", evt.GetProperty("eventName").GetString());
+            var engineers = evt.GetProperty("eventData").GetProperty("engineers");
+            Assert.Equal("Felicity Farseer", engineers[0].GetProperty("engineerName").GetString());
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(
+                    @"{""header"":{""eventStatus"":200},""events"":[{""eventStatus"":200}]}",
+                    Encoding.UTF8, "application/json")
+            };
+        });
+        var client = CreateClient(http);
+        await client.SetCommanderRankEngineerAsync("Felicity Farseer", 5);
+    }
 }
